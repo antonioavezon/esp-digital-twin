@@ -2,24 +2,25 @@
 
 Simulador educativo de una bomba electrosumergible (ESP, Electrical Submersible Pump). El objetivo de largo plazo es un gemelo operacional y visual, con modelos físicos y, más adelante, modelos Physics-AI.
 
-**Current Stage: 1C** — hidráulica estática: presión, ΔP, head, caudal y potencia hidráulica (`hydraulics-v0.1`). La etapa 1A sigue en `/` y la etapa 1B en `/pump/`. No hay simulación temporal ni inteligencia artificial.
+**Etapa actual: 1F** — motor y variador de frecuencia, junto con la anatomía, la bomba, el laboratorio físico y las curvas. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
 
 ## 1. Objetivo del proyecto
 
 Comprender y, en etapas posteriores, simular el conjunto ESP dentro de un pozo: alimentación, variador, cable, motor, protector, admisión, bomba, tubing, pozo, reservorio y superficie.
 
-La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calcula la primera hidráulica estática sin sustituir esas dos. Las curvas de desempeño tienen vista propia y no reemplazan ese cálculo. Motor y variador explican su función; no calculan un punto de operación. El material está en [docs/stage-1a.md](docs/stage-1a.md), [docs/stage-1b.md](docs/stage-1b.md), [docs/stage-1c.md](docs/stage-1c.md), [docs/stage-1d-curves.md](docs/stage-1d-curves.md) y [docs/stage-1e-1f.md](docs/stage-1e-1f.md). Las reglas de evolución están en [docs/architecture.md](docs/architecture.md).
+La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calcula la primera hidráulica estática sin sustituir esas dos. La etapa 1D muestra las curvas de catálogo. Las etapas 1E y 1F explican el motor y el variador. La etapa actual es la 1F. El variador guarda una frecuencia de estudio y no calcula un punto de operación. El material está en [docs/stage-1a.md](docs/stage-1a.md), [docs/stage-1b.md](docs/stage-1b.md), [docs/stage-1c.md](docs/stage-1c.md), [docs/stage-1d-curves.md](docs/stage-1d-curves.md) y [docs/stage-1e-1f.md](docs/stage-1e-1f.md). Las reglas de evolución están en [docs/architecture.md](docs/architecture.md).
 
-## 2. Estado actual: Stage 1C
+## 2. Estado actual: etapa 1F
 
 | Capacidad | Estado |
 | --- | --- |
 | Anatomía del conjunto (etapa 1A) | Disponible en `/` |
 | Interior de la bomba (etapa 1B) | Disponible en `/pump/` |
 | Laboratorio físico (etapa 1C) | Disponible en `/physics/` |
-| Curvas de desempeño (etapa 1D) | Disponible en `/curves/`. El motor hidráulico sigue siendo `hydraulics-v0.1` |
-| Motor y VSD/VFD (etapas 1E y 1F) | Explicación y frecuencia de estudio en `/pump/`. No calculan caudal, head ni potencia |
-| Motor físico | `hydraulics-v0.1`, cálculo estático |
+| Curvas de desempeño (etapa 1D) | Disponible en `/curves/` |
+| Motor (etapa 1E) | Explicación en `/pump/`. Potencia, corriente, tensión, polos y eficiencia siguen pendientes de datos |
+| VSD/VFD (etapa 1F) | Frecuencia de estudio en `/pump/` y en el laboratorio. No calcula caudal, head ni potencia |
+| Cálculo hidráulico | `hydraulics-v0.1`, estático, en `/physics/` |
 | Simulación dinámica | No habilitada |
 | Modelo de IA | No habilitado |
 | Frecuencia de estudio | Control de 30 a 90 Hz, valor inicial 60 Hz. No desplaza las curvas ni calcula un punto de operación |
@@ -178,7 +179,7 @@ La web llama al núcleo por `http://esp-core:8080`. Ese nombre es el del servici
 
 ## Limitaciones de esta versión
 
-- La etapa publicada del motor es `1C`, modelo `hydraulics-v0.1`, cálculo estático.
+- La etapa actual es la 1F. El cálculo de presión, head y potencia hidráulica sigue siendo `hydraulics-v0.1`, estático.
 - La frecuencia de estudio no desplaza las curvas ni calcula un caudal, un head o una potencia nuevos. Faltan el número de polos, la curva de la bomba a otra frecuencia y la curva del sistema.
 - El motor no tiene potencia, corriente, tensión ni eficiencia de placa. Esos datos se muestran como pendientes.
 - Las curvas disponibles son las fichas REDA ya digitalizadas, a 60 Hz y 3500 rpm, por etapa. El PDF de origen no está en el repositorio. No se extrapola.
@@ -207,7 +208,7 @@ GET  /api/v1/physics/curves/{id}
 POST /api/v1/physics/curves/{id}/marker
 ```
 
-`/api/v1/health` informa la etapa del proyecto (`1C`) y el modelo `hydraulics-v0.1` en modo estático. `/api/v1/esp` sigue siendo la anatomía de la etapa 1A. `/api/v1/esp/pump` sigue siendo la bomba conceptual de la etapa 1B.
+`/api/v1/health` informa el modelo hidráulico `hydraulics-v0.1` en modo estático. `/api/v1/esp` es la anatomía de la etapa 1A. `/api/v1/esp/pump` es la bomba de la etapa 1B.
 
 Documentación interactiva de desarrollo: `http://127.0.0.1:8080/api/v1/docs`.
 
