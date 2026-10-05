@@ -1,16 +1,48 @@
 # ESP Digital Twin
 
+## 1) Cómo instalar la app
+
+### Versión escritorio
+
+Hace falta Docker o, en Fedora, Podman. Al terminar, la app abre en el navegador: http://127.0.0.1:8000/
+
+**Windows**
+
+1. Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop/) y dejarlo en marcha.
+2. Clonar este repositorio y entrar en la carpeta.
+3. Copiar `.env.example` como `.env`.
+4. En esa carpeta:
+
+```bash
+docker compose up -d --build
+```
+
+**Linux**
+
+En Fedora 43 el proyecto usa Podman, no Docker:
+
+1. Instalar Podman (`sudo dnf install podman`).
+2. Clonar este repositorio y entrar en la carpeta.
+3. Arrancar:
+
+```bash
+./scripts/start.sh
+```
+
+En otra distribución, con Docker ya instalado, use los mismos pasos de Windows (`docker compose up -d --build`).
+
+### Versión móvil
+
+1. [Descargar esp-digital-twin.apk](https://github.com/antonioavezon/esp-digital-twin/releases/download/android-0.1/esp-digital-twin.apk).
+2. Enviar el archivo al celular.
+3. Habilitar instalar aplicaciones desde fuentes desconocidas.
+4. Abrir el APK e instalarlo.
+
+---
+
 Simulador educativo de una bomba electrosumergible (ESP, Electrical Submersible Pump). El objetivo de largo plazo es un gemelo operacional y visual, con modelos físicos y, más adelante, modelos Physics-AI.
 
 **Etapa actual: 1F** — motor y variador de frecuencia, junto con la anatomía, la bomba, el laboratorio físico y las curvas. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
-
-## Aplicación Android
-
-La misma aplicación, para el teléfono, está en [`android/`](android/). No depende de la API: el APK lleva el catálogo, las curvas y el cálculo. Es una compilación de depuración, no una publicación de tienda.
-
-**[Descargar esp-digital-twin.apk](https://github.com/antonioavezon/esp-digital-twin/releases/download/android-0.1/esp-digital-twin.apk)**
-
-El archivo también está en el repositorio: [`android/esp-digital-twin.apk`](android/esp-digital-twin.apk). Cómo compilarlo e instalarlo está en [`android/README.md`](android/README.md).
 
 ## 1. Objetivo del proyecto
 
