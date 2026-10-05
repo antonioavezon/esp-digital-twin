@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_anatomy }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+</head>
+<body>
+  <div class="app">
+    {% include "anatomy/includes/header.html" with section_stage=ui.stage_anatomy section_title=ui.title_anatomy %}
+
+    {% if error %}
+      <p class="banner" role="status">{{ error }}</p>
+    {% endif %}
+
+    <main class="layout">
+      <div class="side">
+        <section class="panel" id="detail-panel" aria-live="polite" aria-label="{{ ui.components }} - 1A Anatomy">
+          <h2 title="{{ ui.detail_empty }}">{{ ui.components }} - 1A Anatomy</h2>
+          {% if components %}
+            <ul class="index" id="component-index">
+              {% for component in components %}
+                <li>
+                  <button type="button" data-component="{{ component.id }}" aria-pressed="false">
+                    <span class="idx-name">{{ component.name }}</span>
+                    <span class="idx-loc">{{ component.location_label }}</span>
+                  </button>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="hint">{{ ui.components_wait }}</p>
+          {% endif %}
+          <p id="detail-empty" class="hint" hidden></p>
+          <div id="detail" hidden>
+            <h3 id="detail-name"></h3>
+            <dl class="detail-list">
+              <div>
+                <dt>{{ ui.location }}</dt>
+                <dd id="detail-location"></dd>
+              </div>
+              <div>
+                <dt>{{ ui.function }}</dt>
+                <dd id="detail-function"></dd>
+              </div>
+              <div>
+                <dt>{{ ui.input }}</dt>
+                <dd id="detail-input"></dd>
+              </div>
+              <div>
+                <dt>{{ ui.output }}</dt>
+                <dd id="detail-output"></dd>
+              </div>
+              <div>
+                <dt>{{ ui.relation }}</dt>
+                <dd id="detail-relation"></dd>
+              </div>
+            </dl>
+            <p id="detail-description"></p>
+            <p id="detail-explore" hidden>
+              <a class="explore-link" href="{% url 'pump' %}">{{ ui.explore_pump }}</a>
+            </p>
+            <p class="stage-note">{{ ui.anatomy_note }}</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="schematic-column" aria-label="{{ ui.schematic }}">
+        <div class="schematic-head">
+          <h2>{{ ui.schematic }}</h2>
+          <p>{{ ui.schematic_note }}</p>
+        </div>
+        <div class="schematic-frame">
+          <svg id="well-schematic" class="schematic-svg" viewBox="0 0 760 1100" role="group" aria-label="{{ ui.schematic_label }}">
+            <defs>
+              <marker id="arrow-energy" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="#e0a84a"></path>
+              </marker>
+              <marker id="arrow-fluid" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="#3cbfb6"></path>
+              </marker>
+            </defs>
+
+            <rect class="canvas-bg" width="760" height="1100"></rect>
+
+            <g class="node" data-component="reservoir" data-flows="fluid" tabindex="0" role="button">
+              <title>{{ titles.reservoir }}</title>
+              <rect class="frame zone-reservoir" x="36" y="992" width="688" height="88" rx="6"></rect>
+              <path class="stratum" d="M60 1018 H700"></path>
+              <path class="stratum" d="M80 1040 H680"></path>
+              <path class="stratum" d="M70 1062 H690"></path>
+              <text class="tag" x="380" y="1036" text-anchor="middle">RESERVOIR</text>
+            </g>
+
+            <rect class="ground" x="36" y="230" width="688" height="12" aria-hidden="true"></rect>
+
+            <g class="node" data-component="surface" data-flows="energy fluid" tabindex="0" role="button">
+              <title>{{ titles.surface }}</title>
+              <rect class="frame zone-surface" x="36" y="16" width="688" height="176" rx="8"></rect>
+              <text class="tag" x="56" y="42">SUPERFICIE</text>
+            </g>
+
+            <g class="node mod-power" data-component="power-supply" data-flows="energy" tabindex="0" role="button">
+              <title>{{ titles.power_supply }}</title>
+              <rect class="frame" x="270" y="52" width="220" height="56" rx="4"></rect>
+              <polygon class="symbol-fill" points="304,68 314,68 308,80 318,80 302,98 308,84 298,84"></polygon>
+              <text class="tag" x="398" y="85" text-anchor="middle">POWER SUPPLY</text>
+            </g>
+
+            <line class="decor" x1="380" y1="108" x2="380" y2="124" stroke="#60758a" stroke-width="2" aria-hidden="true"></line>
+
+            <g class="node mod-vsd" data-component="vsd" data-flows="energy" tabindex="0" role="button">
+              <title>{{ titles.vsd }}</title>
+              <rect class="frame" x="270" y="124" width="220" height="52" rx="4"></rect>
+              <polyline class="symbol" points="300,150 312,150 318,138 330,162 336,150 348,150"></polyline>
+              <text class="tag" x="410" y="155" text-anchor="middle">VSD / VFD</text>
+            </g>
+
+            <g class="node" data-component="well" data-flows="fluid" tabindex="0" role="button">
+              <title>{{ titles.well }}</title>
+              <rect class="frame flange" x="328" y="198" width="104" height="44" rx="2"></rect>
+              <text class="tag" x="380" y="224" text-anchor="middle">WELLHEAD</text>
+              <rect class="frame well-bore" x="250" y="242" width="260" height="778"></rect>
+              <line class="leader" x1="168" y1="360" x2="250" y2="360"></line>
+              <text class="tag" x="56" y="364">POZO</text>
+            </g>
+
+            <g class="node" data-component="tubing" data-flows="fluid" tabindex="0" role="button">
+              <title>{{ titles.tubing }}</title>
+              <rect class="frame tubing-pipe" x="346" y="242" width="68" height="368"></rect>
+              <line class="leader" x1="414" y1="420" x2="524" y2="420"></line>
+              <text class="tag" x="532" y="424">TUBING</text>
+            </g>
+
+            <g class="node mod-flow" data-component="production-flow" data-flows="fluid" tabindex="0" role="button">
+              <title>{{ titles.production_flow }}</title>
+              <line x1="432" y1="219" x2="500" y2="219" stroke="#6d8296" stroke-width="8"></line>
+              <rect class="frame" x="500" y="204" width="196" height="30" rx="2"></rect>
+              <text class="tag" x="598" y="224" text-anchor="middle">SURFACE FLOW</text>
+            </g>
+
+            <g class="node" data-component="electrical-cable" data-flows="energy" tabindex="0" role="button">
+              <title>{{ titles.electrical_cable }}</title>
+              <path d="M380 176 L286 220 L286 900 L336 900" fill="none" stroke="transparent" stroke-width="18"></path>
+              <path class="cable-visible" d="M380 176 L286 220 L286 900 L336 900"></path>
+              <line class="leader" x1="168" y1="520" x2="286" y2="520"></line>
+              <text class="tag" x="48" y="524">CABLE</text>
+            </g>
+
+            <g class="node mod-pump" data-component="pump" data-flows="energy fluid" tabindex="0" role="button">
+              <title>{{ titles.pump }}</title>
+              <rect class="frame" x="305" y="614" width="150" height="88" rx="3"></rect>
+              <g class="impeller" transform="translate(380 652)">
+                <g class="impeller-rotor">
+                  <line class="symbol" x1="-18" y1="0" x2="18" y2="0"></line>
+                  <line class="symbol" x1="0" y1="-18" x2="0" y2="18"></line>
+                  <line class="symbol" x1="-13" y1="-13" x2="13" y2="13"></line>
+                  <line class="symbol" x1="-13" y1="13" x2="13" y2="-13"></line>
+                  <circle class="symbol" r="5"></circle>
+                </g>
+              </g>
+              <line class="leader" x1="455" y1="658" x2="524" y2="658"></line>
+              <text class="tag" x="532" y="662">PUMP</text>
+            </g>
+
+            <g class="node mod-intake" data-component="intake" data-flows="fluid" tabindex="0" role="button">
+              <title>{{ titles.intake }}</title>
+              <rect class="frame" x="305" y="706" width="150" height="52" rx="3"></rect>
+              <line class="symbol" x1="324" y1="722" x2="436" y2="722"></line>
+              <line class="symbol" x1="324" y1="732" x2="436" y2="732"></line>
+              <line class="symbol" x1="324" y1="742" x2="436" y2="742"></line>
+              <line class="leader" x1="455" y1="732" x2="524" y2="732"></line>
+              <text class="tag" x="532" y="736">INTAKE</text>
+            </g>
+
+            <g class="node mod-protector" data-component="protector" tabindex="0" role="button">
+              <title>{{ titles.protector }}</title>
+              <rect class="frame" x="305" y="762" width="150" height="66" rx="3"></rect>
+              <line class="symbol" x1="324" y1="786" x2="436" y2="786"></line>
+              <line class="symbol" x1="324" y1="804" x2="436" y2="804"></line>
+              <line class="leader" x1="455" y1="795" x2="524" y2="795"></line>
+              <text class="tag" x="532" y="799">PROTECTOR</text>
+            </g>
+
+            <g class="node mod-motor" data-component="motor" data-flows="energy" tabindex="0" role="button">
+              <title>{{ titles.motor }}</title>
+              <rect class="frame" x="305" y="832" width="150" height="100" rx="3"></rect>
+              <circle class="symbol" cx="380" cy="882" r="18"></circle>
+              <text x="380" y="887" text-anchor="middle">M</text>
+              <line class="leader" x1="455" y1="882" x2="524" y2="882"></line>
+              <text class="tag" x="532" y="886">MOTOR</text>
+            </g>
+
+            <g class="node" data-component="shaft" data-flows="energy" tabindex="0" role="button">
+              <title>{{ titles.shaft }}</title>
+              <path d="M380 848 L380 640" fill="none" stroke="transparent" stroke-width="20"></path>
+              <path class="shaft-visible" d="M380 848 L380 640"></path>
+              <line class="leader" x1="392" y1="600" x2="524" y2="600"></line>
+              <text class="tag" x="532" y="604">EJE</text>
+            </g>
+
+            <path class="energy-path" d="M380 176 L286 220 L286 900 L336 900" marker-end="url(#arrow-energy)"></path>
+            <path class="energy-path" d="M380 848 L380 640" marker-end="url(#arrow-energy)"></path>
+            <path class="fluid-path" d="M420 1048 L470 1000 L470 732 L380 732 L380 214 L680 219" marker-end="url(#arrow-fluid)"></path>
+          </svg>
+        </div>
+      </section>
+
+      <div class="side">
+        <section class="panel" aria-label="{{ ui.tours }}">
+          <h2>{{ ui.tours }}</h2>
+          <button type="button" id="toggle-energy" class="flow-toggle energy" aria-pressed="false" title="{{ ui.hint_energy }}">
+            <span class="toggle-title">{{ ui.energy_flow }}</span>
+          </button>
+          {% if esp %}
+            <p class="flow-copy">{{ esp.flows.energy.description }}</p>
+            <ol id="energy-steps" class="steps" hidden>
+              {% for step in esp.flows.energy.steps %}
+                <li>{{ step.label }}</li>
+              {% endfor %}
+            </ol>
+          {% else %}
+            <p class="flow-copy">{{ ui.energy_fallback }}</p>
+            <ol id="energy-steps" class="steps" hidden></ol>
+          {% endif %}
+
+          <button type="button" id="toggle-fluid" class="flow-toggle fluid" aria-pressed="false" title="{{ ui.hint_fluid }}">
+            <span class="toggle-title">{{ ui.fluid_flow }}</span>
+          </button>
+          {% if esp %}
+            <p class="flow-copy">{{ esp.flows.fluid.description }}</p>
+            <ol id="fluid-steps" class="steps" hidden>
+              {% for step in esp.flows.fluid.steps %}
+                <li>{{ step.label }}</li>
+              {% endfor %}
+            </ol>
+          {% else %}
+            <p class="flow-copy">{{ ui.fluid_fallback }}</p>
+            <ol id="fluid-steps" class="steps" hidden></ol>
+          {% endif %}
+
+          <div class="legend">
+            <span><i class="swatch energy"></i>{{ ui.legend_energy }}</span>
+            <span><i class="swatch fluid"></i>{{ ui.legend_fluid }}</span>
+          </div>
+        </section>
+
+        <section class="panel" id="control-panel" aria-label="{{ ui.control_panel }}">
+          <h2>{{ ui.control_panel }}</h2>
+          <div class="control-actions">
+            <button type="button" id="esp-start" class="control-button" aria-pressed="false">{{ ui.start }}</button>
+            <button type="button" id="esp-stop" class="control-button" aria-pressed="true">{{ ui.stop }}</button>
+          </div>
+          <p class="run-status">{{ ui.run_label }} <span id="esp-run-value" data-on="{{ ui.run_on }}" data-off="{{ ui.run_off }}">{{ ui.run_off }}</span></p>
+        </section>
+      </div>
+    </main>
+
+    {% include "anatomy/includes/site_footer.html" %}
+  </div>
+
+  {% if esp %}
+    {{ esp|json_script:"esp-payload" }}
+  {% else %}
+    {{ empty_payload|json_script:"esp-payload" }}
+  {% endif %}
+  <script src="{% static 'anatomy/hmi.js' %}"></script>
+</body>
+</html>

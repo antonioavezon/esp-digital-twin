@@ -1,0 +1,200 @@
+{% load l10n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_physics }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+  <link rel="stylesheet" href="{% static 'anatomy/physics/physics.css' %}">
+</head>
+<body>
+  <div class="app" id="physics-app">
+    {% include "anatomy/includes/header.html" with section_title=ui.title_physics %}
+
+    {% if error %}
+      <p class="banner" role="status">{{ error }}</p>
+    {% endif %}
+
+    <main class="lab-layout">
+        {% if constants %}
+          {% with case=constants.experiments.0.request %}
+          <form id="physics-form" class="panel lab-inputs">
+              <h2>{{ ui.inputs }}</h2>
+              <label class="field">
+                <span class="has-hint" title="{{ ui.hint_intake }}">{{ ui.name_intake }}</span>
+                <span class="field-row">
+                  <input id="intake-value" name="intake" inputmode="decimal" title="{{ ui.hint_intake }}" value="{{ case.intake_pressure.value|unlocalize }}" required>
+                  <select id="intake-unit" name="intake-unit">
+                    {% for unit in constants.units.pressure %}
+                      <option value="{{ unit }}" {% if unit == case.intake_pressure.unit %}selected{% endif %}>{{ unit }}</option>
+                    {% endfor %}
+                  </select>
+                </span>
+              </label>
+              <label class="field">
+                <span class="has-hint" title="{{ ui.hint_discharge }}">{{ ui.name_discharge }}</span>
+                <span class="field-row">
+                  <input id="discharge-value" name="discharge" inputmode="decimal" title="{{ ui.hint_discharge }}" value="{{ case.discharge_pressure.value|unlocalize }}" required>
+                  <select id="discharge-unit">
+                    {% for unit in constants.units.pressure %}
+                      <option value="{{ unit }}" {% if unit == case.discharge_pressure.unit %}selected{% endif %}>{{ unit }}</option>
+                    {% endfor %}
+                  </select>
+                </span>
+              </label>
+              <label class="field">
+                <span class="has-hint" title="{{ ui.hint_density }}">{{ ui.name_density }}</span>
+                <span class="field-row">
+                  <input id="density-value" name="density" inputmode="decimal" title="{{ ui.hint_density }}" value="{{ case.density.value|unlocalize }}" required>
+                  <select id="density-unit">
+                    {% for unit in constants.units.density %}
+                      <option value="{{ unit }}" {% if unit == case.density.unit %}selected{% endif %}>{{ unit }}</option>
+                    {% endfor %}
+                  </select>
+                </span>
+              </label>
+              <label class="field">
+                <span class="has-hint" title="{{ ui.hint_flow }}">{{ ui.name_flow }}</span>
+                <span class="field-row">
+                  <input id="flow-value" name="flow" inputmode="decimal" title="{{ ui.hint_flow }}" value="{{ case.flow_rate.value|unlocalize }}" required>
+                  <select id="flow-unit">
+                    {% for unit in constants.units.flow %}
+                      <option value="{{ unit }}" {% if unit == case.flow_rate.unit %}selected{% endif %}>{{ unit }}</option>
+                    {% endfor %}
+                  </select>
+                </span>
+              </label>
+              <label class="field">
+                <span class="has-hint" title="{{ ui.hint_stages }}">{{ ui.name_stages }}</span>
+                <span class="field-row">
+                  <select id="stages-value" name="stages" title="{{ ui.hint_stages }}">
+                    {% for n in stage_choices %}
+                      <option value="{{ n }}" {% if n == 1 %}selected{% endif %}>{{ n }}</option>
+                    {% endfor %}
+                  </select>
+                </span>
+              </label>
+              <p class="note">{{ ui.flow_note }}</p>
+              <div class="lab-actions">
+                <button type="button" class="tool-button" id="physics-calculate">{{ ui.calculate }}</button>
+                <button type="button" class="tool-button" id="show-calculation" aria-expanded="false" aria-controls="calc-panel">{{ ui.show_calc }}</button>
+              </div>
+          </form>
+          {% endwith %}
+
+          <section class="lab-activities" aria-labelledby="activities-title">
+            <h2 id="activities-title">{{ ui.activities }}</h2>
+            <section class="panel">
+              <h3>{{ ui.experiments }}</h3>
+              <p class="note">{{ ui.experiments_note }}</p>
+              <div class="lab-actions">
+                {% for experiment in constants.experiments %}
+                  <button type="button" class="tool-button experiment-load" data-experiment="{{ experiment.id }}"
+                    {% if experiment.id == "base-water" %}title="{{ ui.hint_exp_base }}"
+                    {% elif experiment.id == "higher-differential" %}title="{{ ui.hint_exp_diff }}"
+                    {% elif experiment.id == "different-density" %}title="{{ ui.hint_exp_density }}"
+                    {% endif %}>{{ experiment.name }}</button>
+                {% endfor %}
+                <button type="button" class="tool-button" id="compare-fluids">{{ ui.compare }}</button>
+              </div>
+            </section>
+
+            <div class="activity-pair">
+              <section class="panel pump-meter" aria-labelledby="meter-title">
+                <h3 id="meter-title" class="has-hint" title="{{ ui.hint_meter }}">{{ ui.meter_label }}</h3>
+                <div class="pair-stage">
+                  <p class="meter-pressure"><span>{{ ui.p_discharge }}</span> <strong id="vis-discharge">—</strong></p>
+                  <div class="meter-arrow up" aria-hidden="true"></div>
+                  <div class="meter-pump">
+                    <p>ESP PUMP</p>
+                    <p id="vis-dp">ΔP —</p>
+                    <p id="vis-head" class="has-hint" title="{{ ui.head_caption }}">Head —</p>
+                    <p id="vis-flow">Q —</p>
+                  </div>
+                  <div class="meter-arrow up" aria-hidden="true"></div>
+                  <p class="meter-pressure"><span>{{ ui.p_intake }}</span> <strong id="vis-intake">—</strong></p>
+                </div>
+              </section>
+
+              <section class="panel head-lesson" aria-labelledby="head-lesson-title">
+                <h3 id="head-lesson-title" class="has-hint" title="{{ ui.hint_head_section }}">{{ ui.head_lesson }}</h3>
+                <div class="pair-stage head-lesson-body">
+                  <div class="head-column">
+                    <span>HEAD</span>
+                    <span class="head-shaft" id="head-shaft"></span>
+                    <span id="head-meters" class="has-hint" title="{{ ui.head_caption }}">—</span>
+                    <span>PUMP</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <section class="panel" id="calc-panel" hidden>
+              <h3>{{ ui.show_calc }}</h3>
+              <ol id="calc-steps"></ol>
+            </section>
+
+            <section class="panel" id="compare-panel" hidden>
+              <h3>{{ ui.compare }}</h3>
+              <p id="compare-lesson"></p>
+              <div id="compare-cases" class="compare-grid"></div>
+            </section>
+          </section>
+
+          <section class="panel lab-results" aria-live="polite">
+              <h2>{{ ui.results }}</h2>
+              <p class="hint" id="result-hint">{{ ui.result_hint }}</p>
+              <p class="banner" id="result-error" hidden></p>
+              <ul class="warn-list" id="result-warnings"></ul>
+              <dl class="result-list">
+                <div><dt class="has-hint" title="{{ ui.hint_dp }}">{{ ui.name_dp }}</dt><dd id="out-dp">—</dd></div>
+                <div><dt class="has-hint" title="{{ ui.hint_head }}">{{ ui.name_head }}</dt><dd id="out-head">—</dd></div>
+                <div><dt class="has-hint" title="{{ ui.hint_power }}">{{ ui.name_power }}</dt><dd id="out-power">—</dd></div>
+                <div><dt class="has-hint" title="{{ ui.hint_result_flow }}">{{ ui.name_flow }}</dt><dd id="out-flow">—</dd></div>
+                <div><dt class="has-hint" title="{{ ui.hint_g }}">{{ ui.name_g }}</dt><dd id="out-g">{{ constants.gravity.display }}</dd></div>
+                <div><dt class="has-hint" title="{{ ui.hint_stage_head }}">{{ ui.name_stage_head }}</dt><dd id="out-stage">—</dd></div>
+              </dl>
+              <p class="note" id="stage-note" hidden></p>
+          </section>
+        {% else %}
+          <p class="hint lab-wait">{{ ui.physics_wait }}</p>
+        {% endif %}
+
+        <section class="drive-minis" aria-label="{{ ui.motor_title }} / {{ ui.vsd_title }}">
+          <section class="panel" aria-labelledby="mini-motor">
+            <h2 id="mini-motor">{{ ui.motor_title }}</h2>
+            <p class="note">{{ ui.motor_pending }}</p>
+            <p><a class="explore-link" href="{% url 'pump' %}#motor">{{ ui.motor_open }}</a></p>
+          </section>
+          <section class="panel" aria-labelledby="mini-vsd">
+            <h2 id="mini-vsd">{{ ui.vsd_title }}</h2>
+            <label for="lab-drive-hz">{{ ui.vsd_hz }}
+              <input id="lab-drive-hz" data-drive-hz type="number" min="30" max="90" step="0.1" inputmode="decimal">
+              <span>Hz</span>
+            </label>
+            <p class="note">{{ ui.vsd_limits }}</p>
+            <p class="note" data-drive-error hidden role="alert"></p>
+            <p class="note" data-drive-status aria-live="polite"></p>
+            <button type="button" class="tool-button" data-drive-reset>{{ ui.vsd_reset }}</button>
+            <p><a class="explore-link" href="{% url 'pump' %}#vsd">{{ ui.vsd_open }}</a></p>
+          </section>
+        </section>
+        <p class="curves-link"><a class="explore-link" href="{% url 'curves' %}">{{ ui.open_curves }}</a></p>
+    </main>
+    {% include "anatomy/includes/site_footer.html" %}
+  </div>
+  {% if constants %}
+    {{ constants|json_script:"physics-constants" }}
+  {% else %}
+    {{ empty_payload|json_script:"physics-constants" }}
+  {% endif %}
+  <script src="{% static 'anatomy/physics/results.js' %}"></script>
+  <script src="{% static 'anatomy/physics/charts.js' %}"></script>
+  <script src="{% static 'anatomy/physics/form.js' %}"></script>
+  <script src="{% static 'anatomy/physics/main.js' %}"></script>
+  {{ drive_ui|json_script:"drive-copy" }}
+  <script src="{% static 'anatomy/drive.js' %}"></script>
+</body>
+</html>

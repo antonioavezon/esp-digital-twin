@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_curves }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+  <link rel="stylesheet" href="{% static 'anatomy/physics/physics.css' %}">
+</head>
+<body>
+  <div class="app" id="curves-app">
+    {% include "anatomy/includes/header.html" with section_title=ui.title_curves %}
+
+    <main class="curves-page">
+      <section class="panel pump-curves" id="pump-curves" aria-labelledby="pump-curves-title">
+        <h2 id="pump-curves-title">{{ ui.curves_title }}</h2>
+        <p class="note">{{ ui.curves_intro }}</p>
+        <div class="curve-selectors">
+          <label>{{ ui.curve_manufacturer }}
+            <select id="curve-manufacturer"></select>
+          </label>
+          <label>{{ ui.curve_series }}
+            <select id="curve-series"></select>
+          </label>
+          <label>{{ ui.curve_model }}
+            <select id="curve-model"></select>
+          </label>
+          <label>{{ ui.curve_speed }}
+            <select id="curve-speed"></select>
+          </label>
+          <label title="{{ ui.curve_stages_hint }}">{{ ui.curve_stages }}
+            <input id="curve-stages" type="number" min="1" step="1" inputmode="numeric" placeholder="—">
+          </label>
+          <label>{{ ui.curve_flow_unit }}
+            <select id="curve-flow-unit">
+              <option value="bpd">bpd</option>
+              <option value="m3/day">m³/day</option>
+              <option value="m3/s">m³/s</option>
+            </select>
+          </label>
+          <label>{{ ui.curve_head_unit }}
+            <select id="curve-head-unit">
+              <option value="ft">ft</option>
+              <option value="m">m</option>
+            </select>
+          </label>
+          <label>{{ ui.curve_power_unit }}
+            <select id="curve-power-unit">
+              <option value="hp">hp</option>
+              <option value="kW">kW</option>
+            </select>
+          </label>
+        </div>
+        <p id="curve-basis" class="note"></p>
+        <p id="curve-card" class="curve-card"></p>
+        <fieldset class="curve-toggles">
+          <legend>{{ ui.curves_title }}</legend>
+          <label><input id="show-head" type="checkbox" checked> {{ ui.curve_head }}</label>
+          <label><input id="show-power" type="checkbox" checked> {{ ui.curve_power }}</label>
+          <label><input id="show-eff" type="checkbox" checked> {{ ui.curve_eff }}</label>
+          <span id="curve-count" aria-live="polite">3 {{ ui.curve_of }} 3</span>
+        </fieldset>
+        <div class="curve-scroll">
+          <svg id="pump-curve-plot" viewBox="0 0 920 460" role="img" aria-labelledby="pump-curves-title"></svg>
+        </div>
+        <label class="curve-probe has-hint" title="{{ ui.hint_probe }}">{{ ui.curve_probe }}
+          <input id="curve-probe" type="range" min="0" max="100" value="0" title="{{ ui.hint_probe }}">
+        </label>
+        <p id="curve-readout" class="note" aria-live="polite"></p>
+        <p id="curve-bep" class="note"></p>
+        <ul class="curve-lesson">
+          <li>{{ ui.curve_lesson_head }}</li>
+          <li>{{ ui.curve_lesson_power }}</li>
+          <li>{{ ui.curve_lesson_eff }}</li>
+          <li>{{ ui.curve_lesson_flow }}</li>
+          <li>{{ ui.curve_lesson_bep }}</li>
+        </ul>
+        <ul id="curve-warnings" class="curve-warnings"></ul>
+      </section>
+    </main>
+    {% include "anatomy/includes/site_footer.html" %}
+  </div>
+  {{ curve_ui|json_script:"curve-copy" }}
+  <script src="{% static 'anatomy/physics/curves.js' %}?v=4"></script>
+</body>
+</html>

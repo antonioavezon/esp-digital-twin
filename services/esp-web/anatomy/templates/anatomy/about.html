@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_about }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+</head>
+<body>
+  <div class="app app-full">
+    {% include "anatomy/includes/header.html" with section_title=ui.title_about %}
+
+    <main class="about-page about-wide">
+      <div class="about-columns">
+      <div class="about-col">
+      <section class="panel" aria-labelledby="about-project">
+        <h2 id="about-project" class="has-hint" title="{{ ui.hint_about_project }}">{{ ui.about_project }}</h2>
+        <p>{{ ui.about_project_1 }}</p>
+        <p>{{ ui.about_project_2 }}</p>
+      </section>
+
+      <section class="panel" aria-labelledby="about-research">
+        <h2 id="about-research" class="has-hint" title="{{ ui.hint_about_research }}">{{ ui.about_research }}</h2>
+        <p>
+          {{ ui.about_research_lead }}
+          {{ project.research.program }} ({{ project.research.program_short }}):
+        </p>
+        <p class="about-title">“{{ project.research.title_en }}”.</p>
+        <p>{{ project.research.title_es }}</p>
+        <p>{{ ui.about_research_body }}</p>
+      </section>
+
+      <section class="panel" aria-labelledby="about-objective">
+        <h2 id="about-objective" class="has-hint" title="{{ ui.hint_about_objective }}">{{ ui.about_objective }}</h2>
+        <p>{{ ui.about_objective_lead }}</p>
+        <ol class="objective-flow">
+          <li>{{ ui.obj_1 }}</li>
+          <li>{{ ui.obj_2 }}</li>
+          <li>{{ ui.obj_3 }}</li>
+          <li>{{ ui.obj_4 }}</li>
+        </ol>
+        <p>{{ ui.about_objective_next }}</p>
+        <ul>
+          <li>{{ ui.obj_a }}</li>
+          <li>{{ ui.obj_b }}</li>
+          <li>{{ ui.obj_c }}</li>
+          <li>{{ ui.obj_d }}</li>
+        </ul>
+        <p>{{ ui.about_objective_tail }}</p>
+      </section>
+      </div>
+
+      <div class="about-col">
+      <section class="panel" aria-labelledby="about-philosophy">
+        <h2 id="about-philosophy" class="has-hint" title="{{ ui.hint_about_philosophy }}">{{ ui.about_philosophy }}</h2>
+        <ol class="philosophy">
+          {% for step in project.philosophy %}
+            <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+        <p>{{ ui.about_philosophy_body }}</p>
+      </section>
+
+      <section class="panel" aria-labelledby="about-author">
+        <h2 id="about-author" class="has-hint" title="{{ ui.hint_about_author }}">{{ ui.about_author }}</h2>
+        <p class="about-name">{{ project.author.name }}</p>
+        <p>{{ ui.about_author_role }}</p>
+        <p>{{ ui.degree }}.</p>
+        <p>
+          {{ ui.study }} — {{ project.author.university }}
+          ({{ project.author.university_short }}), {{ project.author.country }}.
+        </p>
+        <p>{{ ui.about_author_note }}</p>
+      </section>
+
+      <section class="panel" aria-labelledby="about-academic">
+        <h2 id="about-academic" class="has-hint" title="{{ ui.hint_about_academic }}">{{ ui.about_academic }}</h2>
+        <p>{{ project.author.university }} — {{ project.author.country }}</p>
+        <p>{{ project.research.program }} ({{ project.research.program_short }})</p>
+        <dl class="about-people">
+          {% for person in project.supervision %}
+            <div>
+              <dt>{% if forloop.first %}{{ ui.role_guide }}{% else %}{{ ui.role_vri }}{% endif %}</dt>
+              <dd>{{ person.name }} — {{ person.institution }}</dd>
+            </div>
+          {% endfor %}
+        </dl>
+      </section>
+      </div>
+
+      <div class="about-col">
+      <section class="panel" aria-labelledby="about-stack">
+        <h2 id="about-stack" class="has-hint" title="{{ ui.hint_about_stack }}">{{ ui.about_stack }}</h2>
+        <ul class="stack">
+          {% for item in project.stack %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="panel" aria-labelledby="about-planned">
+        <h2 id="about-planned" class="has-hint" title="{{ ui.hint_about_planned }}">{{ ui.about_planned }}</h2>
+        <p>{{ ui.about_planned_lead }}</p>
+        <ul>
+          {% for item in project.planned_capabilities %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="panel" aria-labelledby="about-status">
+        <h2 id="about-status" class="has-hint" title="{{ ui.hint_about_status }}">{{ ui.about_status }}</h2>
+        <dl class="about-status">
+          <div>
+            <dt>{{ ui.status_stage }}</dt>
+            <dd>Stage {{ runtime.stage }}</dd>
+          </div>
+          <div>
+            <dt>{{ ui.status_engine }}</dt>
+            <dd>{% if runtime.stage == project.stage %}{{ project.stage_name }}{% else %}{{ runtime.stage_label }}{% endif %}</dd>
+          </div>
+          <div>
+            <dt>{{ ui.status_model }}</dt>
+            <dd>{{ runtime.physics_model }}</dd>
+          </div>
+          <div>
+            <dt>{{ ui.status_mode }}</dt>
+            <dd>{{ runtime.physics_mode }}</dd>
+          </div>
+          <div>
+            <dt>{{ ui.status_extra }}</dt>
+            <dd>{{ project.enhancement_label }}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="panel" aria-labelledby="about-roadmap">
+        <h2 id="about-roadmap" class="has-hint" title="{{ ui.hint_about_roadmap }}">{{ ui.about_roadmap }}</h2>
+        <ol class="roadmap">
+          {% for item in project.roadmap %}
+            <li title="{{ item.hint }}">
+              <span class="roadmap-id">{{ item.id }}</span>
+              <span>{{ item.name }}</span>
+              <span class="roadmap-status">{{ item.status_label }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <section class="panel" aria-labelledby="about-disclaimer">
+        <h2 id="about-disclaimer" class="has-hint" title="{{ ui.hint_about_use }}">{{ ui.about_use }}</h2>
+        <p>{{ ui.about_use_body }}</p>
+      </section>
+      </div>
+      </div>
+
+      <p class="credits">
+        ESP Digital Twin<br>
+        {{ ui.developed }} {{ project.author.name }}<br>
+        {{ project.year }}
+      </p>
+    </main>
+
+    {% include "anatomy/includes/site_footer.html" %}
+  </div>
+</body>
+</html>

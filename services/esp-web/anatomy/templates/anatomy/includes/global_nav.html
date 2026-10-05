@@ -1,0 +1,8 @@
+<nav class="global-nav" aria-label="{{ ui.nav_label }}">
+  <a href="{% url 'index' %}"{% if request.resolver_match.url_name == 'index' %} aria-current="page"{% endif %}>{{ ui.nav_esp }}</a>
+  <a href="{% url 'pump' %}"{% if request.resolver_match.url_name == 'pump' %} aria-current="page"{% endif %}>{{ ui.nav_pump }}</a>
+  <a href="{% url 'physics' %}"{% if request.resolver_match.url_name == 'physics' %} aria-current="page"{% endif %}>{{ ui.nav_physics }}</a>
+  <a href="{% url 'curves' %}"{% if request.resolver_match.url_name == 'curves' %} aria-current="page"{% endif %}>{{ ui.nav_curves }}</a>
+  <a href="{% url 'config' %}"{% if request.resolver_match.url_name == 'config' %} aria-current="page"{% endif %}>{{ ui.nav_config }}</a>
+  <a href="{% url 'about' %}"{% if request.resolver_match.url_name == 'about' %} aria-current="page"{% endif %}>{{ ui.nav_about }}</a>
+</nav>

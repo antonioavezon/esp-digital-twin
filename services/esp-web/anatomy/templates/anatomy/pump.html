@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_pump }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+  <link rel="stylesheet" href="{% static 'anatomy/pump/pump.css' %}">
+</head>
+<body>
+  <div class="app view-single" id="pump-app">
+    {% include "anatomy/includes/header.html" with section_stage=ui.stage_pump section_title=ui.title_pump %}
+
+    {% if error %}
+      <p class="banner" role="status">{{ error }}</p>
+    {% endif %}
+
+    <main class="pump-layout">
+      <aside id="motor" class="panel drive-card" aria-labelledby="motor-title">
+        <h2 id="motor-title">{{ ui.motor_title }}</h2>
+        <p>{{ ui.motor_role }}</p>
+        <p class="note">{{ ui.motor_function }}</p>
+        <p class="note">{{ ui.motor_pending }}</p>
+        <details>
+          <summary>{{ ui.motor_detail }}</summary>
+          <p>{{ ui.motor_relation }}</p>
+        </details>
+      </aside>
+      <div class="pump-center">
+      <div class="pump-tools">
+        {% if pump %}
+          <section class="panel">
+            <h2 title="{{ ui.hint_step }}">{{ ui.step_through }}</h2>
+            <p id="step-label" class="simple">{{ pump.flow_path.multistage.steps.0.label }}</p>
+            <p id="step-summary" class="note">{{ pump.flow_path.multistage.steps.0.summary }}</p>
+            <div class="step-row">
+              <button type="button" id="pump-prev" class="tool-button" disabled>{{ ui.previous }}</button>
+              <button type="button" id="pump-next" class="tool-button">{{ ui.next }}</button>
+            </div>
+            <div class="step-row" style="margin-top: 8px;">
+              {% for stage in pump.stages %}
+                <button type="button" class="stage-jump" data-stage="{{ stage.id }}" data-stage-jump="{{ stage.id }}">{{ stage.name }}</button>
+              {% endfor %}
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>{{ pump.energy_note }}</h2>
+            <ol class="energy-list">
+              {% for mark in pump.energy_marks %}
+                <li class="energy-mark" data-order="{{ mark.order }}" data-step="{{ mark.id }}">
+                  <span>{{ mark.label }}</span>
+                  <span class="energy-blocks" aria-hidden="true">{{ mark.blocks }}</span>
+                </li>
+              {% endfor %}
+            </ol>
+            <p class="note">{{ ui.energy_caption }}</p>
+          </section>
+        {% endif %}
+      </div>
+
+      <section aria-label="{{ ui.title_pump }}">
+        {% if pump %}
+          <div class="schematic-head">
+            <h2>{{ ui.pump_view }}</h2>
+            <p>{{ pump.stage_count_note }}</p>
+          </div>
+          <div class="view-row" style="margin-bottom: 8px;">
+            <button type="button" class="tool-button" data-view="single" aria-pressed="true" title="{{ ui.hint_single }}">{{ ui.single }}</button>
+            <button type="button" class="tool-button" data-view="multi" aria-pressed="false" title="{{ ui.hint_multi }}">{{ ui.multi }}</button>
+          </div>
+          <div class="tool-row" style="margin-bottom: 8px;">
+            <button type="button" id="pump-play" class="tool-button" aria-pressed="false">{{ ui.play }}</button>
+            <button type="button" id="pump-pause" class="tool-button" aria-pressed="true">{{ ui.pause }}</button>
+            <button type="button" id="pump-fluid" class="tool-button" aria-pressed="false">{{ ui.show_fluid }}</button>
+          </div>
+          <p class="note">{{ pump.animation_note }}</p>
+          <p class="note">{{ pump.fluid_path_note }}</p>
+
+          <svg class="fluid-defs" width="0" height="0" aria-hidden="true">
+            <defs>
+              <marker id="fluid-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0 0 L8 4 L0 8 z" fill="#3cbfb6"></path>
+              </marker>
+            </defs>
+          </svg>
+          <div id="view-single" class="pump-canvas">
+            <svg class="stage-svg" viewBox="0 0 560 760" role="group" aria-label="Una etapa: impulsor giratorio y difusor fijo">
+              <defs>
+                <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <path d="M0 8 L8 0" stroke="#3d5a52" stroke-width="1"></path>
+                </pattern>
+              </defs>
+              <text class="tag" x="280" y="32" text-anchor="middle">{{ ui.outlet_tag }}</text>
+              <text id="stage-name" class="tag" x="280" y="52" text-anchor="middle">{{ pump.stages.0.name }}</text>
+
+              <g class="part diffuser" data-part="diffuser" tabindex="0" role="button">
+                <title>{{ ui.diffuser_title }}</title>
+                <rect class="housing" x="150" y="70" width="260" height="180" rx="8" fill="url(#hatch)"></rect>
+                <line class="vane" x1="190" y1="220" x2="250" y2="100"></line>
+                <line class="vane" x1="370" y1="220" x2="310" y2="100"></line>
+                <line class="vane" x1="280" y1="230" x2="280" y2="90"></line>
+                <path class="pump-fluid" d="M200 225 C230 180 250 130 280 95"></path>
+                <path class="pump-fluid" d="M360 225 C330 180 310 130 280 95"></path>
+                <rect class="lock" x="392" y="84" width="22" height="16" rx="2"></rect>
+                <path class="lock" d="M396 84 v-6 a7 7 0 0 1 14 0 v6"></path>
+                <text class="tag" x="280" y="268" text-anchor="middle">{{ ui.diffuser }}</text>
+                <text id="svg-diffuser-motion" class="tag" x="280" y="288" text-anchor="middle">{{ pump.stages.0.components.1.motion_label }}</text>
+              </g>
+
+              <g class="part impeller" data-part="impeller" tabindex="0" role="button">
+                <circle class="housing" cx="280" cy="470" r="108"></circle>
+                <g transform="translate(280 470)">
+                <g class="impeller-spin">
+                  <line class="blade" x1="0" y1="-78" x2="0" y2="-24"></line>
+                  <line class="blade" x1="0" y1="24" x2="0" y2="78"></line>
+                  <line class="blade" x1="-78" y1="0" x2="-24" y2="0"></line>
+                  <line class="blade" x1="24" y1="0" x2="78" y2="0"></line>
+                  <line class="blade" x1="-55" y1="-55" x2="-18" y2="-18"></line>
+                  <line class="blade" x1="18" y1="18" x2="55" y2="55"></line>
+                  <line class="blade" x1="55" y1="-55" x2="18" y2="-18"></line>
+                  <line class="blade" x1="-18" y1="18" x2="-55" y2="55"></line>
+                  <path class="pump-fluid" d="M0,22 C28,34 62,18 86,0"></path>
+                  <path class="pump-fluid" d="M0,-22 C-28,-34 -62,-18 -86,0"></path>
+                  <path class="pump-fluid" d="M22,0 C34,-28 18,-62 0,-86"></path>
+                  <path class="pump-fluid" d="M-22,0 C-34,28 -18,62 0,86"></path>
+                </g>
+                </g>
+                <circle class="eye" cx="280" cy="470" r="22"></circle>
+                <text class="tag" x="280" y="600" text-anchor="middle">{{ ui.impeller }}</text>
+                <text id="svg-impeller-motion" class="tag" x="280" y="620" text-anchor="middle">{{ pump.stages.0.components.0.motion_label }}</text>
+              </g>
+
+              <text class="tag" x="280" y="720" text-anchor="middle">{{ ui.inlet_tag }}</text>
+              <path class="pump-fluid" d="M280 690 L280 492 C360 450 400 360 350 280 C320 210 300 150 280 78" marker-end="url(#fluid-arrow)"></path>
+              <path class="pump-fluid" d="M248 690 L258 500 C190 450 160 360 210 280 C240 210 260 150 272 78"></path>
+            </svg>
+            <p class="note" id="stage-inlet">{{ pump.stages.0.inlet }}</p>
+            <p class="note" id="stage-outlet">{{ pump.stages.0.outlet }}</p>
+            <p class="note">{{ ui.next_stage }}: <span id="stage-next">{{ pump.stages.0.next_label }}</span></p>
+          </div>
+
+          <div id="view-multi" class="pump-canvas">
+            <p class="note">{{ ui.stack_note }}</p>
+            <div class="stack">
+              <article class="boundary">
+                <h3>{{ pump.flow_path.multistage.steps.0.label }}</h3>
+                <p class="note">{{ pump.flow_path.multistage.steps.0.summary }}</p>
+              </article>
+              {% for stage in pump.stages %}
+                <div class="pump-link" aria-hidden="true"></div>
+                <article class="stage-card" data-stage="{{ stage.id }}" data-stage-card tabindex="0">
+                  <h3>{{ stage.name }}</h3>
+                  <p class="note">{{ pump.definition }}</p>
+                  <div class="stage-body">
+                    <svg class="stage-flow" viewBox="0 0 160 240" width="150" height="210" aria-hidden="true">
+                      <g class="mini-part diffuser" data-part="diffuser" data-stage="{{ stage.id }}">
+                        <rect class="housing" x="30" y="6" width="100" height="74" rx="6"></rect>
+                        <line class="vane" x1="48" y1="70" x2="70" y2="18"></line>
+                        <line class="vane" x1="112" y1="70" x2="90" y2="18"></line>
+                      </g>
+                      <g class="mini-part impeller" data-part="impeller" data-stage="{{ stage.id }}" transform="translate(80 162)">
+                        <circle class="housing" r="36"></circle>
+                        <g class="mini-rotor">
+                          <line x1="0" y1="-22" x2="0" y2="22" stroke="#e7d7b0" stroke-width="2"></line>
+                          <line x1="-22" y1="0" x2="22" y2="0" stroke="#e7d7b0" stroke-width="2"></line>
+                          <path class="pump-fluid" d="M0,8 C18,18 30,8 34,0"></path>
+                          <path class="pump-fluid" d="M0,-8 C-18,-18 -30,-8 -34,0"></path>
+                          <path class="pump-fluid" d="M8,0 C18,-18 8,-30 0,-34"></path>
+                          <path class="pump-fluid" d="M-8,0 C-18,18 -8,30 0,34"></path>
+                        </g>
+                        <circle class="eye" r="7"></circle>
+                      </g>
+                      <path class="pump-fluid" d="M80 232 L80 169"></path>
+                      <path class="pump-fluid" d="M80 162 C114 162 128 146 120 128"></path>
+                      <path class="pump-fluid" d="M80 162 C46 162 32 146 40 128"></path>
+                      <path class="pump-fluid" d="M120 128 C128 90 108 48 80 14" marker-end="url(#fluid-arrow)"></path>
+                      <path class="pump-fluid" d="M40 128 C32 90 52 48 80 14"></path>
+                    </svg>
+                    {% for component in stage.components %}
+                      <button type="button" class="part-chip {{ component.type }}" data-part="{{ component.type }}" data-stage="{{ stage.id }}">
+                        <span>{{ component.name }}</span>
+                        <span class="motion">{{ component.motion_label }}</span>
+                      </button>
+                    {% endfor %}
+                  </div>
+                </article>
+              {% endfor %}
+              <div class="pump-link" aria-hidden="true"></div>
+              <article class="boundary">
+                <h3>{{ pump.flow_path.multistage.steps.4.label }}</h3>
+                <p class="note">{{ pump.flow_path.multistage.steps.4.summary }}</p>
+              </article>
+            </div>
+          </div>
+        {% else %}
+          <p class="hint">{{ ui.pump_wait }}</p>
+        {% endif %}
+      </section>
+
+      <div class="pump-explain">
+        <section class="panel" aria-live="polite">
+          <h2>{{ ui.part_heading }}</h2>
+          <p id="part-empty" class="hint">{{ ui.part_empty }}</p>
+          <div id="part-detail" hidden>
+            <h3 id="part-name"></h3>
+            <p class="tag" id="part-motion"></p>
+            <h3>{{ ui.simple }}</h3>
+            <p id="part-simple" class="simple"></p>
+            <h3>{{ ui.technical }}</h3>
+            <p id="part-technical" class="technical"></p>
+            <dl class="detail-list">
+              <div><dt>{{ ui.receives }}</dt><dd id="part-receives"></dd></div>
+              <div><dt>{{ ui.delivers }}</dt><dd id="part-delivers"></dd></div>
+            </dl>
+          </div>
+        </section>
+        {% if pump %}
+          <section class="panel">
+            <h2>{{ ui.stage_heading }}</h2>
+            <p>{{ pump.definition }}</p>
+            <p class="note">{{ pump.why_multistage }}</p>
+          </section>
+        {% endif %}
+      </div>
+      </div>
+      <aside id="vsd" class="panel drive-card" aria-labelledby="vsd-title">
+        <h2 id="vsd-title">{{ ui.vsd_title }}</h2>
+        <p>{{ ui.vsd_role }}</p>
+        <label for="pump-drive-hz">{{ ui.vsd_hz }}
+          <input id="pump-drive-hz" data-drive-hz type="number" min="30" max="90" step="0.1" inputmode="decimal">
+          <span>Hz</span>
+        </label>
+        <p class="note">{{ ui.vsd_limits }}</p>
+        <p class="note" data-drive-error hidden role="alert"></p>
+        <p class="note" data-drive-status aria-live="polite"></p>
+        <button type="button" class="tool-button" data-drive-reset>{{ ui.vsd_reset }}</button>
+        <details>
+          <summary>{{ ui.vsd_detail }}</summary>
+          <p>{{ ui.vsd_poles }}</p>
+          <p>{{ ui.vsd_catalog }}</p>
+          <p>{{ ui.vsd_relation }}</p>
+          <p>{{ ui.vsd_animation }}</p>
+        </details>
+      </aside>
+    </main>
+    {% include "anatomy/includes/site_footer.html" %}
+  </div>
+  {% if pump %}
+    {{ pump|json_script:"pump-payload" }}
+  {% else %}
+    {{ empty_payload|json_script:"pump-payload" }}
+  {% endif %}
+  <script src="{% static 'anatomy/pump/controls.js' %}"></script>
+  <script src="{% static 'anatomy/pump/navigation.js' %}"></script>
+  <script src="{% static 'anatomy/pump/main.js' %}"></script>
+  {{ drive_ui|json_script:"drive-copy" }}
+  <script src="{% static 'anatomy/drive.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_config }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+</head>
+<body>
+  <div class="app">
+    {% include "anatomy/includes/header.html" with section_title=ui.title_config %}
+    <main class="about-page">
+      <form id="config-form" class="panel config-form" method="post" action="{% url 'config' %}">
+        <fieldset>
+          <legend>{{ ui.color }}</legend>
+          <label><input type="radio" name="theme" value="light"{% if theme == "light" %} checked{% endif %}> {{ ui.theme_light }}</label>
+          <label><input type="radio" name="theme" value="dark"{% if theme == "dark" %} checked{% endif %}> {{ ui.theme_dark }}</label>
+        </fieldset>
+        <fieldset>
+          <legend>{{ ui.language }}</legend>
+          <label><input type="radio" name="lang" value="en"{% if lang == "en" %} checked{% endif %}> {{ ui.lang_en }}</label>
+          <label><input type="radio" name="lang" value="es"{% if lang == "es" %} checked{% endif %}> {{ ui.lang_es }}</label>
+        </fieldset>
+        <p class="note">{{ ui.config_apply }}</p>
+      </form>
+    </main>
+    {% include "anatomy/includes/site_footer.html" %}
+  </div>
+  <script src="{% static 'anatomy/config.js' %}"></script>
+</body>
+</html>

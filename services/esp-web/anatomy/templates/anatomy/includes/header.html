@@ -1,0 +1,12 @@
+<header class="topbar">
+  <div class="topbar-id">
+    <a class="app-name" href="{% url 'index' %}">ESP Digital Twin</a>
+    <p class="env-badge">{{ ui.env_badge }}</p>
+  </div>
+  {% include "anatomy/includes/global_nav.html" %}
+</header>
+<div class="section-head">
+  {% if section_stage %}<p class="eyebrow">{{ section_stage }}</p>{% endif %}
+  <h1>{{ section_title }}</h1>
+</div>
+{{ ui_js|json_script:"ui-copy" }}
