@@ -4,6 +4,14 @@ Simulador educativo de una bomba electrosumergible (ESP, Electrical Submersible 
 
 **Etapa actual: 1F** — motor y variador de frecuencia, junto con la anatomía, la bomba, el laboratorio físico y las curvas. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
 
+## Aplicación Android
+
+La misma aplicación, para el teléfono, está en [`android/`](android/). No depende de la API: el APK lleva el catálogo, las curvas y el cálculo. Es una compilación de depuración, no una publicación de tienda.
+
+**[Descargar esp-digital-twin.apk](https://github.com/antonioavezon/esp-digital-twin/releases/download/android-0.1/esp-digital-twin.apk)**
+
+El archivo también está en el repositorio: [`android/esp-digital-twin.apk`](android/esp-digital-twin.apk). Cómo compilarlo e instalarlo está en [`android/README.md`](android/README.md).
+
 ## 1. Objetivo del proyecto
 
 Comprender y, en etapas posteriores, simular el conjunto ESP dentro de un pozo: alimentación, variador, cable, motor, protector, admisión, bomba, tubing, pozo, reservorio y superficie.
