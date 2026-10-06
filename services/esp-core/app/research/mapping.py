@@ -431,41 +431,185 @@ def _relations(variables: list[dict]) -> list[dict]:
     return relations
 
 
+def experimental_context(raw_name: str | None, raw_unit: str | None, header_stack: list | None) -> dict | None:
+    """Un número guardado en el encabezado es una condición, no una serie medida."""
+
+    del raw_name
+    numbers = [
+        item
+        for item in (header_stack or [])
+        if isinstance(item, (int, float)) and not isinstance(item, bool)
+    ]
+    if not numbers:
+        return None
+    return {"value": numbers[-1], "unit": raw_unit, "source": "header_stack"}
+
+
+def raw_hint_for(raw_name: str | None) -> dict | None:
+    """Pista léxica. No asigna variable canónica ni cambia el estado."""
+
+    lowered = (raw_name or "").strip().lower()
+    if lowered == "gvf" or lowered.startswith("gvf"):
+        return {
+            "possible_target": "gas_volume_fraction",
+            "reason": "lexical_similarity",
+            "status": "needs_evidence",
+            "evidence_required": True,
+            "requires_external_evidence": True,
+            "question_ids": ["Q002"],
+        }
+    if lowered in {"dp2-3", "dp2–3"}:
+        return {
+            "possible_target": "pump_pressure_difference",
+            "quantity_family_candidate": "pressure",
+            "reason": "lexical_pattern",
+            "status": "needs_evidence",
+            "evidence_required": True,
+            "requires_external_evidence": True,
+            "question_ids": ["Q001"],
+        }
+    if lowered in {"flow rate", "flow"}:
+        return {
+            "possible_targets": ["liquid_flow_rate", "gas_flow_rate"],
+            "reason": "quantity_family_only",
+            "status": "needs_evidence",
+            "evidence_required": True,
+            "requires_external_evidence": True,
+            "question_ids": ["Q003", "Q004"],
+        }
+    return None
+
+
+def _context_label(context: dict | None) -> str | None:
+    if not context or context.get("value") is None:
+        return None
+    value = context["value"]
+    if isinstance(value, float) and value.is_integer():
+        value = int(value)
+    unit = context.get("unit") or ""
+    return f"{value} {unit}".strip()
+
+
+def _semantic_role(raw_name: str | None, status: str | None, occurrences: list[dict]) -> str:
+    if not raw_name or status == "not_applicable":
+        return "structural"
+    has_series = any(item.get("example") is not None or item.get("min") is not None for item in occurrences)
+    has_context = any(item.get("experimental_context") for item in occurrences)
+    if has_context and not has_series:
+        return "condition"
+    if has_series:
+        return "measurement"
+    return "unknown"
+
+
+def annotate_mapping(document: dict) -> dict:
+    """Añade contexto, rol y pistas sin cambiar estado, confianza ni variable canónica."""
+
+    variables = document.get("variables") or []
+    by_block: dict[tuple, list[dict]] = {}
+    for item in variables:
+        source = item.setdefault("source", {})
+        raw_name = source.get("raw_name")
+        raw_unit = source.get("raw_unit")
+        for occurrence in source.get("occurrences") or []:
+            occurrence["experimental_context"] = experimental_context(
+                raw_name, raw_unit, occurrence.get("header_stack") or []
+            )
+            if occurrence.get("experimental_context"):
+                key = (occurrence.get("file"), occurrence.get("sheet"), occurrence.get("block_id"))
+                label = _context_label(occurrence["experimental_context"])
+                entry = {
+                    "raw_name": raw_name,
+                    "value": occurrence["experimental_context"]["value"],
+                    "unit": occurrence["experimental_context"].get("unit"),
+                    "source": "header_stack",
+                    "label": label,
+                }
+                found = by_block.setdefault(key, [])
+                if entry not in found:
+                    found.append(entry)
+    for item in variables:
+        source = item.setdefault("source", {})
+        for occurrence in source.get("occurrences") or []:
+            key = (occurrence.get("file"), occurrence.get("sheet"), occurrence.get("block_id"))
+            own = _context_label(occurrence.get("experimental_context"))
+            occurrence["block_conditions"] = [
+                entry for entry in by_block.get(key, []) if entry.get("label") != own
+            ]
+        labels = []
+        for occurrence in source.get("occurrences") or []:
+            own = _context_label(occurrence.get("experimental_context"))
+            if own:
+                labels.append((occurrence["experimental_context"]["value"], own))
+            else:
+                for entry in occurrence.get("block_conditions") or []:
+                    labels.append((entry.get("value"), entry.get("label")))
+        ordered = []
+        for _, label in sorted(labels, key=lambda pair: (pair[0] is None, str(pair[0]))):
+            if label and label not in ordered:
+                ordered.append(label)
+        source["context_labels"] = ordered
+        source["files"] = sorted({item.get("file") for item in source.get("occurrences") or [] if item.get("file")})
+        source["sheets"] = sorted({item.get("sheet") for item in source.get("occurrences") or [] if item.get("sheet")})
+        item["semantic_role"] = _semantic_role(source.get("raw_name"), item.get("status"), source.get("occurrences") or [])
+        item["raw_hint"] = raw_hint_for(source.get("raw_name"))
+    document["coverage"] = coverage_of(document)
+    return document
+
+
 def coverage_of(document: dict) -> dict:
     variables = document.get("variables") or []
     counts = {status: 0 for status in STATUSES}
     for item in variables:
         counts[item.get("status") or "unmapped"] = counts.get(item.get("status") or "unmapped", 0) + 1
     by_variable: dict[str, str] = {}
+    identified: dict[str, list[str]] = {}
+    hinted: dict[str, list[str]] = {}
     rank = {"rejected": 0, "candidate": 1, "reviewed": 2, "validated": 3}
     for item in variables:
+        raw_name = (item.get("source") or {}).get("raw_name")
         canonical = (item.get("canonical") or {}).get("id")
         status = item.get("status")
-        if not canonical or status not in rank:
-            continue
-        current = by_variable.get(canonical)
-        if current is None or rank[status] > rank[current]:
-            by_variable[canonical] = status
+        if canonical and status in rank:
+            current = by_variable.get(canonical)
+            if current is None or rank[status] > rank[current]:
+                by_variable[canonical] = status
+            if status in {"candidate", "reviewed", "validated"} and raw_name and raw_name not in identified.setdefault(canonical, []):
+                identified[canonical].append(raw_name)
+        hint = item.get("raw_hint") or {}
+        targets = []
+        if hint.get("possible_target"):
+            targets.append(hint["possible_target"])
+        targets.extend(hint.get("possible_targets") or [])
+        for target in targets:
+            if raw_name and raw_name not in hinted.setdefault(target, []):
+                hinted[target].append(raw_name)
     expected = []
     for variable_id in expected_variable_ids():
         variable = canonical_by_id(variable_id)
         state = by_variable.get(variable_id, "not_found")
+        names = sorted(set(identified.get(variable_id, []) + hinted.get(variable_id, [])))
+        if variable_id in identified:
+            raw_status = "identified"
+        elif variable_id in hinted:
+            raw_status = "possible"
+            if state == "not_found":
+                state = "needs_evidence"
+        else:
+            raw_status = "none"
         expected.append(
             {
                 "id": variable_id,
                 "symbol": variable["symbol"],
                 "state": state,
+                "raw_evidence": names,
+                "raw_status": raw_status,
                 "present": state in {"candidate", "reviewed", "validated"},
+                "is_candidate": state == "candidate",
                 "mapped": state in {"reviewed", "validated"},
                 "validated": state == "validated",
             }
         )
-    files: dict[str, set[str]] = {}
-    for item in variables:
-        if not (item.get("source") or {}).get("raw_name"):
-            continue
-        for occurrence in item["source"].get("occurrences") or []:
-            files.setdefault(item["signature_id"], set()).add(occurrence.get("file"))
     return {
         "signatures": len(variables),
         "occurrences": sum(len((item.get("source") or {}).get("occurrences") or []) for item in variables),
@@ -512,6 +656,9 @@ def ensure_mapping(dataset_id: str, root: Path | None = None) -> dict:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.is_file() else {}
     document = build_mapping(preprocess, manifest, base)
     _write(path, document)
+    from app.research.results import refresh_stage_results
+
+    refresh_stage_results(dataset_id, base)
     return document
 
 
@@ -632,4 +779,7 @@ def save_decision(dataset_id: str, payload: dict, *, mapping_id: str | None = No
     document = ensure_mapping(dataset_id, root)
     record = apply_decision(document, payload, mapping_id=mapping_id)
     _write(mapping_path(dataset_id, root), document)
+    from app.research.results import refresh_stage_results
+
+    refresh_stage_results(dataset_id, root)
     return record

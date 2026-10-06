@@ -281,6 +281,85 @@ class CoreDouble:
                 ],
                 "rows": [[1.5]],
             },
+            "/api/v1/research/variables": {"variables": []},
+            "/api/v1/research/datasets/001/mapping": {
+                "semantic_status": "mapping_in_progress",
+                "coverage": {
+                    "signatures": 1,
+                    "validated": 0,
+                    "candidate": 1,
+                    "unmapped": 0,
+                    "expected": [
+                        {
+                            "id": "rotary_speed",
+                            "symbol": "N",
+                            "raw_evidence": ["Rotary Speed (rpm)"],
+                            "is_candidate": True,
+                            "mapped": False,
+                            "validated": False,
+                            "state": "candidate",
+                        }
+                    ],
+                },
+                "variables": [
+                    {
+                        "signature_id": "S-rotary-speed-rpm-rpm",
+                        "status": "candidate",
+                        "confidence": "high",
+                        "semantic_role": "condition",
+                        "quantity_family": "rotational_speed",
+                        "notes": "Condición de ensayo.",
+                        "canonical": {"id": "rotary_speed", "symbol": "N", "si_unit": "rad/s"},
+                        "raw_hint": None,
+                        "evidence": [{"type": "explicit_header", "value": "Rotary Speed (rpm)"}],
+                        "source": {
+                            "raw_name": "Rotary Speed (rpm)",
+                            "raw_unit": "rpm",
+                            "group_labels": ["0.75Qbep"],
+                            "context_labels": ["1800 rpm", "3500 rpm"],
+                            "files": ["Surging Test Data_zero IPA.xlsx"],
+                            "sheets": ["50psig"],
+                            "occurrences": [
+                                {
+                                    "file": "Surging Test Data_zero IPA.xlsx",
+                                    "sheet": "50psig",
+                                    "block_id": "B01",
+                                    "column_index": 1,
+                                    "primitive_type": "empty",
+                                    "example": None,
+                                    "min": None,
+                                    "max": None,
+                                    "group_label": "0.75Qbep",
+                                    "experimental_context": {"value": 1800, "unit": "rpm", "source": "header_stack"},
+                                    "block_conditions": [],
+                                }
+                            ],
+                        },
+                    }
+                ],
+                "derivable_relations": [],
+            },
+            "/api/v1/research/datasets/001/stage-2-1-results": {
+                "experimental_conditions": [
+                    {"type": "sheet_pressure", "value": 50, "unit": "psig"},
+                    {"type": "header_condition", "value": 1800, "unit": "rpm"},
+                ],
+                "experimental_groups": [
+                    {"label": "0.75Qbep", "interpretation_status": "hypothesis"}
+                ],
+                "modeling_feasibility": [
+                    {"id": "surging_regime", "status": "potentially_feasible"},
+                    {"id": "dynamic_level", "status": "needs_additional_dataset"},
+                ],
+                "open_questions": [
+                    {
+                        "id": "Q002",
+                        "text": "¿Qué significa exactamente GVF0 y su subíndice 0?",
+                        "status": "open",
+                        "related_raw": ["GVF0"],
+                    }
+                ],
+            },
             "/api/v1/esp": sample_assembly(),
             "/api/v1/esp/components": {
                 "stage": "1A",
@@ -812,6 +891,10 @@ class ResearchPageTests(SimpleTestCase):
             self.assertIn("Importar dataset", content)
             self.assertIn("Preproceso", content)
             self.assertIn("Mapeo de variables", content)
+            self.assertIn("1800 rpm", content)
+            self.assertIn("Factibilidad de investigación", content)
+            self.assertIn("Potencialmente estudiable", content)
+            self.assertIn("¿Qué significa exactamente GVF0 y su subíndice 0?", content)
             self.assertIn('class="research-split"', content)
             self.assertIn("Analizar", content)
             self.assertIn("Seleccionar archivos", content)

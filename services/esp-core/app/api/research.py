@@ -31,10 +31,12 @@ from app.research.ingest import (
 from app.research.profiling import WorkbookError
 from app.research.mapping import (
     MappingError,
+    annotate_mapping,
     coverage_of,
     ensure_mapping,
     save_decision,
 )
+from app.research.results import load_stage_results
 from app.research.variables import canonical_catalog
 
 logger = logging.getLogger("esp.research")
@@ -178,7 +180,7 @@ def variables():
 @router.get("/datasets/{dataset_id}/mapping/coverage")
 def mapping_coverage(dataset_id: str):
     def read():
-        document = ensure_mapping(dataset_id)
+        document = annotate_mapping(ensure_mapping(dataset_id))
         return document.get("coverage") or coverage_of(document)
 
     return _mapping_call(read)
@@ -186,7 +188,18 @@ def mapping_coverage(dataset_id: str):
 
 @router.get("/datasets/{dataset_id}/mapping")
 def mapping_document(dataset_id: str):
-    return _mapping_call(lambda: ensure_mapping(dataset_id))
+    return _mapping_call(lambda: annotate_mapping(ensure_mapping(dataset_id)))
+
+
+@router.get("/datasets/{dataset_id}/stage-2-1-results")
+def stage_results(dataset_id: str):
+    def read():
+        try:
+            return load_stage_results(dataset_id)
+        except FileNotFoundError:
+            raise MappingError("results_missing", 404, dataset_id=dataset_id) from None
+
+    return _mapping_call(read)
 
 
 @router.post("/datasets/{dataset_id}/mapping")

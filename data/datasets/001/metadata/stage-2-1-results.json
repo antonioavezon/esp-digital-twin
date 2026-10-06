@@ -1,0 +1,1245 @@
+{
+  "schema_version": "1.0",
+  "stage": "2-1",
+  "dataset_id": "001",
+  "generated_at": "2026-10-06T19:20:00+00:00",
+  "revision": 1,
+  "status": "current",
+  "results_stale": false,
+  "versions": {
+    "project_stage": "2-1",
+    "mapping_schema_version": "1.0",
+    "physics_model": "hydraulics-v0.1",
+    "physics_mode": "static",
+    "model_trained": false,
+    "derived_calculations": "not_executed"
+  },
+  "source_lineage": {
+    "manifest_schema_version": "1.0",
+    "preprocess_schema_version": "1.0",
+    "preprocess_generated_at": "2026-10-06T17:49:18+00:00",
+    "mapping_schema_version": "1.0",
+    "mapping_updated_at": "2026-10-06T18:40:00+00:00",
+    "last_mapping_revision": 1,
+    "files": [
+      {
+        "filename": "Mapping Test Data_zero IPA.xlsx",
+        "sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+        "preprocess_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+        "mapping_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+        "file_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda"
+      },
+      {
+        "filename": "Surging Test Data_zero IPA.xlsx",
+        "sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+        "preprocess_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+        "mapping_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+        "file_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd"
+      }
+    ]
+  },
+  "history_reference": {
+    "location": "mapping.json",
+    "field": "variables[].history"
+  },
+  "structural_summary": {
+    "files": 2,
+    "sheets": 6,
+    "blocks": 12,
+    "signatures": 6,
+    "occurrences": 144
+  },
+  "mapping_summary": {
+    "validated": 0,
+    "reviewed": 0,
+    "candidate": 2,
+    "unmapped": 3,
+    "rejected": 0,
+    "not_applicable": 1
+  },
+  "raw_evidence": [
+    {
+      "signature_id": "S-blank",
+      "raw_name": null,
+      "raw_unit": null,
+      "semantic_role": "structural",
+      "quantity_family": null,
+      "status": "not_applicable",
+      "confidence": null,
+      "canonical_id": null,
+      "context_labels": [],
+      "group_labels": [],
+      "raw_hint": null,
+      "evidence": []
+    },
+    {
+      "signature_id": "S-dp2-3-nou",
+      "raw_name": "DP2-3",
+      "raw_unit": null,
+      "semantic_role": "measurement",
+      "quantity_family": null,
+      "status": "unmapped",
+      "confidence": null,
+      "canonical_id": null,
+      "context_labels": [
+        "1800 rpm",
+        "3500 rpm"
+      ],
+      "group_labels": [
+        "Single Phase",
+        "Qgd=0.005",
+        "Qgd=0.01",
+        "Qgd=0.015",
+        "Qgd=0.02",
+        "Qgd=0.03",
+        "Qgd=0.04",
+        "Qgd=0.05",
+        "0.75Qbep",
+        "Qbep",
+        "1.25Qbep"
+      ],
+      "raw_hint": {
+        "possible_target": "pump_pressure_difference",
+        "quantity_family_candidate": "pressure",
+        "reason": "lexical_pattern",
+        "status": "needs_evidence",
+        "evidence_required": true,
+        "requires_external_evidence": true,
+        "question_ids": [
+          "Q001"
+        ]
+      },
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "DP2-3"
+        }
+      ]
+    },
+    {
+      "signature_id": "S-flow-rate-nou",
+      "raw_name": "Flow rate",
+      "raw_unit": null,
+      "semantic_role": "measurement",
+      "quantity_family": "flow",
+      "status": "unmapped",
+      "confidence": null,
+      "canonical_id": null,
+      "context_labels": [],
+      "group_labels": [
+        "Single Phase",
+        "Qgd=0.005",
+        "Qgd=0.01",
+        "Qgd=0.015",
+        "Qgd=0.02",
+        "Qgd=0.03",
+        "Qgd=0.04",
+        "Qgd=0.05"
+      ],
+      "raw_hint": {
+        "possible_targets": [
+          "liquid_flow_rate",
+          "gas_flow_rate"
+        ],
+        "reason": "quantity_family_only",
+        "status": "needs_evidence",
+        "evidence_required": true,
+        "requires_external_evidence": true,
+        "question_ids": [
+          "Q003",
+          "Q004"
+        ]
+      },
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "Flow rate"
+        }
+      ]
+    },
+    {
+      "signature_id": "S-gvf0-nou",
+      "raw_name": "GVF0",
+      "raw_unit": null,
+      "semantic_role": "measurement",
+      "quantity_family": null,
+      "status": "unmapped",
+      "confidence": null,
+      "canonical_id": null,
+      "context_labels": [
+        "1800 rpm",
+        "3500 rpm"
+      ],
+      "group_labels": [
+        "0.75Qbep",
+        "Qbep",
+        "1.25Qbep"
+      ],
+      "raw_hint": {
+        "possible_target": "gas_volume_fraction",
+        "reason": "lexical_similarity",
+        "status": "needs_evidence",
+        "evidence_required": true,
+        "requires_external_evidence": true,
+        "question_ids": [
+          "Q002"
+        ]
+      },
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "GVF0"
+        }
+      ]
+    },
+    {
+      "signature_id": "S-rotary-speed-nou",
+      "raw_name": "rotary speed",
+      "raw_unit": null,
+      "semantic_role": "measurement",
+      "quantity_family": "rotational_speed",
+      "status": "candidate",
+      "confidence": "medium",
+      "canonical_id": "rotary_speed",
+      "context_labels": [],
+      "group_labels": [],
+      "raw_hint": null,
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "rotary speed"
+        }
+      ]
+    },
+    {
+      "signature_id": "S-rotary-speed-rpm-rpm",
+      "raw_name": "Rotary Speed (rpm)",
+      "raw_unit": "rpm",
+      "semantic_role": "condition",
+      "quantity_family": "rotational_speed",
+      "status": "candidate",
+      "confidence": "high",
+      "canonical_id": "rotary_speed",
+      "context_labels": [
+        "1800 rpm",
+        "3500 rpm"
+      ],
+      "group_labels": [],
+      "raw_hint": null,
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "Rotary Speed (rpm)"
+        },
+        {
+          "type": "explicit_unit",
+          "value": "rpm"
+        }
+      ]
+    }
+  ],
+  "canonical_coverage": [
+    {
+      "id": "intake_pressure",
+      "symbol": "P_int",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "flowing_bottomhole_pressure",
+      "symbol": "P_wf",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "liquid_flow_rate",
+      "symbol": "Q_L",
+      "state": "needs_evidence",
+      "raw_evidence": [
+        "Flow rate"
+      ],
+      "raw_status": "possible",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "gas_flow_rate",
+      "symbol": "Q_G",
+      "state": "needs_evidence",
+      "raw_evidence": [
+        "Flow rate"
+      ],
+      "raw_status": "possible",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "dynamic_fluid_level",
+      "symbol": "h_D",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "gas_volume_fraction",
+      "symbol": "GVF",
+      "state": "needs_evidence",
+      "raw_evidence": [
+        "GVF0"
+      ],
+      "raw_status": "possible",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "pump_head",
+      "symbol": "H",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "pump_pressure_difference",
+      "symbol": "ΔP",
+      "state": "needs_evidence",
+      "raw_evidence": [
+        "DP2-3"
+      ],
+      "raw_status": "possible",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "hydraulic_power",
+      "symbol": "P_hyd",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "shaft_power",
+      "symbol": "P_shaft",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "electrical_power",
+      "symbol": "P_el",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "rotary_speed",
+      "symbol": "N",
+      "state": "candidate",
+      "raw_evidence": [
+        "Rotary Speed (rpm)",
+        "rotary speed"
+      ],
+      "raw_status": "identified",
+      "present": true,
+      "is_candidate": true,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "frequency",
+      "symbol": "f",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    },
+    {
+      "id": "liquid_density",
+      "symbol": "ρ_L",
+      "state": "not_found",
+      "raw_evidence": [],
+      "raw_status": "none",
+      "present": false,
+      "is_candidate": false,
+      "mapped": false,
+      "validated": false
+    }
+  ],
+  "coverage": {
+    "signatures": 6,
+    "occurrences": 144,
+    "validated": 0,
+    "candidate": 2,
+    "unmapped": 3,
+    "expected": [
+      {
+        "id": "intake_pressure",
+        "symbol": "P_int",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "flowing_bottomhole_pressure",
+        "symbol": "P_wf",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "liquid_flow_rate",
+        "symbol": "Q_L",
+        "state": "needs_evidence",
+        "raw_evidence": [
+          "Flow rate"
+        ],
+        "raw_status": "possible",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "gas_flow_rate",
+        "symbol": "Q_G",
+        "state": "needs_evidence",
+        "raw_evidence": [
+          "Flow rate"
+        ],
+        "raw_status": "possible",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "dynamic_fluid_level",
+        "symbol": "h_D",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "gas_volume_fraction",
+        "symbol": "GVF",
+        "state": "needs_evidence",
+        "raw_evidence": [
+          "GVF0"
+        ],
+        "raw_status": "possible",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "pump_head",
+        "symbol": "H",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "pump_pressure_difference",
+        "symbol": "ΔP",
+        "state": "needs_evidence",
+        "raw_evidence": [
+          "DP2-3"
+        ],
+        "raw_status": "possible",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "hydraulic_power",
+        "symbol": "P_hyd",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "shaft_power",
+        "symbol": "P_shaft",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "electrical_power",
+        "symbol": "P_el",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "rotary_speed",
+        "symbol": "N",
+        "state": "candidate",
+        "raw_evidence": [
+          "Rotary Speed (rpm)",
+          "rotary speed"
+        ],
+        "raw_status": "identified",
+        "present": true,
+        "is_candidate": true,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "frequency",
+        "symbol": "f",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "liquid_density",
+        "symbol": "ρ_L",
+        "state": "not_found",
+        "raw_evidence": [],
+        "raw_status": "none",
+        "present": false,
+        "is_candidate": false,
+        "mapped": false,
+        "validated": false
+      }
+    ]
+  },
+  "experimental_conditions": [
+    {
+      "type": "sheet_pressure",
+      "raw_value": "50psig",
+      "value": 50,
+      "unit": "psig",
+      "canonical_variable": null,
+      "status": "observed"
+    },
+    {
+      "type": "sheet_pressure",
+      "raw_value": "100psig",
+      "value": 100,
+      "unit": "psig",
+      "canonical_variable": null,
+      "status": "observed"
+    },
+    {
+      "type": "sheet_pressure",
+      "raw_value": "150psig",
+      "value": 150,
+      "unit": "psig",
+      "canonical_variable": null,
+      "status": "observed"
+    },
+    {
+      "type": "header_condition",
+      "raw_name": "Rotary Speed (rpm)",
+      "raw_value": 1800,
+      "value": 1800,
+      "unit": "rpm",
+      "source": "header_stack",
+      "canonical_variable": null,
+      "status": "observed"
+    },
+    {
+      "type": "header_condition",
+      "raw_name": "Rotary Speed (rpm)",
+      "raw_value": 3500,
+      "value": 3500,
+      "unit": "rpm",
+      "source": "header_stack",
+      "canonical_variable": null,
+      "status": "observed"
+    }
+  ],
+  "experimental_groups": [
+    {
+      "label": "0.75Qbep",
+      "kind": "operating_group",
+      "interpretation_status": "hypothesis",
+      "statement": "Si Qbep es el caudal del punto de mejor eficiencia, 0.75Qbep indica el 75 % de ese caudal. El valor de Qbep no está en los libros y esta lectura no está validada."
+    },
+    {
+      "label": "1.25Qbep",
+      "kind": "operating_group",
+      "interpretation_status": "hypothesis",
+      "statement": "Si Qbep es el caudal del punto de mejor eficiencia, 1.25Qbep indica el 125 % de ese caudal. El valor de Qbep no está en los libros y esta lectura no está validada."
+    },
+    {
+      "label": "Qbep",
+      "kind": "operating_group",
+      "interpretation_status": "hypothesis",
+      "statement": "Qbep nombra una condición de operación referida al punto de mejor eficiencia. El caudal correspondiente no está en los libros y esta lectura no está validada."
+    },
+    {
+      "label": "Qgd=0.005",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Qgd=0.01",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Qgd=0.015",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Qgd=0.02",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Qgd=0.03",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Qgd=0.04",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Qgd=0.05",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se interpreta como una serie de caudal de gas."
+    },
+    {
+      "label": "Single Phase",
+      "kind": "group_label",
+      "interpretation_status": "observed",
+      "statement": "Rótulo de grupo observado. No se asigna una fase canónica."
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "Q001",
+      "text": "¿Qué representa físicamente DP2-3?",
+      "related_raw": [
+        "DP2-3"
+      ],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    },
+    {
+      "id": "Q002",
+      "text": "¿Qué significa exactamente GVF0 y su subíndice 0?",
+      "related_raw": [
+        "GVF0"
+      ],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    },
+    {
+      "id": "Q003",
+      "text": "¿Cuál es la unidad de Flow rate?",
+      "related_raw": [
+        "Flow rate"
+      ],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    },
+    {
+      "id": "Q004",
+      "text": "¿Flow rate corresponde a líquido, gas o mezcla?",
+      "related_raw": [
+        "Flow rate"
+      ],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    },
+    {
+      "id": "Q005",
+      "text": "¿Qué presión representan las hojas 50/100/150 psig?",
+      "related_raw": [],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    },
+    {
+      "id": "Q006",
+      "text": "¿Qué representan exactamente los dos bloques, además de las velocidades observadas?",
+      "related_raw": [],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    },
+    {
+      "id": "Q007",
+      "text": "¿Cuál es el valor de Qbep del montaje para cada velocidad, si corresponde?",
+      "related_raw": [],
+      "status": "open",
+      "requires_external_evidence": true,
+      "evidence_ids": []
+    }
+  ],
+  "derivable_relations": [
+    {
+      "id": "gvf_from_phase_rates",
+      "output": "gas_volume_fraction",
+      "equation": "GVF = Q_G / (Q_G + Q_L)",
+      "requires": [
+        "gas_flow_rate",
+        "liquid_flow_rate"
+      ],
+      "conditions": "Q_G y Q_L deben ser caudales volumétricos de las mismas condiciones y el denominador no puede ser cero.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    },
+    {
+      "id": "head_from_pressure_and_density",
+      "output": "pump_head",
+      "equation": "H = ΔP / (ρ g)",
+      "requires": [
+        "pump_pressure_difference",
+        "liquid_density"
+      ],
+      "conditions": "ΔP tiene que estar definido entre dos puntos identificados y la densidad tiene que corresponder a ese tramo.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    },
+    {
+      "id": "hydraulic_power_from_flow_and_pressure",
+      "output": "hydraulic_power",
+      "equation": "P_hyd = Q ΔP",
+      "requires": [
+        "liquid_flow_rate",
+        "pump_pressure_difference"
+      ],
+      "conditions": "Q y ΔP tienen que referirse al mismo tramo. No sustituye a la potencia de eje ni a la potencia eléctrica.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    },
+    {
+      "id": "hydraulic_power_from_head",
+      "output": "hydraulic_power",
+      "equation": "P_hyd = ρ g Q H",
+      "requires": [
+        "liquid_density",
+        "liquid_flow_rate",
+        "pump_head"
+      ],
+      "conditions": "Q, H y ρ tienen que estar definidos para el mismo fluido y tramo.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    }
+  ],
+  "modeling_feasibility": [
+    {
+      "id": "hydraulic_degradation_gassy",
+      "status": "needs_mapping",
+      "required_variables": [
+        "gas_volume_fraction",
+        "liquid_flow_rate",
+        "pump_pressure_difference"
+      ],
+      "available_evidence": [
+        "gas_volume_fraction",
+        "gas_flow_rate",
+        "liquid_flow_rate",
+        "pump_pressure_difference",
+        "rotary_speed"
+      ],
+      "missing_variables": [],
+      "notes": "Hay pistas de gas y de una respuesta hidráulica, sin un mapping validado. No hay un modelo.",
+      "model_trained": false
+    },
+    {
+      "id": "pressure_head_response",
+      "status": "needs_mapping",
+      "required_variables": [
+        "pump_pressure_difference",
+        "pump_head",
+        "liquid_flow_rate"
+      ],
+      "available_evidence": [
+        "pump_pressure_difference",
+        "liquid_flow_rate",
+        "rotary_speed"
+      ],
+      "missing_variables": [
+        "pump_head"
+      ],
+      "notes": "Hay una pista de diferencia de presión o de head, sin puntos ni unidad validados.",
+      "model_trained": false
+    },
+    {
+      "id": "surging_regime",
+      "status": "potentially_feasible",
+      "required_variables": [
+        "rotary_speed",
+        "gas_volume_fraction",
+        "pump_pressure_difference"
+      ],
+      "available_evidence": [
+        "rotary_speed",
+        "gas_volume_fraction",
+        "pump_pressure_difference"
+      ],
+      "missing_variables": [],
+      "notes": "El libro de surging, las velocidades de encabezado y los grupos de operación están observados. GVF0 y DP2-3 siguen sin mapping canónico. No significa que exista un modelo.",
+      "model_trained": false
+    },
+    {
+      "id": "sensorless_intake_pressure",
+      "status": "needs_additional_dataset",
+      "required_variables": [
+        "intake_pressure"
+      ],
+      "available_evidence": [],
+      "missing_variables": [
+        "intake_pressure"
+      ],
+      "notes": "No hay una columna que pueda sostener la presión de admisión.",
+      "model_trained": false
+    },
+    {
+      "id": "flowing_bottomhole_pressure",
+      "status": "needs_additional_dataset",
+      "required_variables": [
+        "flowing_bottomhole_pressure"
+      ],
+      "available_evidence": [],
+      "missing_variables": [
+        "flowing_bottomhole_pressure"
+      ],
+      "notes": "No hay una columna que pueda sostener la presión de fondo fluyente.",
+      "model_trained": false
+    },
+    {
+      "id": "dynamic_level",
+      "status": "needs_additional_dataset",
+      "required_variables": [
+        "dynamic_fluid_level"
+      ],
+      "available_evidence": [],
+      "missing_variables": [
+        "dynamic_fluid_level"
+      ],
+      "notes": "No hay una columna que pueda sostener el nivel dinámico.",
+      "model_trained": false
+    },
+    {
+      "id": "anomaly_detection",
+      "status": "needs_additional_dataset",
+      "required_variables": [
+        "intake_pressure",
+        "liquid_flow_rate"
+      ],
+      "available_evidence": [],
+      "missing_variables": [
+        "intake_pressure",
+        "liquid_flow_rate"
+      ],
+      "notes": "2-1 no clasifica anomalías ni entrena un detector. Haría falta un criterio de anomalía que este dataset no trae.",
+      "model_trained": false
+    }
+  ],
+  "data_gaps": [
+    {
+      "id": "intake_pressure",
+      "symbol": "P_int",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    },
+    {
+      "id": "flowing_bottomhole_pressure",
+      "symbol": "P_wf",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    },
+    {
+      "id": "liquid_flow_rate",
+      "symbol": "Q_L",
+      "raw_evidence_found": true,
+      "raw_names": [
+        "Flow rate"
+      ],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "Hay evidencia RAW posible. No alcanza para un mapping canónico."
+    },
+    {
+      "id": "gas_flow_rate",
+      "symbol": "Q_G",
+      "raw_evidence_found": true,
+      "raw_names": [
+        "Flow rate"
+      ],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "Hay evidencia RAW posible. No alcanza para un mapping canónico."
+    },
+    {
+      "id": "dynamic_fluid_level",
+      "symbol": "h_D",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    },
+    {
+      "id": "gas_volume_fraction",
+      "symbol": "GVF",
+      "raw_evidence_found": true,
+      "raw_names": [
+        "GVF0"
+      ],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": true,
+      "missing": true,
+      "notes": "Hay evidencia RAW posible. No alcanza para un mapping canónico."
+    },
+    {
+      "id": "pump_head",
+      "symbol": "H",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": true,
+      "missing": true,
+      "notes": "Existe una relación registrada y no se ha ejecutado."
+    },
+    {
+      "id": "pump_pressure_difference",
+      "symbol": "ΔP",
+      "raw_evidence_found": true,
+      "raw_names": [
+        "DP2-3"
+      ],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "Hay evidencia RAW posible. No alcanza para un mapping canónico."
+    },
+    {
+      "id": "hydraulic_power",
+      "symbol": "P_hyd",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": true,
+      "missing": true,
+      "notes": "Existe una relación registrada y no se ha ejecutado."
+    },
+    {
+      "id": "shaft_power",
+      "symbol": "P_shaft",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    },
+    {
+      "id": "electrical_power",
+      "symbol": "P_el",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    },
+    {
+      "id": "rotary_speed",
+      "symbol": "N",
+      "raw_evidence_found": true,
+      "raw_names": [
+        "Rotary Speed (rpm)",
+        "rotary speed"
+      ],
+      "canonical_candidate": true,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": false,
+      "notes": "Hay un candidato canónico. Todavía no está validado."
+    },
+    {
+      "id": "frequency",
+      "symbol": "f",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    },
+    {
+      "id": "liquid_density",
+      "symbol": "ρ_L",
+      "raw_evidence_found": false,
+      "raw_names": [],
+      "canonical_candidate": false,
+      "validated": false,
+      "derivable": false,
+      "relation_registered": false,
+      "missing": true,
+      "notes": "No aparece en los encabezados ni como candidato."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-0.75Qbep",
+      "statement": "Si Qbep es el caudal del punto de mejor eficiencia, 0.75Qbep indica el 75 % de ese caudal. El valor de Qbep no está en los libros y esta lectura no está validada.",
+      "status": "hypothesis",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F-1.25Qbep",
+      "statement": "Si Qbep es el caudal del punto de mejor eficiencia, 1.25Qbep indica el 125 % de ese caudal. El valor de Qbep no está en los libros y esta lectura no está validada.",
+      "status": "hypothesis",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F-Qbep",
+      "statement": "Qbep nombra una condición de operación referida al punto de mejor eficiencia. El caudal correspondiente no está en los libros y esta lectura no está validada.",
+      "status": "hypothesis",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F001",
+      "statement": "El dataset contiene 2 archivos experimentales.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F002",
+      "statement": "Las hojas nombran presiones nominales: 50 psig, 100 psig, 150 psig. El punto físico de esa presión no está identificado.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F003",
+      "statement": "La estructura observada tiene 6 hojas y 12 bloques.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F004",
+      "statement": "Las condiciones de velocidad leídas en encabezados son: 1800 rpm, 3500 rpm.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F005",
+      "statement": "Los rótulos de grupo observados son: 0.75Qbep, 1.25Qbep, Qbep, Qgd=0.005, Qgd=0.01, Qgd=0.015, Qgd=0.02, Qgd=0.03, Qgd=0.04, Qgd=0.05, Single Phase.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F006",
+      "statement": "Los encabezados RAW con nombre son: DP2-3, Flow rate, GVF0, Rotary Speed (rpm), rotary speed.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "F007",
+      "statement": "Hay encabezados repetidos entre hojas o bloques: DP2-3, Flow rate, GVF0, Rotary Speed (rpm), rotary speed.",
+      "status": "observed",
+      "evidence_ids": [
+        "E001"
+      ]
+    }
+  ],
+  "quality_flags": [
+    {
+      "id": "repeated_headers",
+      "level": "notice",
+      "status": "observed"
+    },
+    {
+      "id": "multi_block_structure",
+      "level": "notice",
+      "status": "observed"
+    },
+    {
+      "id": "missing_units",
+      "level": "notice",
+      "status": "observed"
+    },
+    {
+      "id": "ambiguous_semantics",
+      "level": "notice",
+      "status": "observed"
+    },
+    {
+      "id": "context_in_headers",
+      "level": "notice",
+      "status": "observed"
+    }
+  ],
+  "evidence_sources": [
+    {
+      "id": "E001",
+      "kind": "dataset",
+      "title": "Modeling Flow Pattern Transitions in Electrical Submersible Pump under Gassy Flow Conditions",
+      "doi": "10.17632/fk2b4r69bs.1",
+      "used": true
+    },
+    {
+      "id": "E002",
+      "kind": "article",
+      "title": "Modeling Flow Pattern Transitions in Electrical Submersible Pump under Gassy Flow Conditions",
+      "doi": "10.1016/j.petrol.2019.05.059",
+      "used": false
+    }
+  ],
+  "limitations": [
+    "El artículo E002 está citado y no fue usado: su texto no está en el repositorio.",
+    "No se convierten unidades ni se ejecutan relaciones derivadas.",
+    "Una pista RAW no es un mapping canónico.",
+    "No hay Machine Learning ni Physics-AI."
+  ],
+  "next_actions": [
+    "¿Qué representa físicamente DP2-3?",
+    "¿Qué significa exactamente GVF0 y su subíndice 0?",
+    "¿Cuál es la unidad de Flow rate?",
+    "¿Flow rate corresponde a líquido, gas o mezcla?",
+    "¿Qué presión representan las hojas 50/100/150 psig?",
+    "¿Qué representan exactamente los dos bloques, además de las velocidades observadas?",
+    "¿Cuál es el valor de Qbep del montaje para cada velocidad, si corresponde?"
+  ]
+}

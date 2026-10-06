@@ -50,7 +50,8 @@ Prefijo: `/api/v1`.
 | POST | `/api/v1/research/datasets/{id}/reprofile` | Regenera el preprocess. No toca el RAW |
 | GET | `/api/v1/research/variables` | Catálogo canónico. No depende del dataset 001 |
 | GET | `/api/v1/research/datasets/{id}/mapping` | Mapeo semántico. Lo crea si falta y no reescribe uno existente |
-| GET | `/api/v1/research/datasets/{id}/mapping/coverage` | Conteos y variables objetivo ausentes |
+| GET | `/api/v1/research/datasets/{id}/mapping/coverage` | Conteos y evidencia RAW separada del mapping canónico |
+| GET | `/api/v1/research/datasets/{id}/stage-2-1-results` | Resumen derivado de 2-1. Se reconstruye si está desactualizado |
 | POST | `/api/v1/research/datasets/{id}/mapping` | Guarda una revisión de una firma |
 | PATCH | `/api/v1/research/datasets/{id}/mapping/{mapping_id}` | Revisa un mapping ya identificado |
 | GET | `/api/v1/esp` | Conjunto de la etapa 1A: componentes, recorridos y capacidades. Sigue en `stage` `1A` |

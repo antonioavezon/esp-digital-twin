@@ -43,7 +43,7 @@ Estado: en curso.
 
 - Objetivo: decir qué significa cada columna y con qué variable física de la ESP puede relacionarse, solo con evidencia.
 - Entrada: el perfil 2-0, los encabezados reales y la documentación incorporada al proyecto.
-- Salida: `mapping.json`, catálogo canónico, cobertura y revisión en `/research/`. `preprocess.json` sigue siendo estructural.
+- Salida: `mapping.json`, catálogo canónico, cobertura, condiciones de encabezado y `stage-2-1-results.json`. `preprocess.json` sigue siendo estructural.
 - Cierre previsto: ninguna columna queda validada por conjetura, las variables objetivo ausentes están explícitas y no se ejecuta un cálculo derivado. El detalle está en [stage-2-1.md](stage-2-1.md).
 
 ## 2-2 — Experimental Characterization

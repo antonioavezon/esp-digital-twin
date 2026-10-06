@@ -270,6 +270,7 @@ POST /api/v1/research/datasets/{id}/reprofile
 GET  /api/v1/research/variables
 GET  /api/v1/research/datasets/{id}/mapping
 GET  /api/v1/research/datasets/{id}/mapping/coverage
+GET  /api/v1/research/datasets/{id}/stage-2-1-results
 POST /api/v1/research/datasets/{id}/mapping
 PATCH /api/v1/research/datasets/{id}/mapping/{mapping_id}
 ```

@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import quote, urlencode
 
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 
 from anatomy.client import EspCoreClient, EspCoreError
@@ -289,6 +289,7 @@ def research(request):
     catalog = []
     mapping = None
     canonical_variables = []
+    stage_results = None
     dataset_id = ""
     client = EspCoreClient()
     notice_code = request.GET.get("notice", "")
@@ -351,6 +352,11 @@ def research(request):
         except EspCoreError as exc:
             logger.warning("research mapping unavailable: %s", exc)
             mapping = None
+        try:
+            stage_results = client.get(f"/api/v1/research/datasets/{dataset_id}/stage-2-1-results")
+        except EspCoreError as exc:
+            logger.warning("research results unavailable: %s", exc)
+            stage_results = None
     rows = _catalog_rows(request, catalog)
     if not rows and dataset:
         rows = _catalog_rows(
@@ -383,6 +389,7 @@ def research(request):
             "import_notice": notice,
             "show_preprocess": request.GET.get("view") == "preprocess",
             "mapping": mapping,
+            "stage_results": stage_results,
             "canonical_variables": canonical_variables,
             "selected_signature": request.GET.get("signature", ""),
         },
@@ -539,6 +546,22 @@ def research_mapping_save(request, dataset_id: str):
         return redirect(f"/research/?dataset={dataset_id}&notice=core_unavailable")
     notice = "mapping_saved" if code < 400 else "mapping_rejected"
     return redirect(f"/research/?dataset={dataset_id}&signature={signature}&notice={notice}")
+
+
+def research_results_download(request, dataset_id: str):
+    if request.method != "GET" or not _DATASET_ID.match(dataset_id):
+        return redirect("research")
+    try:
+        body = EspCoreClient(timeout=30).get(
+            f"/api/v1/research/datasets/{dataset_id}/stage-2-1-results"
+        )
+    except EspCoreError as exc:
+        logger.warning("research results download failed: %s", exc)
+        return redirect(f"/research/?dataset={dataset_id}&notice=core_unavailable")
+    raw = json.dumps(body, indent=2, ensure_ascii=False)
+    response = HttpResponse(raw, content_type="application/json; charset=utf-8")
+    response["Content-Disposition"] = f'attachment; filename="stage-2-1-results-{dataset_id}.json"'
+    return response
 
 
 def _research_selection(request, dataset):

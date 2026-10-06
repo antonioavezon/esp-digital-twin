@@ -761,6 +761,19 @@ body.esp-running .impeller-rotor {
   text-align: left;
   white-space: nowrap;
 }
+.research-table.research-wrap td,
+.research-table.research-wrap th { white-space: normal; }
+.research-feasibility {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.research-feasibility article {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+}
+.research-feasibility h3 { margin: 0 0 4px; font-size: 14px; }
 .research-stats { margin-top: 12px; }
 .research-unit, .research-note { color: var(--muted); }
 .mono { font-family: var(--mono); }

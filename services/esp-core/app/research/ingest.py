@@ -510,6 +510,9 @@ def reprofile(dataset_id: str) -> dict:
     if manifest.get("status") == "error":
         manifest["status"] = "ready_for_mapping"
         _write_json(manifest_path, manifest)
+    from app.research.results import refresh_stage_results
+
+    refresh_stage_results(dataset_id, root)
     return document
 
 

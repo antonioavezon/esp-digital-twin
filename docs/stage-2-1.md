@@ -132,11 +132,26 @@ Seis firmas y 144 ocurrencias. Dos libros: `Mapping Test Data_zero IPA.xlsx` y `
 
 En Mapping aparecen `rotary speed`, `Flow rate` y `DP2-3`. En Surging aparecen `Rotary Speed (rpm)`, `GVF0` y `DP2-3`. En ambos aparece solo `DP2-3`, todavía sin interpretación. No hay filas `validated` ni `rejected`.
 
-## 17. Variables objetivo ausentes
+`Rotary Speed (rpm)` es una condición: 1800 rpm y 3500 rpm están en el encabezado y el cuerpo de la columna está vacío. Sigue en `candidate` con confianza `high`. `GVF0` y `DP2-3` son series medidas. Su pista RAW no las identifica.
 
-Presente, sin validar: `rotary_speed`.
+La estructura contada desde el preprocess y el mapping es 2 archivos, 6 hojas, 12 bloques, 6 firmas y 144 ocurrencias.
 
-No encontradas: `intake_pressure`, `flowing_bottomhole_pressure`, `liquid_flow_rate`, `gas_flow_rate`, `dynamic_fluid_level`, `gas_volume_fraction`, `pump_head`, `pump_pressure_difference`, `hydraulic_power`, `shaft_power`, `electrical_power`, `frequency`, `liquid_density`.
+## 17. Evidencia RAW y variables objetivo
+
+Una pista no es un mapping. La cobertura separa el texto encontrado del estado canónico.
+
+| Variable | Evidencia RAW | Estado |
+| --- | --- | --- |
+| rotary_speed | Rotary Speed (rpm), rotary speed | candidate, no validada |
+| gas_volume_fraction | GVF0 | needs_evidence |
+| liquid_flow_rate | Flow rate | needs_evidence |
+| gas_flow_rate | Flow rate | needs_evidence |
+| pump_pressure_difference | DP2-3 | needs_evidence |
+| intake_pressure, P_wf, h_D, H, P_hyd, P_shaft, P_el, f, ρ_L | ninguna | not_found |
+
+Las hojas `50psig`, `100psig` y `150psig` son condiciones de presión observadas. No se asignan a `P_int`, `P_wf` ni a una descarga. No se convierten a Pa.
+
+`0.75Qbep`, `Qbep` y `1.25Qbep` siguen como rótulos. La lectura «porcentaje del caudal de mejor eficiencia» queda en hipótesis: el valor de Qbep no está en los libros.
 
 ## 18. Limitaciones
 
@@ -149,10 +164,20 @@ Relaciones registradas con `calculation_status = not_executed` e `inputs_availab
 - `P_hyd = Q ΔP`
 - `P_hyd = ρ g Q H`
 
-## 19. Criterio de cierre
+## 19. stage-2-1-results.json
+
+El resumen derivado está en `data/datasets/001/metadata/stage-2-1-results.json`. Lo construye solo `build_stage_results()`. Se reescribe al guardar un mapping, al crear un mapping y al reanalizar. Si el mapping, el preprocess o los SHA cambian y el archivo no se regeneró, `is_stale()` lo detecta. Borrarlo no pierde el RAW ni el mapping: se reconstruye.
+
+La interfaz y ese JSON usan `annotate_mapping()` y `coverage_of()`. `GET /api/v1/research/datasets/{id}/stage-2-1-results` devuelve el snapshot. En `/research/` el enlace «Descargar respaldo técnico» queda debajo de las preguntas.
+
+La factibilidad dice si el dataset alcanza para estudiar un problema. `potentially_feasible` se muestra como «Potencialmente estudiable» y no crea un modelo. En el dataset 001, surging queda en ese estado porque el libro, las velocidades y los grupos están observados. La degradación hidráulica y la respuesta de presión quedan en `needs_mapping`. `P_wf`, el nivel dinámico, la admisión y la detección de anomalías quedan en `needs_additional_dataset`.
+
+## 20. Criterio de cierre
 
 2-1 puede cerrarse cuando el dataset 001 tenga `mapping.json`, el catálogo exista, cada mapping tenga evidencia o quede explícitamente sin interpretación, el estado y la confianza estén separados, las unidades RAW se conserven, la unidad SI aparezca solo con variable canónica, las presiones y las potencias no se confundan por el nombre, las ausencias estén explícitas, el RAW y la física 1C no cambien, no haya ML ni Physics-AI ni un cálculo derivado ejecutado, la interfaz permita revisar, la cobertura esté disponible, la documentación esté actualizada y las pruebas pasen. El cierre formal de la etapa queda para una revisión posterior. Esta pasada la deja en curso, con el mapeo inicial sin validaciones automáticas.
 
-## 20. Siguiente etapa 2-2
+2-1 sigue en curso. Falta evidencia externa para cerrar `DP2-3`, `GVF0`, la unidad y la fase de `Flow rate`, el punto de las hojas en psig y el valor de Qbep. Hasta entonces ninguna de esas columnas pasa a `validated`.
 
-2-2 puede caracterizar los ensayos ya descritos: bloques, condiciones de los rótulos, rangos y huecos, sin corregirlos y sin ejecutar las relaciones de la sección 18. Antes de calcular GVF, head o potencia hidráulica hace falta evidencia de qué son `Flow rate`, `DP2-3` y `GVF0`, y de si `Qgd` es un caudal de gas en las condiciones del ensayo. Esa evidencia tiene que entrar como `manual_research_review` o como texto del artículo incorporado al proyecto. 2-2 no está iniciada.
+## 21. Siguiente etapa 2-2
+
+2-2 puede caracterizar los ensayos ya descritos, sin corregirlos y sin ejecutar las relaciones derivadas. 2-2 no está iniciada.

@@ -145,15 +145,25 @@
           {% if mapping %}
             {% with coverage=mapping.coverage %}
             <p class="research-note">{{ mapping.semantic_status }} · {{ ui.research_mapping_columns }} {{ coverage.signatures }} · {{ ui.research_mapping_validated }} {{ coverage.validated }} · {{ ui.research_mapping_suggested }} {{ coverage.candidate }} · {{ ui.research_mapping_status }} unmapped {{ coverage.unmapped }}</p>
+            {% if stage_results %}
+              <p class="research-note">{{ ui.research_observed }}:
+                {% for item in stage_results.experimental_conditions %}
+                  {% if item.type == "header_condition" %}{{ item.value }} {{ item.unit }}{% if not forloop.last %} · {% endif %}{% endif %}
+                  {% if item.type == "sheet_pressure" %}{{ item.value }} {{ item.unit }}{% if not forloop.last %} · {% endif %}{% endif %}
+                {% endfor %}
+              </p>
+            {% endif %}
             <div class="research-scroll">
-              <table class="research-table">
+              <table class="research-table research-wrap">
                 <thead>
                   <tr>
                     <th>{{ ui.research_mapping_target }}</th>
                     <th>{{ ui.research_mapping_symbol }}</th>
-                    <th>{{ ui.research_mapping_present }}</th>
+                    <th>{{ ui.research_mapping_possible }}</th>
+                    <th>{{ ui.research_mapping_suggested }}</th>
                     <th>{{ ui.research_mapping_mapped }}</th>
                     <th>{{ ui.research_mapping_validated }}</th>
+                    <th>{{ ui.research_mapping_status }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -161,9 +171,17 @@
                     <tr>
                       <td>{{ item.id }}</td>
                       <td>{{ item.symbol }}</td>
-                      <td>{% if item.present %}{{ ui.research_mapping_present }}{% else %}{{ ui.research_mapping_not_found }}{% endif %}</td>
+                      <td>{% if item.raw_evidence %}{{ item.raw_evidence|join:", " }}{% else %}—{% endif %}</td>
+                      <td>{% if item.is_candidate %}{{ ui.research_state_candidate }}{% else %}—{% endif %}</td>
                       <td>{% if item.mapped %}{{ ui.research_mapping_mapped }}{% else %}—{% endif %}</td>
                       <td>{% if item.validated %}{{ ui.research_mapping_validated }}{% else %}—{% endif %}</td>
+                      <td>
+                        {% if item.state == "candidate" %}{{ ui.research_state_candidate }}
+                        {% elif item.state == "needs_evidence" %}{{ ui.research_state_needs_evidence }}
+                        {% elif item.state == "validated" %}{{ ui.research_state_validated }}
+                        {% elif item.state == "reviewed" %}{{ ui.research_state_reviewed }}
+                        {% else %}{{ ui.research_state_not_found }}{% endif %}
+                      </td>
                     </tr>
                   {% endfor %}
                 </tbody>
@@ -171,15 +189,15 @@
             </div>
             {% endwith %}
             <div class="research-scroll">
-              <table class="research-table">
+              <table class="research-table research-wrap">
                 <thead>
                   <tr>
                     <th>{{ ui.research_mapping_raw }}</th>
+                    <th>{{ ui.research_mapping_role }}</th>
                     <th>{{ ui.research_mapping_unit }}</th>
-                    <th>{{ ui.research_mapping_family }}</th>
-                    <th>{{ ui.research_mapping_canonical }}</th>
-                    <th>{{ ui.research_mapping_symbol }}</th>
-                    <th>{{ ui.research_mapping_si }}</th>
+                    <th>{{ ui.research_mapping_condition }}</th>
+                    <th>{{ ui.research_mapping_groups }}</th>
+                    <th>{{ ui.research_mapping_possible }}</th>
                     <th>{{ ui.research_mapping_status }}</th>
                     <th>{{ ui.research_mapping_confidence }}</th>
                     <th>{{ ui.research_mapping_occurrences }}</th>
@@ -189,11 +207,22 @@
                   {% for item in mapping.variables %}
                     <tr>
                       <td><a href="{% url 'research' %}?dataset={{ dataset.dataset_id }}&amp;signature={{ item.signature_id }}">{% if item.source.raw_name %}{{ item.source.raw_name }}{% else %}—{% endif %}</a></td>
+                      <td>
+                        {% if item.semantic_role == "measurement" %}{{ ui.research_role_measurement }}
+                        {% elif item.semantic_role == "condition" %}{{ ui.research_role_condition }}
+                        {% elif item.semantic_role == "structural" %}{{ ui.research_role_structural }}
+                        {% else %}{{ ui.research_role_unknown }}{% endif %}
+                      </td>
                       <td>{% if item.source.raw_unit %}{{ item.source.raw_unit }}{% else %}—{% endif %}</td>
-                      <td>{% if item.quantity_family %}{{ item.quantity_family }}{% else %}—{% endif %}</td>
-                      <td>{% if item.canonical %}{{ item.canonical.id }}{% else %}—{% endif %}</td>
-                      <td>{% if item.canonical %}{{ item.canonical.symbol }}{% else %}—{% endif %}</td>
-                      <td>{% if item.canonical %}{{ item.canonical.si_unit }}{% else %}—{% endif %}</td>
+                      <td>{% if item.source.context_labels %}{{ item.source.context_labels|join:", " }}{% else %}—{% endif %}</td>
+                      <td>{% if item.source.group_labels %}{{ item.source.group_labels|join:", " }}{% else %}—{% endif %}</td>
+                      <td>
+                        {% if item.raw_hint %}
+                          {% if item.raw_hint.possible_target %}{{ item.raw_hint.possible_target }}{% endif %}
+                          {% if item.raw_hint.possible_targets %}{{ item.raw_hint.possible_targets|join:", " }}{% endif %}
+                          <span class="research-unit">{{ ui.research_needs_evidence }}</span>
+                        {% else %}—{% endif %}
+                      </td>
                       <td>{{ item.status }}</td>
                       <td>{% if item.confidence %}{{ item.confidence }}{% else %}—{% endif %}</td>
                       <td>{{ item.source.occurrences|length }}</td>
@@ -207,8 +236,27 @@
               <article class="research-card">
                 <h3>{% if item.source.raw_name %}{{ item.source.raw_name }}{% else %}—{% endif %}</h3>
                 <p class="research-note">{{ item.notes }}</p>
+                <p>{{ ui.research_file }}: {{ item.source.files|join:", " }}</p>
+                <p>{{ ui.research_sheet }}: {{ item.source.sheets|join:", " }}</p>
                 {% if item.source.group_labels %}
                   <p>{{ ui.research_mapping_groups }}: {{ item.source.group_labels|join:", " }}</p>
+                {% endif %}
+                {% if item.source.context_labels %}
+                  <p>{{ ui.research_mapping_condition }}: {{ item.source.context_labels|join:", " }}</p>
+                {% endif %}
+                {% if item.raw_hint %}
+                  <p>{{ ui.research_mapping_possible }}:
+                    {% if item.raw_hint.possible_target %}{{ item.raw_hint.possible_target }}{% endif %}
+                    {% if item.raw_hint.possible_targets %}{{ item.raw_hint.possible_targets|join:", " }}{% endif %}
+                    — {{ ui.research_needs_evidence }}
+                  </p>
+                {% endif %}
+                {% if stage_results %}
+                  {% for question in stage_results.open_questions %}
+                    {% if item.source.raw_name in question.related_raw %}
+                      <p>{{ question.id }}: {{ question.text }} ({{ question.status }})</p>
+                    {% endif %}
+                  {% endfor %}
                 {% endif %}
                 <p>{{ ui.research_mapping_evidence }}:
                   {% for piece in item.evidence %}{{ piece.type }}={{ piece.value }}{% if not forloop.last %}; {% endif %}{% empty %}—{% endfor %}
@@ -287,6 +335,7 @@
                           <th>{{ ui.research_mapping_examples }}</th>
                           <th>{{ ui.research_mapping_range }}</th>
                           <th>{{ ui.research_mapping_groups }}</th>
+                          <th>{{ ui.research_mapping_condition }}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -300,6 +349,13 @@
                             <td>{% if occurrence.example != None %}{{ occurrence.example }}{% else %}—{% endif %}</td>
                             <td>{% if occurrence.min != None %}{{ occurrence.min }} / {{ occurrence.max }}{% else %}—{% endif %}</td>
                             <td>{% if occurrence.group_label %}{{ occurrence.group_label }}{% else %}—{% endif %}</td>
+                            <td>
+                              {% if occurrence.experimental_context %}
+                                {{ occurrence.experimental_context.value }}{% if occurrence.experimental_context.unit %} {{ occurrence.experimental_context.unit }}{% endif %}
+                              {% elif occurrence.block_conditions %}
+                                {% for ctx in occurrence.block_conditions %}{{ ctx.label }}{% if not forloop.last %}, {% endif %}{% endfor %}
+                              {% else %}—{% endif %}
+                            </td>
                           </tr>
                         {% endfor %}
                       </tbody>
@@ -316,6 +372,45 @@
                   <li>{{ relation.equation }} — {{ relation.calculation_status }}</li>
                 {% endfor %}
               </ul>
+            {% endif %}
+            {% if stage_results %}
+              <h3>{{ ui.research_groups_title }}</h3>
+              <ul>
+                {% for group in stage_results.experimental_groups %}
+                  <li>{{ group.label }} — {% if group.interpretation_status == "hypothesis" %}{{ ui.research_hypothesis }}{% else %}{{ group.interpretation_status }}{% endif %}</li>
+                {% endfor %}
+              </ul>
+              <h3>{{ ui.research_feasibility }}</h3>
+              <p class="research-note">{{ ui.research_feas_note }}</p>
+              <div class="research-feasibility">
+                {% for item in stage_results.modeling_feasibility %}
+                  <article>
+                    <h3>
+                      {% if item.id == "hydraulic_degradation_gassy" %}{{ ui.feas_hydraulic }}
+                      {% elif item.id == "pressure_head_response" %}{{ ui.feas_pressure }}
+                      {% elif item.id == "surging_regime" %}{{ ui.feas_surging }}
+                      {% elif item.id == "sensorless_intake_pressure" %}{{ ui.feas_intake }}
+                      {% elif item.id == "flowing_bottomhole_pressure" %}{{ ui.feas_pwf }}
+                      {% elif item.id == "dynamic_level" %}{{ ui.feas_level }}
+                      {% elif item.id == "anomaly_detection" %}{{ ui.feas_anomaly }}
+                      {% else %}{{ item.id }}{% endif %}
+                    </h3>
+                    <p>
+                      {% if item.status == "potentially_feasible" %}{{ ui.research_feas_possible }}
+                      {% elif item.status == "needs_mapping" %}{{ ui.research_feas_mapping }}
+                      {% elif item.status == "needs_additional_dataset" %}{{ ui.research_feas_dataset }}
+                      {% else %}{{ ui.research_feas_insufficient }}{% endif %}
+                    </p>
+                  </article>
+                {% endfor %}
+              </div>
+              <h3>{{ ui.research_questions }}</h3>
+              <ul>
+                {% for question in stage_results.open_questions %}
+                  <li>{{ question.id }} — {{ question.text }} ({{ question.status }})</li>
+                {% endfor %}
+              </ul>
+              <p><a href="{% url 'research-results' dataset.dataset_id %}">{{ ui.research_results_download }}</a></p>
             {% endif %}
           {% else %}
             <p class="research-note">{{ ui.research_mapping_unavailable }}</p>
