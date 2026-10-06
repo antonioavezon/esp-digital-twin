@@ -1,0 +1,3237 @@
+{
+  "dataset_id": "001",
+  "tool_version": "research-profile-2-0",
+  "files": [
+    {
+      "filename": "Mapping Test Data_zero IPA.xlsx",
+      "tool_version": "research-profile-2-0",
+      "sheets": [
+        {
+          "name": "50psig",
+          "row_count": 50,
+          "column_count": 18,
+          "block_count": 2,
+          "data_row_count": 45,
+          "empty_row_count": 1,
+          "blocks": [
+            {
+              "start_row": 1,
+              "end_row": 21,
+              "header_row_count": 2,
+              "data_row_count": 19,
+              "column_count": 12,
+              "duplicate_headers": [
+                {
+                  "header_row": 2,
+                  "text": "Flow rate",
+                  "count": 4
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 4
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "Flow rate"
+              ],
+              "empty_columns": [
+                4,
+                7,
+                10
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    null,
+                    "rotary speed"
+                  ],
+                  "name": "rotary speed",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 1,
+                  "null_count": 18,
+                  "inferred_type": "number",
+                  "unique_count": 1,
+                  "empty": false,
+                  "first": 1800,
+                  "last": 1800,
+                  "min": 1800.0,
+                  "max": 1800.0,
+                  "mean": 1800.0,
+                  "median": 1800.0
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "Single Phase",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 10,
+                  "null_count": 9,
+                  "inferred_type": "number",
+                  "unique_count": 10,
+                  "empty": false,
+                  "first": 424.62110435238674,
+                  "last": 2360.1051437547494,
+                  "min": 424.62110435238674,
+                  "max": 2360.1051437547494,
+                  "mean": 1404.5239687562585,
+                  "median": 1424.8894236512594
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 10,
+                  "null_count": 9,
+                  "inferred_type": "number",
+                  "unique_count": 10,
+                  "empty": false,
+                  "first": 8.38932958333333,
+                  "last": 0.47710391666666685,
+                  "min": 0.47710391666666685,
+                  "max": 8.38932958333333,
+                  "mean": 5.4566846,
+                  "median": 6.097680416666667
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 0,
+                  "null_count": 19,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qgd=0.005",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 19,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 2351.75021571697,
+                  "last": 134.2241498098758,
+                  "min": 134.2241498098758,
+                  "max": 2351.75021571697,
+                  "mean": 1315.7350845551643,
+                  "median": 1308.715328307194
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 19,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 0.395417,
+                  "last": 0.34601766666666706,
+                  "min": 0.34601766666666706,
+                  "max": 6.806358500000004,
+                  "mean": 4.510935609649123,
+                  "median": 5.223444666666669
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 0,
+                  "null_count": 19,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "Qgd=0.01",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 18,
+                  "null_count": 1,
+                  "inferred_type": "number",
+                  "unique_count": 18,
+                  "empty": false,
+                  "first": 2316.3741062748422,
+                  "last": 495.3431160316084,
+                  "min": 495.3431160316084,
+                  "max": 2316.3741062748422,
+                  "mean": 1365.2893679259241,
+                  "median": 1354.4481828451358
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 18,
+                  "null_count": 1,
+                  "inferred_type": "number",
+                  "unique_count": 18,
+                  "empty": false,
+                  "first": 0.4209446666666663,
+                  "last": 3.0177755833333326,
+                  "min": 0.4209446666666663,
+                  "max": 6.09352475,
+                  "mean": 4.057318842592593,
+                  "median": 4.318678166666668
+                },
+                {
+                  "index": 10,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 0,
+                  "null_count": 19,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 11,
+                  "headers": [
+                    "Qgd=0.015",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 15,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 15,
+                  "empty": false,
+                  "first": 2278.3175472916805,
+                  "last": 719.3835758225028,
+                  "min": 719.3835758225028,
+                  "max": 2278.3175472916805,
+                  "mean": 1524.3943739494039,
+                  "median": 1497.7052740152985
+                },
+                {
+                  "index": 12,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 19,
+                  "non_null": 15,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 15,
+                  "empty": false,
+                  "first": 0.46785975,
+                  "last": 2.8602281666666682,
+                  "min": 0.46785975,
+                  "max": 5.4094554166666695,
+                  "mean": 3.439704277777778,
+                  "median": 3.8532030833333346
+                }
+              ]
+            },
+            {
+              "start_row": 23,
+              "end_row": 50,
+              "header_row_count": 2,
+              "data_row_count": 26,
+              "column_count": 18,
+              "duplicate_headers": [
+                {
+                  "header_row": 2,
+                  "text": "Flow rate",
+                  "count": 6
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 6
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "Flow rate"
+              ],
+              "empty_columns": [
+                4,
+                7,
+                10,
+                13,
+                16
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    null,
+                    "rotary speed"
+                  ],
+                  "name": "rotary speed",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 1,
+                  "null_count": 25,
+                  "inferred_type": "number",
+                  "unique_count": 1,
+                  "empty": false,
+                  "first": 3500,
+                  "last": 3500,
+                  "min": 3500.0,
+                  "max": 3500.0,
+                  "mean": 3500.0,
+                  "median": 3500.0
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "Single Phase",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 21,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 288.7837199409525,
+                  "last": 4702.522256658226,
+                  "min": 288.7837199409525,
+                  "max": 4702.522256658226,
+                  "mean": 2505.156636366328,
+                  "median": 2499.8102764025007
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 21,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 31.209657833333335,
+                  "last": 0.6562805833333327,
+                  "min": 0.6562805833333327,
+                  "max": 31.209657833333335,
+                  "mean": 22.094088734126984,
+                  "median": 25.21746458333333
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 0,
+                  "null_count": 26,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qgd=0.01",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 26,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 26,
+                  "empty": false,
+                  "first": 4567.759727694455,
+                  "last": 1.3529877894381905,
+                  "min": 1.3529877894381905,
+                  "max": 4567.759727694455,
+                  "mean": 2537.4313335048196,
+                  "median": 2696.600115625742
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 26,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 26,
+                  "empty": false,
+                  "first": 0.9164995833333329,
+                  "last": 0.27426439024390253,
+                  "min": 0.27426439024390253,
+                  "max": 31.056334166666684,
+                  "mean": 18.390775085522204,
+                  "median": 20.057632083333342
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 0,
+                  "null_count": 26,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "Qgd=0.02",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 21,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 4494.9434770682155,
+                  "last": 783.3178522407633,
+                  "min": 783.3178522407633,
+                  "max": 4494.9434770682155,
+                  "mean": 2676.658487520165,
+                  "median": 2555.655610163277
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 21,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 0.7064236666666663,
+                  "last": 10.783131666666664,
+                  "min": 0.7064236666666663,
+                  "max": 27.51232433333333,
+                  "mean": 18.95955644047619,
+                  "median": 22.173640833333334
+                },
+                {
+                  "index": 10,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 0,
+                  "null_count": 26,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 11,
+                  "headers": [
+                    "Qgd=0.03",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 21,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 4396.837899209814,
+                  "last": 63.87182639215154,
+                  "min": 63.87182639215154,
+                  "max": 4396.837899209814,
+                  "mean": 2565.3558235769133,
+                  "median": 2577.7218893040563
+                },
+                {
+                  "index": 12,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 21,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 0.5961730000000001,
+                  "last": 0.3299456666666664,
+                  "min": 0.3299456666666664,
+                  "max": 25.55860716666667,
+                  "mean": 15.214470039682542,
+                  "median": 17.880189833333336
+                },
+                {
+                  "index": 13,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 0,
+                  "null_count": 26,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 14,
+                  "headers": [
+                    "Qgd=0.04",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 20,
+                  "null_count": 6,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 4263.686967969283,
+                  "last": 1426.6422322964356,
+                  "min": 1426.6422322964356,
+                  "max": 4263.686967969283,
+                  "mean": 2840.6328275538112,
+                  "median": 2665.6373032188926
+                },
+                {
+                  "index": 15,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 20,
+                  "null_count": 6,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 0.47015049999999997,
+                  "last": 12.171761083333339,
+                  "min": 0.47015049999999997,
+                  "max": 18.261675249999996,
+                  "mean": 12.9703460375,
+                  "median": 15.322660374999998
+                },
+                {
+                  "index": 16,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 0,
+                  "null_count": 26,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 17,
+                  "headers": [
+                    "Qgd=0.05",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 15,
+                  "null_count": 11,
+                  "inferred_type": "number",
+                  "unique_count": 15,
+                  "empty": false,
+                  "first": 4027.9211290748503,
+                  "last": 533.4229609134728,
+                  "min": 533.4229609134728,
+                  "max": 4027.9211290748503,
+                  "mean": 2665.9262818095285,
+                  "median": 2668.811096771807
+                },
+                {
+                  "index": 18,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 26,
+                  "non_null": 15,
+                  "null_count": 11,
+                  "inferred_type": "number",
+                  "unique_count": 15,
+                  "empty": false,
+                  "first": 0.08009041666666666,
+                  "last": 1.8620716666666663,
+                  "min": 0.08009041666666666,
+                  "max": 15.230293416666667,
+                  "mean": 9.716429072222223,
+                  "median": 11.985805750000004
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "100psig",
+          "row_count": 52,
+          "column_count": 18,
+          "block_count": 2,
+          "data_row_count": 47,
+          "empty_row_count": 1,
+          "blocks": [
+            {
+              "start_row": 1,
+              "end_row": 19,
+              "header_row_count": 2,
+              "data_row_count": 17,
+              "column_count": 12,
+              "duplicate_headers": [
+                {
+                  "header_row": 2,
+                  "text": "Flow rate",
+                  "count": 4
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 4
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "Flow rate"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7,
+                10
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    null,
+                    "rotary speed"
+                  ],
+                  "name": "rotary speed",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 0,
+                  "null_count": 17,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "Single Phase",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 9,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 9,
+                  "empty": false,
+                  "first": 701.5114984328628,
+                  "last": 2349.1181670440933,
+                  "min": 701.5114984328628,
+                  "max": 2349.1181670440933,
+                  "mean": 1532.9492708743915,
+                  "median": 1535.2522057494753
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 9,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 9,
+                  "empty": false,
+                  "first": 8.059971833333332,
+                  "last": 0.5431136666666662,
+                  "min": 0.5431136666666662,
+                  "max": 8.059971833333332,
+                  "mean": 5.040422518518518,
+                  "median": 5.5351471666666665
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 0,
+                  "null_count": 17,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qgd=0.005",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 14,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 14,
+                  "empty": false,
+                  "first": 2286.6876876195183,
+                  "last": 398.80555759080886,
+                  "min": 398.80555759080886,
+                  "max": 2286.6876876195183,
+                  "mean": 1202.5758221434767,
+                  "median": 1050.1940927912333
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 14,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 14,
+                  "empty": false,
+                  "first": 0.622346666666667,
+                  "last": 3.169977916666667,
+                  "min": 0.622346666666667,
+                  "max": 7.019945666666667,
+                  "mean": 4.5434584821428565,
+                  "median": 5.089000333333332
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 0,
+                  "null_count": 17,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "Qgd=0.01",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 15,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 15,
+                  "empty": false,
+                  "first": 2293.526081573962,
+                  "last": 179.93790115541202,
+                  "min": 179.93790115541202,
+                  "max": 2293.526081573962,
+                  "mean": 1178.912386328287,
+                  "median": 1094.1690861392165
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 15,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 15,
+                  "empty": false,
+                  "first": 0.33846991666666704,
+                  "last": 0.23915216666666678,
+                  "min": 0.23915216666666678,
+                  "max": 6.096522166666667,
+                  "mean": 3.907238637777778,
+                  "median": 4.1658912
+                },
+                {
+                  "index": 10,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 0,
+                  "null_count": 17,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 11,
+                  "headers": [
+                    "Qgd=0.015",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 17,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 17,
+                  "empty": false,
+                  "first": 2257.299929371806,
+                  "last": 56.809142467872746,
+                  "min": 56.809142467872746,
+                  "max": 2257.299929371806,
+                  "mean": 1200.5563187051287,
+                  "median": 1201.445544030262
+                },
+                {
+                  "index": 12,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 17,
+                  "non_null": 17,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 17,
+                  "empty": false,
+                  "first": 0.3424188333333337,
+                  "last": 0.14689846846846824,
+                  "min": 0.14689846846846824,
+                  "max": 5.886125733333335,
+                  "mean": 3.42579931560176,
+                  "median": 3.7047112500000003
+                }
+              ]
+            },
+            {
+              "start_row": 21,
+              "end_row": 52,
+              "header_row_count": 2,
+              "data_row_count": 30,
+              "column_count": 18,
+              "duplicate_headers": [
+                {
+                  "header_row": 2,
+                  "text": "Flow rate",
+                  "count": 6
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 6
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "Flow rate"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7,
+                10,
+                13,
+                16
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    null,
+                    "rotary speed"
+                  ],
+                  "name": "rotary speed",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 0,
+                  "null_count": 30,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "Single Phase",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 18,
+                  "null_count": 12,
+                  "inferred_type": "number",
+                  "unique_count": 18,
+                  "empty": false,
+                  "first": 1095.2251847499815,
+                  "last": 4611.235537009804,
+                  "min": 1095.2251847499815,
+                  "max": 4611.235537009804,
+                  "mean": 2812.6569858825965,
+                  "median": 2808.5863150347996
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 18,
+                  "null_count": 12,
+                  "inferred_type": "number",
+                  "unique_count": 18,
+                  "empty": false,
+                  "first": 30.873209333333346,
+                  "last": 1.1455894999999998,
+                  "min": 1.1455894999999998,
+                  "max": 30.873209333333346,
+                  "mean": 20.054705277777778,
+                  "median": 22.44193933333333
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 0,
+                  "null_count": 30,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qgd=0.01",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 30,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 30,
+                  "empty": false,
+                  "first": 4587.775049863409,
+                  "last": 44.68101931519537,
+                  "min": 44.68101931519537,
+                  "max": 4587.775049863409,
+                  "mean": 2735.0206615829297,
+                  "median": 2943.876297423394
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 30,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 30,
+                  "empty": false,
+                  "first": 0.7651241666666668,
+                  "last": 0.357734,
+                  "min": 0.357734,
+                  "max": 28.52052008333334,
+                  "mean": 16.245998058401085,
+                  "median": 16.72161966666667
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 0,
+                  "null_count": 30,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "Qgd=0.02",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 25,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 25,
+                  "empty": false,
+                  "first": 4509.584213726807,
+                  "last": 811.9609468113586,
+                  "min": 811.9609468113586,
+                  "max": 4509.584213726807,
+                  "mean": 2667.9297526080823,
+                  "median": 2712.3730621700092
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 25,
+                  "null_count": 5,
+                  "inferred_type": "number",
+                  "unique_count": 25,
+                  "empty": false,
+                  "first": 0.7397327500000005,
+                  "last": 12.369043750000003,
+                  "min": 0.7397327500000005,
+                  "max": 27.51714533333333,
+                  "mean": 17.338310783333334,
+                  "median": 18.498970500000002
+                },
+                {
+                  "index": 10,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 0,
+                  "null_count": 30,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 11,
+                  "headers": [
+                    "Qgd=0.03",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 22,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 22,
+                  "empty": false,
+                  "first": 4298.124372371903,
+                  "last": 171.7684592167566,
+                  "min": 171.7684592167566,
+                  "max": 4298.124372371903,
+                  "mean": 2277.137577828804,
+                  "median": 2197.873615295112
+                },
+                {
+                  "index": 12,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 22,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 22,
+                  "empty": false,
+                  "first": 2.869585500000001,
+                  "last": 0.28129141666666624,
+                  "min": 0.28129141666666624,
+                  "max": 24.24097516666667,
+                  "mean": 14.242920669765839,
+                  "median": 15.890679374999998
+                },
+                {
+                  "index": 13,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 0,
+                  "null_count": 30,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 14,
+                  "headers": [
+                    "Qgd=0.04",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 20,
+                  "null_count": 10,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 4327.916184703945,
+                  "last": 223.87881676483232,
+                  "min": 223.87881676483232,
+                  "max": 4327.916184703945,
+                  "mean": 2381.498816495586,
+                  "median": 2384.049464893321
+                },
+                {
+                  "index": 15,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 20,
+                  "null_count": 10,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 1.4502573333333337,
+                  "last": 0.32093316666666627,
+                  "min": 0.32093316666666627,
+                  "max": 19.041056000000008,
+                  "mean": 11.815923355555555,
+                  "median": 12.868354083333335
+                },
+                {
+                  "index": 16,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 0,
+                  "null_count": 30,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 17,
+                  "headers": [
+                    "Qgd=0.05",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 22,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 22,
+                  "empty": false,
+                  "first": 4296.827403986341,
+                  "last": 687.1452437338672,
+                  "min": 687.1452437338672,
+                  "max": 4296.827403986341,
+                  "mean": 2546.1607929089464,
+                  "median": 2624.9935766026892
+                },
+                {
+                  "index": 18,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 30,
+                  "non_null": 22,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 22,
+                  "empty": false,
+                  "first": 0.6114314166666664,
+                  "last": 2.9664679166666668,
+                  "min": 0.6114314166666664,
+                  "max": 14.84246346666667,
+                  "mean": 10.315137756060606,
+                  "median": 12.110786666666673
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "150psig",
+          "row_count": 55,
+          "column_count": 18,
+          "block_count": 2,
+          "data_row_count": 44,
+          "empty_row_count": 7,
+          "blocks": [
+            {
+              "start_row": 1,
+              "end_row": 23,
+              "header_row_count": 2,
+              "data_row_count": 21,
+              "column_count": 12,
+              "duplicate_headers": [
+                {
+                  "header_row": 2,
+                  "text": "Flow rate",
+                  "count": 4
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 4
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "Flow rate"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7,
+                10
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    null,
+                    "rotary speed"
+                  ],
+                  "name": "rotary speed",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 0,
+                  "null_count": 21,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "Single Phase",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 10,
+                  "null_count": 11,
+                  "inferred_type": "number",
+                  "unique_count": 10,
+                  "empty": false,
+                  "first": 565.6511818109807,
+                  "last": 2350.6537090054044,
+                  "min": 565.6511818109807,
+                  "max": 2350.6537090054044,
+                  "mean": 1425.4299510338649,
+                  "median": 1410.9618909881237
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 10,
+                  "null_count": 11,
+                  "inferred_type": "number",
+                  "unique_count": 10,
+                  "empty": false,
+                  "first": 8.265065666666667,
+                  "last": 0.3454666666666669,
+                  "min": 0.3454666666666669,
+                  "max": 8.265065666666667,
+                  "mean": 5.371810433333334,
+                  "median": 6.069648166666667
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 0,
+                  "null_count": 21,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qgd=0.005",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 19,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 2308.9250489107335,
+                  "last": 400.6587068755085,
+                  "min": 400.6587068755085,
+                  "max": 2308.9250489107335,
+                  "mean": 1310.3927195673223,
+                  "median": 1307.3749839560119
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 19,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 0.39218166666666704,
+                  "last": 3.520781933333333,
+                  "min": 0.39218166666666704,
+                  "max": 7.072342666666668,
+                  "mean": 4.7354666684210525,
+                  "median": 5.329297266666671
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 0,
+                  "null_count": 21,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "Qgd=0.01",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 20,
+                  "null_count": 1,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 2278.7468205918954,
+                  "last": 98.00361599623842,
+                  "min": 98.00361599623842,
+                  "max": 2278.7468205918954,
+                  "mean": 1246.342344996725,
+                  "median": 1252.2787591120245
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 20,
+                  "null_count": 1,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 0.38493433333333354,
+                  "last": 0.22771658333333336,
+                  "min": 0.22771658333333336,
+                  "max": 6.563794666666666,
+                  "mean": 3.9862604875,
+                  "median": 4.3365279333333335
+                },
+                {
+                  "index": 10,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 0,
+                  "null_count": 21,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 11,
+                  "headers": [
+                    "Qgd=0.015",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 21,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 2247.0799262707087,
+                  "last": 111.85522880598226,
+                  "min": 111.85522880598226,
+                  "max": 2247.0799262707087,
+                  "mean": 1241.7489728077992,
+                  "median": 1202.9455530382047
+                },
+                {
+                  "index": 12,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 21,
+                  "non_null": 21,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 0.35250133333333356,
+                  "last": 0.302533083333333,
+                  "min": 0.302533083333333,
+                  "max": 5.887166470588234,
+                  "mean": 3.5811181074242544,
+                  "median": 3.8171406666666674
+                }
+              ]
+            },
+            {
+              "start_row": 31,
+              "end_row": 55,
+              "header_row_count": 2,
+              "data_row_count": 23,
+              "column_count": 18,
+              "duplicate_headers": [
+                {
+                  "header_row": 2,
+                  "text": "Flow rate",
+                  "count": 6
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 6
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "Flow rate"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7,
+                10,
+                13,
+                16
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    null,
+                    "rotary speed"
+                  ],
+                  "name": "rotary speed",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 0,
+                  "null_count": 23,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "Single Phase",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 19,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 1055.2194338150603,
+                  "last": 4610.313271550583,
+                  "min": 1055.2194338150603,
+                  "max": 4610.313271550583,
+                  "mean": 2728.633535294557,
+                  "median": 2698.6271917018275
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 19,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 31.09771600000001,
+                  "last": 0.7963601666666665,
+                  "min": 0.7963601666666665,
+                  "max": 31.09771600000001,
+                  "mean": 20.762451372807018,
+                  "median": 23.217672833333335
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 0,
+                  "null_count": 23,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qgd=0.01",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 20,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 4543.300963798173,
+                  "last": 84.23167313186983,
+                  "min": 84.23167313186983,
+                  "max": 4543.300963798173,
+                  "mean": 2483.5122120890705,
+                  "median": 2599.8992307062463
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 20,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 0.5870603333333335,
+                  "last": 0.5735803333333335,
+                  "min": 0.5735803333333335,
+                  "max": 28.462402166666674,
+                  "mean": 15.762374058333332,
+                  "median": 15.922467666666666
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 0,
+                  "null_count": 23,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "Qgd=0.02",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 23,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 23,
+                  "empty": false,
+                  "first": 4490.622974414971,
+                  "last": 591.182039491878,
+                  "min": 591.182039491878,
+                  "max": 4490.622974414971,
+                  "mean": 2351.6082917966614,
+                  "median": 2298.2734320287987
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 23,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 23,
+                  "empty": false,
+                  "first": 0.5624149999999997,
+                  "last": 8.090175583333334,
+                  "min": 0.5624149999999997,
+                  "max": 27.129311666666656,
+                  "mean": 15.83179368236715,
+                  "median": 15.723607333333332
+                },
+                {
+                  "index": 10,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 0,
+                  "null_count": 23,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 11,
+                  "headers": [
+                    "Qgd=0.03",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 19,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 4431.155410840927,
+                  "last": 708.3349475723523,
+                  "min": 708.3349475723523,
+                  "max": 4431.155410840927,
+                  "mean": 2508.170568939468,
+                  "median": 2501.4672274108043
+                },
+                {
+                  "index": 12,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 19,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 19,
+                  "empty": false,
+                  "first": 0.5669589999999995,
+                  "last": 5.924931333333336,
+                  "min": 0.5669589999999995,
+                  "max": 24.408781083333338,
+                  "mean": 15.179502694875348,
+                  "median": 17.0151905
+                },
+                {
+                  "index": 13,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 0,
+                  "null_count": 23,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 14,
+                  "headers": [
+                    "Qgd=0.04",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 21,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 4364.083396398143,
+                  "last": 384.28149067521866,
+                  "min": 384.28149067521866,
+                  "max": 4364.083396398143,
+                  "mean": 2304.867397576933,
+                  "median": 2299.5028873197084
+                },
+                {
+                  "index": 15,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 21,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 21,
+                  "empty": false,
+                  "first": 0.5709011666666667,
+                  "last": 0.7363902542372884,
+                  "min": 0.5709011666666667,
+                  "max": 20.79424233333333,
+                  "mean": 11.94101621686844,
+                  "median": 13.619608733333328
+                },
+                {
+                  "index": 16,
+                  "headers": [
+                    null,
+                    null
+                  ],
+                  "name": null,
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 0,
+                  "null_count": 23,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 17,
+                  "headers": [
+                    "Qgd=0.05",
+                    "Flow rate"
+                  ],
+                  "name": "Flow rate",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 20,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 4296.420396012627,
+                  "last": 512.6998707756401,
+                  "min": 512.6998707756401,
+                  "max": 4296.420396012627,
+                  "mean": 2396.8046049997693,
+                  "median": 2382.8253823420005
+                },
+                {
+                  "index": 18,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 23,
+                  "non_null": 20,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 0.5407098333333332,
+                  "last": 1.1155831081081082,
+                  "min": 0.5407098333333332,
+                  "max": 17.188453833333334,
+                  "mean": 10.410500837905404,
+                  "median": 11.733231958333333
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "generated_from": "001/Mapping Test Data_zero IPA.xlsx",
+      "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda"
+    },
+    {
+      "filename": "Surging Test Data_zero IPA.xlsx",
+      "tool_version": "research-profile-2-0",
+      "sheets": [
+        {
+          "name": "50psig",
+          "row_count": 50,
+          "column_count": 9,
+          "block_count": 2,
+          "data_row_count": 45,
+          "empty_row_count": 1,
+          "blocks": [
+            {
+              "start_row": 1,
+              "end_row": 18,
+              "header_row_count": 2,
+              "data_row_count": 16,
+              "column_count": 9,
+              "duplicate_headers": [
+                {
+                  "header_row": 1,
+                  "text": "Rotary Speed (rpm)",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "GVF0",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 3
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "GVF0",
+                "Rotary Speed (rpm)"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 16,
+                  "non_null": 0,
+                  "null_count": 16,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "0.75Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 16,
+                  "non_null": 8,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 8,
+                  "empty": false,
+                  "first": 0.06556803689334527,
+                  "last": 6.790929748919812,
+                  "min": 0.06556803689334527,
+                  "max": 6.790929748919812,
+                  "mean": 4.545250186770799,
+                  "median": 4.859373186473675
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 16,
+                  "non_null": 8,
+                  "null_count": 8,
+                  "inferred_type": "number",
+                  "unique_count": 8,
+                  "empty": false,
+                  "first": 7.289015583333338,
+                  "last": 3.644422833333333,
+                  "min": 3.644422833333333,
+                  "max": 7.289015583333338,
+                  "mean": 4.962556260416667,
+                  "median": 4.752632916666666
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 16,
+                  "non_null": 0,
+                  "null_count": 16,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 16,
+                  "non_null": 16,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 16,
+                  "empty": false,
+                  "first": 0.06886617606614996,
+                  "last": 10.658681622952756,
+                  "min": 0.06886617606614996,
+                  "max": 10.658681622952756,
+                  "mean": 6.050390697284176,
+                  "median": 5.875019969294123
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 16,
+                  "non_null": 16,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 16,
+                  "empty": false,
+                  "first": 6.54223375,
+                  "last": 0.9951262499999999,
+                  "min": 0.9951262499999999,
+                  "max": 6.54223375,
+                  "mean": 3.6911912812500005,
+                  "median": 3.4130673750000007
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 16,
+                  "non_null": 0,
+                  "null_count": 16,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "1.25Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 16,
+                  "non_null": 14,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 14,
+                  "empty": false,
+                  "first": 0.09157381361226956,
+                  "last": 8.08880065874999,
+                  "min": 0.09157381361226956,
+                  "max": 8.08880065874999,
+                  "mean": 4.3955249390651,
+                  "median": 4.268194922414072
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 16,
+                  "non_null": 14,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 14,
+                  "empty": false,
+                  "first": 4.5722015,
+                  "last": 0.9156429999999999,
+                  "min": 0.9156429999999999,
+                  "max": 4.5722015,
+                  "mean": 2.6690903988095243,
+                  "median": 2.665333041666667
+                }
+              ]
+            },
+            {
+              "start_row": 20,
+              "end_row": 50,
+              "header_row_count": 2,
+              "data_row_count": 29,
+              "column_count": 9,
+              "duplicate_headers": [
+                {
+                  "header_row": 1,
+                  "text": "Rotary Speed (rpm)",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "GVF0",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 3
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "GVF0",
+                "Rotary Speed (rpm)"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 29,
+                  "non_null": 0,
+                  "null_count": 29,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "0.75Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 29,
+                  "non_null": 25,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 25,
+                  "empty": false,
+                  "first": 0.07179690010503664,
+                  "last": 12.64659339594052,
+                  "min": 0.07179690010503664,
+                  "max": 12.64659339594052,
+                  "mean": 6.421330839270104,
+                  "median": 6.260497562548298
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 29,
+                  "non_null": 25,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 25,
+                  "empty": false,
+                  "first": 27.262945749999997,
+                  "last": 10.920851749999999,
+                  "min": 10.819543833333334,
+                  "max": 27.262945749999997,
+                  "mean": 20.452078303333334,
+                  "median": 22.990347999999987
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 29,
+                  "non_null": 0,
+                  "null_count": 29,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 29,
+                  "non_null": 29,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 29,
+                  "empty": false,
+                  "first": 0.1000831896327298,
+                  "last": 14.826610966007813,
+                  "min": 0.1000831896327298,
+                  "max": 14.826610966007813,
+                  "mean": 6.489848054098778,
+                  "median": 5.852186480629154
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 29,
+                  "non_null": 29,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 29,
+                  "empty": false,
+                  "first": 23.550942083333332,
+                  "last": 2.518045833333333,
+                  "min": 2.518045833333333,
+                  "max": 23.550942083333332,
+                  "mean": 15.471675655172413,
+                  "median": 16.47649558333334
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 29,
+                  "non_null": 0,
+                  "null_count": 29,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "1.25Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 29,
+                  "non_null": 27,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 27,
+                  "empty": false,
+                  "first": 0.07606879000336604,
+                  "last": 9.617579874115295,
+                  "min": 0.0005573857518441711,
+                  "max": 9.654254715758807,
+                  "mean": 4.33224012273351,
+                  "median": 3.9110825071206
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 29,
+                  "non_null": 27,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 27,
+                  "empty": false,
+                  "first": 17.0292045,
+                  "last": 2.084033166666667,
+                  "min": 2.084033166666667,
+                  "max": 17.0292045,
+                  "mean": 11.57226963888889,
+                  "median": 14.242870666666668
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "100psig",
+          "row_count": 61,
+          "column_count": 9,
+          "block_count": 2,
+          "data_row_count": 56,
+          "empty_row_count": 1,
+          "blocks": [
+            {
+              "start_row": 1,
+              "end_row": 16,
+              "header_row_count": 2,
+              "data_row_count": 14,
+              "column_count": 9,
+              "duplicate_headers": [
+                {
+                  "header_row": 1,
+                  "text": "Rotary Speed (rpm)",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "GVF0",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 3
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "GVF0",
+                "Rotary Speed (rpm)"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 14,
+                  "non_null": 0,
+                  "null_count": 14,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "0.75Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 14,
+                  "non_null": 10,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 10,
+                  "empty": false,
+                  "first": 0.1097090805162867,
+                  "last": 12.74386132417647,
+                  "min": 0.1097090805162867,
+                  "max": 12.74386132417647,
+                  "mean": 5.788536096979883,
+                  "median": 5.546334903421484
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 14,
+                  "non_null": 10,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 10,
+                  "empty": false,
+                  "first": 7.223725083333337,
+                  "last": 1.3204542666666668,
+                  "min": 1.3204542666666668,
+                  "max": 7.223725083333337,
+                  "mean": 4.611447521666666,
+                  "median": 4.533842166666669
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 14,
+                  "non_null": 0,
+                  "null_count": 14,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 14,
+                  "non_null": 14,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 14,
+                  "empty": false,
+                  "first": 0.12423519918950189,
+                  "last": 11.675191131608194,
+                  "min": 0.12423519918950189,
+                  "max": 11.675191131608194,
+                  "mean": 5.970340521996039,
+                  "median": 6.291711076768626
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 14,
+                  "non_null": 14,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 14,
+                  "empty": false,
+                  "first": 6.026444944444443,
+                  "last": 1.1501745555555556,
+                  "min": 1.1501745555555556,
+                  "max": 6.026444944444443,
+                  "mean": 3.732133755952381,
+                  "median": 3.481885055555556
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 14,
+                  "non_null": 0,
+                  "null_count": 14,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "1.25Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 14,
+                  "non_null": 12,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 12,
+                  "empty": false,
+                  "first": 0.09383794647441732,
+                  "last": 8.337949128293463,
+                  "min": 0.09383794647441732,
+                  "max": 8.337949128293463,
+                  "mean": 4.839819747987059,
+                  "median": 5.456792671561517
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 14,
+                  "non_null": 12,
+                  "null_count": 2,
+                  "inferred_type": "number",
+                  "unique_count": 12,
+                  "empty": false,
+                  "first": 4.306724666666667,
+                  "last": 0.9572310555555554,
+                  "min": 0.9572310555555554,
+                  "max": 4.306724666666667,
+                  "mean": 2.505967162037037,
+                  "median": 2.136258111111112
+                }
+              ]
+            },
+            {
+              "start_row": 18,
+              "end_row": 61,
+              "header_row_count": 2,
+              "data_row_count": 42,
+              "column_count": 9,
+              "duplicate_headers": [
+                {
+                  "header_row": 1,
+                  "text": "Rotary Speed (rpm)",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "GVF0",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 3
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "GVF0",
+                "Rotary Speed (rpm)"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 42,
+                  "non_null": 0,
+                  "null_count": 42,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "0.75Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 42,
+                  "non_null": 27,
+                  "null_count": 15,
+                  "inferred_type": "number",
+                  "unique_count": 27,
+                  "empty": false,
+                  "first": 0.07607454249646345,
+                  "last": 13.439576903585012,
+                  "min": 0.07607454249646345,
+                  "max": 13.79093201802678,
+                  "mean": 6.835630581461961,
+                  "median": 6.584495181585948
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 42,
+                  "non_null": 27,
+                  "null_count": 15,
+                  "inferred_type": "number",
+                  "unique_count": 27,
+                  "empty": false,
+                  "first": 27.608049583333333,
+                  "last": 9.864530055555557,
+                  "min": 9.279030888888887,
+                  "max": 27.608049583333333,
+                  "mean": 20.31045398600823,
+                  "median": 20.882980366666647
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 42,
+                  "non_null": 0,
+                  "null_count": 42,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 42,
+                  "non_null": 42,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 42,
+                  "empty": false,
+                  "first": 0.07413313523603642,
+                  "last": 18.56018154491844,
+                  "min": 0.07413313523603642,
+                  "max": 18.56018154491844,
+                  "mean": 6.309944058047186,
+                  "median": 5.373904237191187
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 42,
+                  "non_null": 42,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 42,
+                  "empty": false,
+                  "first": 23.506306249999998,
+                  "last": 1.8610515833333336,
+                  "min": 1.8610515833333336,
+                  "max": 23.506306249999998,
+                  "mean": 17.41885176758029,
+                  "median": 21.608863125000013
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 42,
+                  "non_null": 0,
+                  "null_count": 42,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "1.25Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 42,
+                  "non_null": 24,
+                  "null_count": 18,
+                  "inferred_type": "number",
+                  "unique_count": 24,
+                  "empty": false,
+                  "first": 0.024762935905145153,
+                  "last": 11.43732290191474,
+                  "min": 0.024762935905145153,
+                  "max": 11.43732290191474,
+                  "mean": 4.568641130964651,
+                  "median": 4.377630743688726
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 42,
+                  "non_null": 24,
+                  "null_count": 18,
+                  "inferred_type": "number",
+                  "unique_count": 24,
+                  "empty": false,
+                  "first": 16.713001166666665,
+                  "last": 1.560483333333333,
+                  "min": 1.560483333333333,
+                  "max": 16.713001166666665,
+                  "mean": 12.262824125,
+                  "median": 14.165026083333336
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "150psig",
+          "row_count": 56,
+          "column_count": 9,
+          "block_count": 2,
+          "data_row_count": 51,
+          "empty_row_count": 1,
+          "blocks": [
+            {
+              "start_row": 1,
+              "end_row": 22,
+              "header_row_count": 2,
+              "data_row_count": 20,
+              "column_count": 9,
+              "duplicate_headers": [
+                {
+                  "header_row": 1,
+                  "text": "Rotary Speed (rpm)",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "GVF0",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 3
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "GVF0",
+                "Rotary Speed (rpm)"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 20,
+                  "non_null": 0,
+                  "null_count": 20,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "0.75Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 20,
+                  "non_null": 20,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 0.14711349055167117,
+                  "last": 19.141263668268486,
+                  "min": 0.14711349055167117,
+                  "max": 19.141263668268486,
+                  "mean": 8.609467214202315,
+                  "median": 7.861403001798017
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 20,
+                  "non_null": 20,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 20,
+                  "empty": false,
+                  "first": 7.404735833333333,
+                  "last": 0.3828433666666667,
+                  "min": 0.3828433666666667,
+                  "max": 7.404735833333333,
+                  "mean": 3.8334122212078645,
+                  "median": 3.8701795166666706
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 20,
+                  "non_null": 0,
+                  "null_count": 20,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 20,
+                  "non_null": 16,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 16,
+                  "empty": false,
+                  "first": 0.05032313980527715,
+                  "last": 12.507608056834426,
+                  "min": 0.05032313980527715,
+                  "max": 12.507608056834426,
+                  "mean": 5.77164530103807,
+                  "median": 5.305802138886578
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 20,
+                  "non_null": 16,
+                  "null_count": 4,
+                  "inferred_type": "number",
+                  "unique_count": 16,
+                  "empty": false,
+                  "first": 6.070442666666668,
+                  "last": 1.2669856333333336,
+                  "min": 1.2669856333333336,
+                  "max": 6.070442666666668,
+                  "mean": 4.231870122916667,
+                  "median": 4.895551083333332
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    1800
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 20,
+                  "non_null": 0,
+                  "null_count": 20,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "1.25Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 20,
+                  "non_null": 13,
+                  "null_count": 7,
+                  "inferred_type": "number",
+                  "unique_count": 13,
+                  "empty": false,
+                  "first": 0.03277777872401742,
+                  "last": 9.404942422348721,
+                  "min": 0.03277777872401742,
+                  "max": 9.404942422348721,
+                  "mean": 4.585054149009744,
+                  "median": 4.546086023366178
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 20,
+                  "non_null": 13,
+                  "null_count": 7,
+                  "inferred_type": "number",
+                  "unique_count": 13,
+                  "empty": false,
+                  "first": 4.415624166666665,
+                  "last": 0.7663379166666664,
+                  "min": 0.7663379166666664,
+                  "max": 4.415624166666665,
+                  "mean": 2.895799237179487,
+                  "median": 3.1636823333333335
+                }
+              ]
+            },
+            {
+              "start_row": 24,
+              "end_row": 56,
+              "header_row_count": 2,
+              "data_row_count": 31,
+              "column_count": 9,
+              "duplicate_headers": [
+                {
+                  "header_row": 1,
+                  "text": "Rotary Speed (rpm)",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "GVF0",
+                  "count": 3
+                },
+                {
+                  "header_row": 2,
+                  "text": "DP2-3",
+                  "count": 3
+                }
+              ],
+              "duplicate_column_names": [
+                "DP2-3",
+                "GVF0",
+                "Rotary Speed (rpm)"
+              ],
+              "empty_columns": [
+                1,
+                4,
+                7
+              ],
+              "columns": [
+                {
+                  "index": 1,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 31,
+                  "non_null": 0,
+                  "null_count": 31,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 2,
+                  "headers": [
+                    "0.75Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 31,
+                  "non_null": 31,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 31,
+                  "empty": false,
+                  "first": 0.06436032321435615,
+                  "last": 18.684226729768376,
+                  "min": 0.06436032321435615,
+                  "max": 18.684226729768376,
+                  "mean": 9.109400818446321,
+                  "median": 8.773599668748428
+                },
+                {
+                  "index": 3,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 31,
+                  "non_null": 31,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 31,
+                  "empty": false,
+                  "first": 27.962517,
+                  "last": 5.311778499999997,
+                  "min": 5.311778499999997,
+                  "max": 27.962517,
+                  "mean": 17.818205284287444,
+                  "median": 17.170391166666686
+                },
+                {
+                  "index": 4,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 31,
+                  "non_null": 0,
+                  "null_count": 31,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 5,
+                  "headers": [
+                    "Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 31,
+                  "non_null": 31,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 31,
+                  "empty": false,
+                  "first": 0.04090541306037191,
+                  "last": 14.628618242192818,
+                  "min": 0.04090541306037191,
+                  "max": 14.628618242192818,
+                  "mean": 6.430171971117551,
+                  "median": 5.9362269255293825
+                },
+                {
+                  "index": 6,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 31,
+                  "non_null": 31,
+                  "null_count": 0,
+                  "inferred_type": "number",
+                  "unique_count": 31,
+                  "empty": false,
+                  "first": 22.949992999999996,
+                  "last": 4.397882999999998,
+                  "min": 4.397882999999998,
+                  "max": 22.949992999999996,
+                  "mean": 16.50412924767025,
+                  "median": 20.014891999999993
+                },
+                {
+                  "index": 7,
+                  "headers": [
+                    "Rotary Speed (rpm)",
+                    3500
+                  ],
+                  "name": "Rotary Speed (rpm)",
+                  "unit": "rpm",
+                  "count": 31,
+                  "non_null": 0,
+                  "null_count": 31,
+                  "inferred_type": "empty",
+                  "unique_count": 0,
+                  "empty": true
+                },
+                {
+                  "index": 8,
+                  "headers": [
+                    "1.25Qbep",
+                    "GVF0"
+                  ],
+                  "name": "GVF0",
+                  "unit": null,
+                  "count": 31,
+                  "non_null": 28,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 28,
+                  "empty": false,
+                  "first": 0.008466157848292606,
+                  "last": 11.242111021484282,
+                  "min": 0.008466157848292606,
+                  "max": 11.242111021484282,
+                  "mean": 5.325170442908332,
+                  "median": 4.973552649005602
+                },
+                {
+                  "index": 9,
+                  "headers": [
+                    null,
+                    "DP2-3"
+                  ],
+                  "name": "DP2-3",
+                  "unit": null,
+                  "count": 31,
+                  "non_null": 28,
+                  "null_count": 3,
+                  "inferred_type": "number",
+                  "unique_count": 28,
+                  "empty": false,
+                  "first": 16.768540833333336,
+                  "last": 1.894758000000001,
+                  "min": 1.894758000000001,
+                  "max": 16.768540833333336,
+                  "mean": 11.229912480158731,
+                  "median": 13.23628316666667
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "generated_from": "001/Surging Test Data_zero IPA.xlsx",
+      "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd"
+    }
+  ],
+  "generated_at": "2026-10-06T16:54:41+00:00"
+}

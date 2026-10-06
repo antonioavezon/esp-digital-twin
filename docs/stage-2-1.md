@@ -140,7 +140,7 @@ No encontradas: `intake_pressure`, `flowing_bottomhole_pressure`, `liquid_flow_r
 
 ## 18. Limitaciones
 
-El artículo E002 no está en el repositorio, así que no respalda ninguna columna. Las celdas combinadas cubren visualmente a `DP2-3` y a `Flow rate`, pero el rótulo no define los puntos 2 y 3 ni la fase del caudal. `Qgd` es un rótulo de condición, no una serie medida. La velocidad de rotación de Surging está en la fila de encabezado (1800 y 3500) y el cuerpo de esa columna está vacío: es una condición de ensayo, no una serie. `data/` sigue fuera de git, igual que el manifiesto y el preprocess. No hay conversión de unidades ni cálculo derivado.
+El artículo E002 no está en el repositorio, así que no respalda ninguna columna. Las celdas combinadas cubren visualmente a `DP2-3` y a `Flow rate`, pero el rótulo no define los puntos 2 y 3 ni la fase del caudal. `Qgd` es un rótulo de condición, no una serie medida. La velocidad de rotación de Surging está en la fila de encabezado (1800 y 3500) y el cuerpo de esa columna está vacío: es una condición de ensayo, no una serie. Los libros, el manifiesto, el preprocess y `mapping.json` del dataset 001 están en el repositorio, en `data/`. No hay conversión de unidades ni cálculo derivado.
 
 Relaciones registradas con `calculation_status = not_executed` e `inputs_available = false`:
 

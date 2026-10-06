@@ -16,6 +16,8 @@ build/
 .idea/
 .vscode/
 
-# Datos locales. La carpeta completa queda fuera del repositorio:
-# libros, manifiestos, informes, inbox e importaciones.
-data/
+# Ingesta local. El dataset 001 publicado vive en data/ y sí entra al repositorio.
+data/inbox/*
+!data/inbox/.gitkeep
+data/datasets/.lock
+data/datasets/*/raw/

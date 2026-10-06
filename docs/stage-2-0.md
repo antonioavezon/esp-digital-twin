@@ -132,7 +132,7 @@ Mobile Dataset Registry
 El escritorio pide el archivo con el selector del navegador. Seleccionar no importa. El orden de la pantalla es Seleccionar archivos, Analizar, Importar. Analizar deja el archivo en `data/inbox/` y devuelve nombre, tamaño, tipo, SHA-256, estado y advertencias. Importar asigna el identificador, copia el RAW y escribe los JSON.
 
 ```text
-data/                         local; la carpeta completa no entra a git
+data/                         el dataset 001 publicado sí entra a git; inbox e importaciones nuevas no
     001/
     datasets/
         001/metadata/             manifest.json y preprocess.json
@@ -150,13 +150,13 @@ Los loaders dependen del formato, no del dataset: `ExcelLoader`, `CsvLoader`, `T
 
 `manifest.json` responde qué archivo es, de dónde vino, cuándo se registró y cuál es su hash. `preprocess.json` responde cómo está organizado. Los dos llevan `schema_version` `1.0`. El profiler se identifica como `esp-structural-profiler` `0.1`, con `generated_at` y `generated_from_sha256`. Reanalizar vuelve a escribir solo el preprocess.
 
-Un valor que no se conoce queda en `null`. No se escribe `unknown` salvo en `distribution`, cuyo valor inicial de una importación es `unknown` (`public`, `private` o `unknown`). El dataset 001 queda `public` porque su fuente tiene DOI. Los archivos siguen solo en la máquina local. Su licencia no está en los libros y sigue en `null`.
+Un valor que no se conoce queda en `null`. No se escribe `unknown` salvo en `distribution`, cuyo valor inicial de una importación es `unknown` (`public`, `private` o `unknown`). El dataset 001 queda `public` porque su fuente tiene DOI. Los libros, el manifiesto, el preprocess y el mapping de 001 están en el repositorio, en las mismas carpetas. El inbox y las copias RAW de una importación nueva siguen fuera de git. Su licencia no está en los libros y sigue en `null`.
 
 El encabezado se guarda como `raw_name`. Una forma `flow_rate` es solo para identificar el texto. `canonical_variable` queda en `null` y `mapping_status` en `pending`. `semantic_mapping.status` queda en `not_started`. Una unidad se anota solo si el encabezado la escribe entre paréntesis. No se convierten unidades.
 
 SHA-256 repetido no crea otra copia. La respuesta dice que el archivo ya existe en un dataset y la importación espera cancelar o vincular. El vínculo guarda `linked_from` y no duplica bytes.
 
-La carpeta `data/` completa está en `.gitignore`. El móvil no debe llevar esos RAW dentro del APK.
+`.gitignore` deja fuera el inbox, el lock de datasets y `datasets/*/raw/`. El dataset 001 publicado no está ignorado. El móvil no debe llevar esos RAW dentro del APK.
 
 Estados de esta etapa: `selected`, `validated`, `imported`, `profiled`, `ready_for_mapping`, `error`. No se usan `trained`, `predicted` ni `classified`.
 

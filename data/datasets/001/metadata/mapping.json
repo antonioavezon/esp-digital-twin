@@ -1,0 +1,3449 @@
+{
+  "schema_version": "1.0",
+  "mapping_version": "0.1",
+  "dataset_id": "001",
+  "created_at": "2026-10-06T18:40:00+00:00",
+  "updated_at": "2026-10-06T18:40:00+00:00",
+  "status": "in_review",
+  "semantic_status": "mapping_in_progress",
+  "lineage": {
+    "preprocess_schema_version": "1.0",
+    "mapping_schema_version": "1.0",
+    "source_sha256": {
+      "Mapping Test Data_zero IPA.xlsx": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+      "Surging Test Data_zero IPA.xlsx": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd"
+    }
+  },
+  "evidence_sources": [
+    {
+      "id": "E001",
+      "kind": "dataset",
+      "title": "Modeling Flow Pattern Transitions in Electrical Submersible Pump under Gassy Flow Conditions",
+      "doi": "10.17632/fk2b4r69bs.1"
+    },
+    {
+      "id": "E002",
+      "kind": "article",
+      "title": "Modeling Flow Pattern Transitions in Electrical Submersible Pump under Gassy Flow Conditions",
+      "doi": "10.1016/j.petrol.2019.05.059",
+      "used": false
+    }
+  ],
+  "variables": [
+    {
+      "mapping_id": "M001",
+      "signature_id": "S-blank",
+      "source": {
+        "raw_name": null,
+        "raw_unit": null,
+        "normalized_name": null,
+        "group_labels": [],
+        "occurrences": [
+          {
+            "column_ref": "001/F01/50psig/B01/c04/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c07/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c10/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 10,
+            "column_letter": "J",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c04/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c07/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c10/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 10,
+            "column_letter": "J",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c13/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 13,
+            "column_letter": "M",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c16/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 16,
+            "column_letter": "P",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c04/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c07/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c10/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 10,
+            "column_letter": "J",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c04/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c07/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c10/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 10,
+            "column_letter": "J",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c13/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 13,
+            "column_letter": "M",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c16/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 16,
+            "column_letter": "P",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c04/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c07/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c10/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 10,
+            "column_letter": "J",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c04/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c07/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c10/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 10,
+            "column_letter": "J",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c13/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 13,
+            "column_letter": "M",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c16/blank",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 16,
+            "column_letter": "P",
+            "header_stack": [
+              null,
+              null
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          }
+        ]
+      },
+      "quantity_family": null,
+      "location": "unknown",
+      "canonical": null,
+      "evidence": [],
+      "evidence_ids": [],
+      "confidence": null,
+      "status": "not_applicable",
+      "notes": "Columna vacía. Se usa como separación y no representa una variable física.",
+      "revision": 1,
+      "created_at": "2026-10-06T18:40:00+00:00",
+      "updated_at": "2026-10-06T18:40:00+00:00",
+      "history": [
+        {
+          "revision": 1,
+          "at": "2026-10-06T18:40:00+00:00",
+          "status": "not_applicable",
+          "canonical_id": null,
+          "confidence": null,
+          "evidence": [],
+          "notes": "Columna vacía. Se usa como separación y no representa una variable física.",
+          "action": "initial"
+        }
+      ]
+    },
+    {
+      "mapping_id": "M002",
+      "signature_id": "S-dp2-3-nou",
+      "source": {
+        "raw_name": "DP2-3",
+        "raw_unit": null,
+        "normalized_name": "dp2_3",
+        "group_labels": [
+          "Single Phase",
+          "Qgd=0.005",
+          "Qgd=0.01",
+          "Qgd=0.015",
+          "Qgd=0.02",
+          "Qgd=0.03",
+          "Qgd=0.04",
+          "Qgd=0.05",
+          "0.75Qbep",
+          "Qbep",
+          "1.25Qbep"
+        ],
+        "occurrences": [
+          {
+            "column_ref": "001/F01/50psig/B01/c03/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.47710391666666685,
+            "max": 8.38932958333333,
+            "example": 8.38932958333333
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c06/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.005",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.34601766666666706,
+            "max": 6.806358500000004,
+            "example": 0.395417
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c09/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.4209446666666663,
+            "max": 6.09352475,
+            "example": 0.4209446666666663
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c12/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 12,
+            "column_letter": "L",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.015",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.46785975,
+            "max": 5.4094554166666695,
+            "example": 0.46785975
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c03/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.6562805833333327,
+            "max": 31.209657833333335,
+            "example": 31.209657833333335
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c06/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.27426439024390253,
+            "max": 31.056334166666684,
+            "example": 0.9164995833333329
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c09/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.02",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.7064236666666663,
+            "max": 27.51232433333333,
+            "example": 0.7064236666666663
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c12/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 12,
+            "column_letter": "L",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.03",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.3299456666666664,
+            "max": 25.55860716666667,
+            "example": 0.5961730000000001
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c15/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 15,
+            "column_letter": "O",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.04",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.47015049999999997,
+            "max": 18.261675249999996,
+            "example": 0.47015049999999997
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c18/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 18,
+            "column_letter": "R",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.05",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.08009041666666666,
+            "max": 15.230293416666667,
+            "example": 0.08009041666666666
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c03/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.5431136666666662,
+            "max": 8.059971833333332,
+            "example": 8.059971833333332
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c06/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.005",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.622346666666667,
+            "max": 7.019945666666667,
+            "example": 0.622346666666667
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c09/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.23915216666666678,
+            "max": 6.096522166666667,
+            "example": 0.33846991666666704
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c12/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 12,
+            "column_letter": "L",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.015",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.14689846846846824,
+            "max": 5.886125733333335,
+            "example": 0.3424188333333337
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c03/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 1.1455894999999998,
+            "max": 30.873209333333346,
+            "example": 30.873209333333346
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c06/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.357734,
+            "max": 28.52052008333334,
+            "example": 0.7651241666666668
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c09/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.02",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.7397327500000005,
+            "max": 27.51714533333333,
+            "example": 0.7397327500000005
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c12/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 12,
+            "column_letter": "L",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.03",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.28129141666666624,
+            "max": 24.24097516666667,
+            "example": 2.869585500000001
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c15/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 15,
+            "column_letter": "O",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.04",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.32093316666666627,
+            "max": 19.041056000000008,
+            "example": 1.4502573333333337
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c18/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 18,
+            "column_letter": "R",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.05",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.6114314166666664,
+            "max": 14.84246346666667,
+            "example": 0.6114314166666664
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c03/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.3454666666666669,
+            "max": 8.265065666666667,
+            "example": 8.265065666666667
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c06/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.005",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.39218166666666704,
+            "max": 7.072342666666668,
+            "example": 0.39218166666666704
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c09/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.22771658333333336,
+            "max": 6.563794666666666,
+            "example": 0.38493433333333354
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c12/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 12,
+            "column_letter": "L",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.015",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.302533083333333,
+            "max": 5.887166470588234,
+            "example": 0.35250133333333356
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c03/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.7963601666666665,
+            "max": 31.09771600000001,
+            "example": 31.09771600000001
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c06/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.5735803333333335,
+            "max": 28.462402166666674,
+            "example": 0.5870603333333335
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c09/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.02",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.5624149999999997,
+            "max": 27.129311666666656,
+            "example": 0.5624149999999997
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c12/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 12,
+            "column_letter": "L",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.03",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.5669589999999995,
+            "max": 24.408781083333338,
+            "example": 0.5669589999999995
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c15/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 15,
+            "column_letter": "O",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.04",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.5709011666666667,
+            "max": 20.79424233333333,
+            "example": 0.5709011666666667
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c18/dp2-3",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 18,
+            "column_letter": "R",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qgd=0.05",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 0.5407098333333332,
+            "max": 17.188453833333334,
+            "example": 0.5407098333333332
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c03/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 3.644422833333333,
+            "max": 7.289015583333338,
+            "example": 7.289015583333338
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c06/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.9951262499999999,
+            "max": 6.54223375,
+            "example": 6.54223375
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c09/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.9156429999999999,
+            "max": 4.5722015,
+            "example": 4.5722015
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c03/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 10.819543833333334,
+            "max": 27.262945749999997,
+            "example": 27.262945749999997
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c06/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 2.518045833333333,
+            "max": 23.550942083333332,
+            "example": 23.550942083333332
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c09/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 2.084033166666667,
+            "max": 17.0292045,
+            "example": 17.0292045
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c03/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 1.3204542666666668,
+            "max": 7.223725083333337,
+            "example": 7.223725083333337
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c06/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 1.1501745555555556,
+            "max": 6.026444944444443,
+            "example": 6.026444944444443
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c09/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.9572310555555554,
+            "max": 4.306724666666667,
+            "example": 4.306724666666667
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c03/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 9.279030888888887,
+            "max": 27.608049583333333,
+            "example": 27.608049583333333
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c06/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 1.8610515833333336,
+            "max": 23.506306249999998,
+            "example": 23.506306249999998
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c09/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 1.560483333333333,
+            "max": 16.713001166666665,
+            "example": 16.713001166666665
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c03/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.3828433666666667,
+            "max": 7.404735833333333,
+            "example": 7.404735833333333
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c06/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 1.2669856333333336,
+            "max": 6.070442666666668,
+            "example": 6.070442666666668
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c09/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.7663379166666664,
+            "max": 4.415624166666665,
+            "example": 4.415624166666665
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c03/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 3,
+            "column_letter": "C",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 5.311778499999997,
+            "max": 27.962517,
+            "example": 27.962517
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c06/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 6,
+            "column_letter": "F",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 4.397882999999998,
+            "max": 22.949992999999996,
+            "example": 22.949992999999996
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c09/dp2-3",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 9,
+            "column_letter": "I",
+            "header_stack": [
+              null,
+              "DP2-3"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 1.894758000000001,
+            "max": 16.768540833333336,
+            "example": 16.768540833333336
+          }
+        ]
+      },
+      "quantity_family": null,
+      "location": "unknown",
+      "canonical": null,
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "DP2-3"
+        }
+      ],
+      "evidence_ids": [
+        "E001"
+      ],
+      "confidence": null,
+      "status": "unmapped",
+      "notes": "DP2-3 no identifica los puntos 2 y 3. No se asigna diferencia de presión de bomba.",
+      "revision": 1,
+      "created_at": "2026-10-06T18:40:00+00:00",
+      "updated_at": "2026-10-06T18:40:00+00:00",
+      "history": [
+        {
+          "revision": 1,
+          "at": "2026-10-06T18:40:00+00:00",
+          "status": "unmapped",
+          "canonical_id": null,
+          "confidence": null,
+          "evidence": [
+            {
+              "type": "explicit_header",
+              "value": "DP2-3"
+            }
+          ],
+          "notes": "DP2-3 no identifica los puntos 2 y 3. No se asigna diferencia de presión de bomba.",
+          "action": "initial"
+        }
+      ]
+    },
+    {
+      "mapping_id": "M003",
+      "signature_id": "S-flow-rate-nou",
+      "source": {
+        "raw_name": "Flow rate",
+        "raw_unit": null,
+        "normalized_name": "flow_rate",
+        "group_labels": [
+          "Single Phase",
+          "Qgd=0.005",
+          "Qgd=0.01",
+          "Qgd=0.015",
+          "Qgd=0.02",
+          "Qgd=0.03",
+          "Qgd=0.04",
+          "Qgd=0.05"
+        ],
+        "occurrences": [
+          {
+            "column_ref": "001/F01/50psig/B01/c02/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "Single Phase",
+              "Flow rate"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 424.62110435238674,
+            "max": 2360.1051437547494,
+            "example": 424.62110435238674
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c05/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qgd=0.005",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.005",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 134.2241498098758,
+            "max": 2351.75021571697,
+            "example": 2351.75021571697
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c08/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "Qgd=0.01",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 495.3431160316084,
+            "max": 2316.3741062748422,
+            "example": 2316.3741062748422
+          },
+          {
+            "column_ref": "001/F01/50psig/B01/c11/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 11,
+            "column_letter": "K",
+            "header_stack": [
+              "Qgd=0.015",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.015",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 719.3835758225028,
+            "max": 2278.3175472916805,
+            "example": 2278.3175472916805
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c02/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "Single Phase",
+              "Flow rate"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 288.7837199409525,
+            "max": 4702.522256658226,
+            "example": 288.7837199409525
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c05/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qgd=0.01",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 1.3529877894381905,
+            "max": 4567.759727694455,
+            "example": 4567.759727694455
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c08/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "Qgd=0.02",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.02",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 783.3178522407633,
+            "max": 4494.9434770682155,
+            "example": 4494.9434770682155
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c11/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 11,
+            "column_letter": "K",
+            "header_stack": [
+              "Qgd=0.03",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.03",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 63.87182639215154,
+            "max": 4396.837899209814,
+            "example": 4396.837899209814
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c14/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 14,
+            "column_letter": "N",
+            "header_stack": [
+              "Qgd=0.04",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.04",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 1426.6422322964356,
+            "max": 4263.686967969283,
+            "example": 4263.686967969283
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c17/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 17,
+            "column_letter": "Q",
+            "header_stack": [
+              "Qgd=0.05",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.05",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 533.4229609134728,
+            "max": 4027.9211290748503,
+            "example": 4027.9211290748503
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c02/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "Single Phase",
+              "Flow rate"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 701.5114984328628,
+            "max": 2349.1181670440933,
+            "example": 701.5114984328628
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c05/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qgd=0.005",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.005",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 398.80555759080886,
+            "max": 2286.6876876195183,
+            "example": 2286.6876876195183
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c08/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "Qgd=0.01",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 179.93790115541202,
+            "max": 2293.526081573962,
+            "example": 2293.526081573962
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c11/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 11,
+            "column_letter": "K",
+            "header_stack": [
+              "Qgd=0.015",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.015",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 56.809142467872746,
+            "max": 2257.299929371806,
+            "example": 2257.299929371806
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c02/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "Single Phase",
+              "Flow rate"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 1095.2251847499815,
+            "max": 4611.235537009804,
+            "example": 1095.2251847499815
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c05/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qgd=0.01",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 44.68101931519537,
+            "max": 4587.775049863409,
+            "example": 4587.775049863409
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c08/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "Qgd=0.02",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.02",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 811.9609468113586,
+            "max": 4509.584213726807,
+            "example": 4509.584213726807
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c11/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 11,
+            "column_letter": "K",
+            "header_stack": [
+              "Qgd=0.03",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.03",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 171.7684592167566,
+            "max": 4298.124372371903,
+            "example": 4298.124372371903
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c14/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 14,
+            "column_letter": "N",
+            "header_stack": [
+              "Qgd=0.04",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.04",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 223.87881676483232,
+            "max": 4327.916184703945,
+            "example": 4327.916184703945
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c17/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 17,
+            "column_letter": "Q",
+            "header_stack": [
+              "Qgd=0.05",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.05",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 687.1452437338672,
+            "max": 4296.827403986341,
+            "example": 4296.827403986341
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c02/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "Single Phase",
+              "Flow rate"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 565.6511818109807,
+            "max": 2350.6537090054044,
+            "example": 565.6511818109807
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c05/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qgd=0.005",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.005",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 400.6587068755085,
+            "max": 2308.9250489107335,
+            "example": 2308.9250489107335
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c08/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "Qgd=0.01",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 98.00361599623842,
+            "max": 2278.7468205918954,
+            "example": 2278.7468205918954
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c11/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 11,
+            "column_letter": "K",
+            "header_stack": [
+              "Qgd=0.015",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.015",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 111.85522880598226,
+            "max": 2247.0799262707087,
+            "example": 2247.0799262707087
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c02/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "Single Phase",
+              "Flow rate"
+            ],
+            "group_label": "Single Phase",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 1055.2194338150603,
+            "max": 4610.313271550583,
+            "example": 1055.2194338150603
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c05/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qgd=0.01",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.01",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 84.23167313186983,
+            "max": 4543.300963798173,
+            "example": 4543.300963798173
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c08/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "Qgd=0.02",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.02",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 591.182039491878,
+            "max": 4490.622974414971,
+            "example": 4490.622974414971
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c11/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 11,
+            "column_letter": "K",
+            "header_stack": [
+              "Qgd=0.03",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.03",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 708.3349475723523,
+            "max": 4431.155410840927,
+            "example": 4431.155410840927
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c14/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 14,
+            "column_letter": "N",
+            "header_stack": [
+              "Qgd=0.04",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.04",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 384.28149067521866,
+            "max": 4364.083396398143,
+            "example": 4364.083396398143
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c17/flow-rate",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 17,
+            "column_letter": "Q",
+            "header_stack": [
+              "Qgd=0.05",
+              "Flow rate"
+            ],
+            "group_label": "Qgd=0.05",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 512.6998707756401,
+            "max": 4296.420396012627,
+            "example": 4296.420396012627
+          }
+        ]
+      },
+      "quantity_family": "flow",
+      "location": "unknown",
+      "canonical": null,
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "Flow rate"
+        }
+      ],
+      "evidence_ids": [
+        "E001"
+      ],
+      "confidence": null,
+      "status": "unmapped",
+      "notes": "El encabezado indica un caudal y no dice si es líquido, gas o total, ni trae unidad.",
+      "revision": 1,
+      "created_at": "2026-10-06T18:40:00+00:00",
+      "updated_at": "2026-10-06T18:40:00+00:00",
+      "history": [
+        {
+          "revision": 1,
+          "at": "2026-10-06T18:40:00+00:00",
+          "status": "unmapped",
+          "canonical_id": null,
+          "confidence": null,
+          "evidence": [
+            {
+              "type": "explicit_header",
+              "value": "Flow rate"
+            }
+          ],
+          "notes": "El encabezado indica un caudal y no dice si es líquido, gas o total, ni trae unidad.",
+          "action": "initial"
+        }
+      ]
+    },
+    {
+      "mapping_id": "M004",
+      "signature_id": "S-gvf0-nou",
+      "source": {
+        "raw_name": "GVF0",
+        "raw_unit": null,
+        "normalized_name": "gvf0",
+        "group_labels": [
+          "0.75Qbep",
+          "Qbep",
+          "1.25Qbep"
+        ],
+        "occurrences": [
+          {
+            "column_ref": "001/F02/50psig/B01/c02/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "0.75Qbep",
+              "GVF0"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.06556803689334527,
+            "max": 6.790929748919812,
+            "example": 0.06556803689334527
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c05/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qbep",
+              "GVF0"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.06886617606614996,
+            "max": 10.658681622952756,
+            "example": 0.06886617606614996
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c08/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "1.25Qbep",
+              "GVF0"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.09157381361226956,
+            "max": 8.08880065874999,
+            "example": 0.09157381361226956
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c02/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "0.75Qbep",
+              "GVF0"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.07179690010503664,
+            "max": 12.64659339594052,
+            "example": 0.07179690010503664
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c05/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qbep",
+              "GVF0"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.1000831896327298,
+            "max": 14.826610966007813,
+            "example": 0.1000831896327298
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c08/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "1.25Qbep",
+              "GVF0"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.0005573857518441711,
+            "max": 9.654254715758807,
+            "example": 0.07606879000336604
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c02/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "0.75Qbep",
+              "GVF0"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.1097090805162867,
+            "max": 12.74386132417647,
+            "example": 0.1097090805162867
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c05/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qbep",
+              "GVF0"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.12423519918950189,
+            "max": 11.675191131608194,
+            "example": 0.12423519918950189
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c08/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "1.25Qbep",
+              "GVF0"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.09383794647441732,
+            "max": 8.337949128293463,
+            "example": 0.09383794647441732
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c02/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "0.75Qbep",
+              "GVF0"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.07607454249646345,
+            "max": 13.79093201802678,
+            "example": 0.07607454249646345
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c05/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qbep",
+              "GVF0"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.07413313523603642,
+            "max": 18.56018154491844,
+            "example": 0.07413313523603642
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c08/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "1.25Qbep",
+              "GVF0"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.024762935905145153,
+            "max": 11.43732290191474,
+            "example": 0.024762935905145153
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c02/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "0.75Qbep",
+              "GVF0"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.14711349055167117,
+            "max": 19.141263668268486,
+            "example": 0.14711349055167117
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c05/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qbep",
+              "GVF0"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.05032313980527715,
+            "max": 12.507608056834426,
+            "example": 0.05032313980527715
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c08/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "1.25Qbep",
+              "GVF0"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.03277777872401742,
+            "max": 9.404942422348721,
+            "example": 0.03277777872401742
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c02/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 2,
+            "column_letter": "B",
+            "header_stack": [
+              "0.75Qbep",
+              "GVF0"
+            ],
+            "group_label": "0.75Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.06436032321435615,
+            "max": 18.684226729768376,
+            "example": 0.06436032321435615
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c05/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 5,
+            "column_letter": "E",
+            "header_stack": [
+              "Qbep",
+              "GVF0"
+            ],
+            "group_label": "Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.04090541306037191,
+            "max": 14.628618242192818,
+            "example": 0.04090541306037191
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c08/gvf0",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 8,
+            "column_letter": "H",
+            "header_stack": [
+              "1.25Qbep",
+              "GVF0"
+            ],
+            "group_label": "1.25Qbep",
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": 0.008466157848292606,
+            "max": 11.242111021484282,
+            "example": 0.008466157848292606
+          }
+        ]
+      },
+      "quantity_family": null,
+      "location": "unknown",
+      "canonical": null,
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "GVF0"
+        }
+      ],
+      "evidence_ids": [
+        "E001"
+      ],
+      "confidence": null,
+      "status": "unmapped",
+      "notes": "El encabezado no es la variable GVF con unidad explícita. El sufijo y la unidad faltan, así que no se asigna gas_volume_fraction.",
+      "revision": 1,
+      "created_at": "2026-10-06T18:40:00+00:00",
+      "updated_at": "2026-10-06T18:40:00+00:00",
+      "history": [
+        {
+          "revision": 1,
+          "at": "2026-10-06T18:40:00+00:00",
+          "status": "unmapped",
+          "canonical_id": null,
+          "confidence": null,
+          "evidence": [
+            {
+              "type": "explicit_header",
+              "value": "GVF0"
+            }
+          ],
+          "notes": "El encabezado no es la variable GVF con unidad explícita. El sufijo y la unidad faltan, así que no se asigna gas_volume_fraction.",
+          "action": "initial"
+        }
+      ]
+    },
+    {
+      "mapping_id": "M005",
+      "signature_id": "S-rotary-speed-nou",
+      "source": {
+        "raw_name": "rotary speed",
+        "raw_unit": null,
+        "normalized_name": "rotary_speed",
+        "group_labels": [],
+        "occurrences": [
+          {
+            "column_ref": "001/F01/50psig/B01/c01/rotary-speed",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              null,
+              "rotary speed"
+            ],
+            "group_label": null,
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 1800.0,
+            "max": 1800.0,
+            "example": 1800
+          },
+          {
+            "column_ref": "001/F01/50psig/B02/c01/rotary-speed",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              null,
+              "rotary speed"
+            ],
+            "group_label": null,
+            "primitive_type": "number",
+            "empty": false,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": 3500.0,
+            "max": 3500.0,
+            "example": 3500
+          },
+          {
+            "column_ref": "001/F01/100psig/B01/c01/rotary-speed",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              null,
+              "rotary speed"
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/100psig/B02/c01/rotary-speed",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              null,
+              "rotary speed"
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B01/c01/rotary-speed",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              null,
+              "rotary speed"
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F01/150psig/B02/c01/rotary-speed",
+            "file": "Mapping Test Data_zero IPA.xlsx",
+            "file_id": "F01",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              null,
+              "rotary speed"
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+            "min": null,
+            "max": null,
+            "example": null
+          }
+        ]
+      },
+      "quantity_family": "rotational_speed",
+      "location": "unknown",
+      "canonical": {
+        "id": "rotary_speed",
+        "symbol": "N",
+        "quantity": "rotational_speed",
+        "si_unit": "rad/s"
+      },
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "rotary speed"
+        }
+      ],
+      "evidence_ids": [
+        "E001"
+      ],
+      "confidence": "medium",
+      "status": "candidate",
+      "notes": "El encabezado nombra la velocidad de rotación y no escribe la unidad. No se valida.",
+      "revision": 1,
+      "created_at": "2026-10-06T18:40:00+00:00",
+      "updated_at": "2026-10-06T18:40:00+00:00",
+      "history": [
+        {
+          "revision": 1,
+          "at": "2026-10-06T18:40:00+00:00",
+          "status": "candidate",
+          "canonical_id": "rotary_speed",
+          "confidence": "medium",
+          "evidence": [
+            {
+              "type": "explicit_header",
+              "value": "rotary speed"
+            }
+          ],
+          "notes": "El encabezado nombra la velocidad de rotación y no escribe la unidad. No se valida.",
+          "action": "initial"
+        }
+      ]
+    },
+    {
+      "mapping_id": "M006",
+      "signature_id": "S-rotary-speed-rpm-rpm",
+      "source": {
+        "raw_name": "Rotary Speed (rpm)",
+        "raw_unit": "rpm",
+        "normalized_name": "rotary_speed",
+        "group_labels": [],
+        "occurrences": [
+          {
+            "column_ref": "001/F02/50psig/B01/c01/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c04/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/50psig/B01/c07/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B01",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c01/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c04/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/50psig/B02/c07/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "50psig",
+            "block_id": "B02",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c01/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c04/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/100psig/B01/c07/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B01",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c01/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c04/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/100psig/B02/c07/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "100psig",
+            "block_id": "B02",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c01/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c04/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/150psig/B01/c07/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B01",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              1800
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c01/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 1,
+            "column_letter": "A",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c04/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 4,
+            "column_letter": "D",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          },
+          {
+            "column_ref": "001/F02/150psig/B02/c07/rotary-speed-rpm",
+            "file": "Surging Test Data_zero IPA.xlsx",
+            "file_id": "F02",
+            "sheet": "150psig",
+            "block_id": "B02",
+            "column_index": 7,
+            "column_letter": "G",
+            "header_stack": [
+              "Rotary Speed (rpm)",
+              3500
+            ],
+            "group_label": null,
+            "primitive_type": "empty",
+            "empty": true,
+            "source_sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+            "min": null,
+            "max": null,
+            "example": null
+          }
+        ]
+      },
+      "quantity_family": "rotational_speed",
+      "location": "unknown",
+      "canonical": {
+        "id": "rotary_speed",
+        "symbol": "N",
+        "quantity": "rotational_speed",
+        "si_unit": "rad/s"
+      },
+      "evidence": [
+        {
+          "type": "explicit_header",
+          "value": "Rotary Speed (rpm)"
+        },
+        {
+          "type": "explicit_unit",
+          "value": "rpm"
+        }
+      ],
+      "evidence_ids": [
+        "E001"
+      ],
+      "confidence": "high",
+      "status": "candidate",
+      "notes": "El nombre y la unidad rpm están en el encabezado. Queda como candidate hasta una revisión.",
+      "revision": 1,
+      "created_at": "2026-10-06T18:40:00+00:00",
+      "updated_at": "2026-10-06T18:40:00+00:00",
+      "history": [
+        {
+          "revision": 1,
+          "at": "2026-10-06T18:40:00+00:00",
+          "status": "candidate",
+          "canonical_id": "rotary_speed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "type": "explicit_header",
+              "value": "Rotary Speed (rpm)"
+            },
+            {
+              "type": "explicit_unit",
+              "value": "rpm"
+            }
+          ],
+          "notes": "El nombre y la unidad rpm están en el encabezado. Queda como candidate hasta una revisión.",
+          "action": "initial"
+        }
+      ]
+    }
+  ],
+  "unmapped_columns": [
+    "S-dp2-3-nou",
+    "S-flow-rate-nou",
+    "S-gvf0-nou"
+  ],
+  "derivable_relations": [
+    {
+      "id": "gvf_from_phase_rates",
+      "output": "gas_volume_fraction",
+      "equation": "GVF = Q_G / (Q_G + Q_L)",
+      "requires": [
+        "gas_flow_rate",
+        "liquid_flow_rate"
+      ],
+      "conditions": "Q_G y Q_L deben ser caudales volumétricos de las mismas condiciones y el denominador no puede ser cero.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    },
+    {
+      "id": "head_from_pressure_and_density",
+      "output": "pump_head",
+      "equation": "H = ΔP / (ρ g)",
+      "requires": [
+        "pump_pressure_difference",
+        "liquid_density"
+      ],
+      "conditions": "ΔP tiene que estar definido entre dos puntos identificados y la densidad tiene que corresponder a ese tramo.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    },
+    {
+      "id": "hydraulic_power_from_flow_and_pressure",
+      "output": "hydraulic_power",
+      "equation": "P_hyd = Q ΔP",
+      "requires": [
+        "liquid_flow_rate",
+        "pump_pressure_difference"
+      ],
+      "conditions": "Q y ΔP tienen que referirse al mismo tramo. No sustituye a la potencia de eje ni a la potencia eléctrica.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    },
+    {
+      "id": "hydraulic_power_from_head",
+      "output": "hydraulic_power",
+      "equation": "P_hyd = ρ g Q H",
+      "requires": [
+        "liquid_density",
+        "liquid_flow_rate",
+        "pump_head"
+      ],
+      "conditions": "Q, H y ρ tienen que estar definidos para el mismo fluido y tramo.",
+      "calculation_status": "not_executed",
+      "inputs_available": false
+    }
+  ],
+  "review_notes": "El artículo asociado no está incorporado al repositorio, así que no se cita como evidencia de columnas. Las celdas combinadas pueden mostrar un rótulo de grupo sobre dos columnas; ese rótulo no define por sí solo la magnitud. No se infiere unidad por el rango numérico y no se ejecuta ninguna relación derivada.",
+  "missing_expected_variables": [
+    "intake_pressure",
+    "flowing_bottomhole_pressure",
+    "liquid_flow_rate",
+    "gas_flow_rate",
+    "dynamic_fluid_level",
+    "gas_volume_fraction",
+    "pump_head",
+    "pump_pressure_difference",
+    "hydraulic_power",
+    "shaft_power",
+    "electrical_power",
+    "frequency",
+    "liquid_density"
+  ],
+  "coverage": {
+    "signatures": 6,
+    "occurrences": 144,
+    "by_status": {
+      "unmapped": 3,
+      "candidate": 2,
+      "reviewed": 0,
+      "validated": 0,
+      "rejected": 0,
+      "not_applicable": 1
+    },
+    "validated": 0,
+    "candidate": 2,
+    "unmapped": 3,
+    "rejected": 0,
+    "reviewed": 0,
+    "not_applicable": 1,
+    "expected": [
+      {
+        "id": "intake_pressure",
+        "symbol": "P_int",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "flowing_bottomhole_pressure",
+        "symbol": "P_wf",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "liquid_flow_rate",
+        "symbol": "Q_L",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "gas_flow_rate",
+        "symbol": "Q_G",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "dynamic_fluid_level",
+        "symbol": "h_D",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "gas_volume_fraction",
+        "symbol": "GVF",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "pump_head",
+        "symbol": "H",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "pump_pressure_difference",
+        "symbol": "ΔP",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "hydraulic_power",
+        "symbol": "P_hyd",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "shaft_power",
+        "symbol": "P_shaft",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "electrical_power",
+        "symbol": "P_el",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "rotary_speed",
+        "symbol": "N",
+        "state": "candidate",
+        "present": true,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "frequency",
+        "symbol": "f",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      },
+      {
+        "id": "liquid_density",
+        "symbol": "ρ_L",
+        "state": "not_found",
+        "present": false,
+        "mapped": false,
+        "validated": false
+      }
+    ],
+    "expected_present": [
+      "rotary_speed"
+    ],
+    "expected_missing": [
+      "intake_pressure",
+      "flowing_bottomhole_pressure",
+      "liquid_flow_rate",
+      "gas_flow_rate",
+      "dynamic_fluid_level",
+      "gas_volume_fraction",
+      "pump_head",
+      "pump_pressure_difference",
+      "hydraulic_power",
+      "shaft_power",
+      "electrical_power",
+      "frequency",
+      "liquid_density"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "001",
+  "status": "ready_for_mapping",
+  "distribution": "public",
+  "imported_at": null,
+  "source": {
+    "type": "experimental",
+    "title": "Modeling Flow Pattern Transitions in Electrical Submersible Pump under Gassy Flow Conditions",
+    "short_title": "ESP under Gassy Flow Conditions",
+    "author": "Jianjun Zhu",
+    "organization": null,
+    "url": null,
+    "doi": "10.17632/fk2b4r69bs.1",
+    "article_doi": "10.1016/j.petrol.2019.05.059",
+    "license": null,
+    "notes": null
+  },
+  "files": [
+    {
+      "file_id": "F01",
+      "original_filename": "Mapping Test Data_zero IPA.xlsx",
+      "stored_filename": "Mapping Test Data_zero IPA.xlsx",
+      "relative_path": "001/Mapping Test Data_zero IPA.xlsx",
+      "format": "xlsx",
+      "size_bytes": 26687,
+      "sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+      "imported_at": null,
+      "source": "experimental",
+      "linked_from": null
+    },
+    {
+      "file_id": "F02",
+      "original_filename": "Surging Test Data_zero IPA.xlsx",
+      "stored_filename": "Surging Test Data_zero IPA.xlsx",
+      "relative_path": "001/Surging Test Data_zero IPA.xlsx",
+      "format": "xlsx",
+      "size_bytes": 23079,
+      "sha256": "acdcc6c5fc3d8969280c8712c45657fbb863f163a60829584fece5abf75f28cd",
+      "imported_at": null,
+      "source": "experimental",
+      "linked_from": null
+    }
+  ]
+}
