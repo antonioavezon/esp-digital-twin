@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.research_review }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+</head>
+<body>
+  <div class="app app-full">
+    {% include "anatomy/includes/header.html" with section_stage=ui.stage_research section_title=ui.title_research %}
+    <main class="about-page about-wide research-page">
+      <section class="panel">
+        <h2>{{ ui.research_review }}</h2>
+        <p class="research-note">{{ ui.research_no_edit }}</p>
+        {% if duplicates %}
+          {% for item in duplicates %}
+            <p class="research-unavailable">{{ item.message }}</p>
+          {% endfor %}
+        {% endif %}
+        <div class="research-scroll">
+          <table class="research-table">
+            <thead>
+              <tr>
+                <th>{{ ui.research_name }}</th>
+                <th>{{ ui.research_size }}</th>
+                <th>{{ ui.research_detected }}</th>
+                <th>{{ ui.research_hash }}</th>
+                <th>{{ ui.research_status }}</th>
+                <th>{{ ui.research_warnings }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in intake.files %}
+                <tr>
+                  <td>{{ item.original_filename }}</td>
+                  <td>{{ item.size_bytes }}</td>
+                  <td>{{ item.format|default:"—" }}</td>
+                  <td class="mono">{% if item.sha256 %}{{ item.sha256|slice:":16" }}{% else %}—{% endif %}</td>
+                  <td>{{ item.status }}{% if item.errors %} · {{ item.errors|join:", " }}{% endif %}</td>
+                  <td>{% if item.warnings %}{{ item.warnings|join:", " }}{% else %}—{% endif %}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      {% if not blocked %}
+        <section class="panel">
+          <h2>{{ ui.research_provenance }}</h2>
+          <form class="research-form research-provenance" method="post" action="{% url 'research-import' intake.intake_id %}">
+            {% csrf_token %}
+            <label>{{ ui.research_title }}<input name="title" maxlength="300"></label>
+            <label>{{ ui.research_author }}<input name="author" maxlength="200"></label>
+            <label>{{ ui.research_org }}<input name="organization" maxlength="200"></label>
+            <label>{{ ui.research_url }}<input name="url" maxlength="500"></label>
+            <label>{{ ui.research_doi }}<input name="doi" maxlength="200"></label>
+            <label>{{ ui.research_article }}<input name="article_doi" maxlength="200"></label>
+            <label>{{ ui.research_license }}<input name="license" maxlength="200"></label>
+            <label>{{ ui.research_notes }}<textarea name="notes" maxlength="2000" rows="3"></textarea></label>
+            {% if duplicates %}
+              <label class="research-check">
+                <input type="checkbox" name="acknowledge_duplicates" value="yes">
+                {{ ui.research_link_dup }}
+              </label>
+            {% endif %}
+            <button type="submit">{{ ui.research_commit }}</button>
+          </form>
+        </section>
+      {% endif %}
+      <form method="post" action="{% url 'research-cancel' intake.intake_id %}">
+        {% csrf_token %}
+        <button type="submit">{{ ui.research_cancel }}</button>
+      </form>
+      <p><a href="{% url 'research' %}">{{ ui.research_back }}</a></p>
+    </main>
+  </div>
+</body>
+</html>

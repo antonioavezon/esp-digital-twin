@@ -1,6 +1,8 @@
 # Arquitectura — ESP Digital Twin
 
-Etapa vigente: **1C — Hidráulica básica**. Siguen disponibles la anatomía (1A) y el interior de la bomba (1B). Este documento es el contrato de evolución del repositorio. Las etapas siguientes deben modificarlo cuando cambien una decisión, no reemplazar el sistema.
+Etapa vigente del proyecto: **2-0 — Baseline y gobernanza de datos**. La fase 1 queda completada: anatomía (1A), bomba (1B), hidráulica básica (1C), curvas (1D), motor (1E) y variador (1F). El modelo físico en uso sigue siendo `hydraulics-v0.1`, estático, heredado de 1C. Este documento es el contrato de evolución del repositorio. Las etapas siguientes deben modificarlo cuando cambien una decisión, no reemplazar el sistema.
+
+La etiqueta de imagen de esta etapa es `localhost/esp-digital-twin/esp-core:2-0` y la misma forma para `esp-web`. El guion es válido en una etiqueta OCI.
 
 ## Responsabilidades
 
@@ -35,7 +37,17 @@ Prefijo: `/api/v1`.
 
 | Método | Ruta | Uso |
 | --- | --- | --- |
-| GET | `/api/v1/health` | Estado del proceso. `stage` es la etapa del proyecto (`1C`) e incluye `physics.model` |
+| GET | `/api/v1/health` | Estado del proceso. `stage` es la etapa global (`2-0`). Incluye `phase`, `foundation_stage`, `physics.model` y `research` |
+| GET | `/api/v1/research/status` | Investigación 2-0. IA, Physics-AI y anomalías apagadas |
+| GET | `/api/v1/research/datasets` | Índice de datasets presentes |
+| GET | `/api/v1/research/datasets/001` | Metadatos y estructura del dataset crudo |
+| GET | `/api/v1/research/datasets/001/profile` | Perfil por hoja, bloque y columna |
+| GET | `/api/v1/research/datasets/001/preview` | Muestra acotada. No entrega el libro entero |
+| POST | `/api/v1/research/intake` | Revisión de archivos. No crea el dataset |
+| POST | `/api/v1/research/datasets/import` | Copia RAW y escribe manifest y preprocess |
+| GET | `/api/v1/research/datasets/{id}/manifest` | Identidad e integridad |
+| GET | `/api/v1/research/datasets/{id}/preprocess` | Estructura, sin mapeo físico |
+| POST | `/api/v1/research/datasets/{id}/reprofile` | Regenera el preprocess. No toca el RAW |
 | GET | `/api/v1/esp` | Conjunto de la etapa 1A: componentes, recorridos y capacidades. Sigue en `stage` `1A` |
 | GET | `/api/v1/esp/components` | Solo componentes de la anatomía |
 | GET | `/api/v1/esp/flows` | Solo recorridos de la anatomía |
@@ -52,7 +64,9 @@ Prefijo: `/api/v1`.
 
 La bomba no tiene servicio propio. El motor físico tampoco: vive en `esp-core`, dentro de `app/physics/`, separado de `app/domain/`. Así puede extraerse más adelante si el cálculo deja de caber aquí. Las fórmulas reciben el SI. Las conversiones están solo en `app/physics/units.py`.
 
-`quantitative_model` del documento de la bomba sigue en `null`. Los números no se incrustan en el catálogo de 1B: salen del modelo `hydraulics-v0.1`. En esta versión, \(Q\) y \(\Delta P\) son entradas del usuario (`source: user_input`). La respuesta ya distingue `user_input`, `physics_model` y `constant`, y reserva el nombre de fuentes futuras (`sensor`, `simulation`, `ml`, `physics_ai`) sin producirlas.
+`quantitative_model` del documento de la bomba sigue en `null`. Los números no se incrustan en el catálogo de 1B: salen del modelo `hydraulics-v0.1`. En esta versión, \(Q\) y \(\Delta P\) son entradas del usuario (`source: user_input`). La respuesta distingue `user_input`, `physics_model` y `constant`, y reserva `sensor`, `simulation`, `ml`, `physics_ai` y `experimental` sin producirlas desde la hidráulica.
+
+`experimental` nombra una medición de ensayo o de banco. No es un sensor de pozo (`sensor`), ni una simulación (`simulation`), ni un modelo de aprendizaje (`ml`), ni Physics-AI (`physics_ai`). El dataset 001 usa esa procedencia. Lo lee `app/research/`, no `app/physics/`.
 
 El navegador no llama a `esp-core`. Django reenvía el JSON de `/physics/api/` y pinta lo que vuelve. JavaScript no evalúa \(H\) ni \(P_{hyd}\).
 

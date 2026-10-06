@@ -10,7 +10,9 @@ from pydantic import BaseModel, Field
 
 STAGE = "1A"
 PUMP_STAGE = "1B"
-PROJECT_STAGE = "1C"
+PROJECT_PHASE = "2"
+PROJECT_STAGE = "2-0"
+FOUNDATION_STAGE = "1F"
 SERVICE_NAME = "esp-core"
 
 Location = Literal["surface", "downhole", "wellbore", "reservoir"]
@@ -93,11 +95,22 @@ class PhysicsAvailability(BaseModel):
     mode: Literal["static"]
 
 
+class ResearchAvailability(BaseModel):
+    """Gobernanza de datos de la etapa vigente. No implica un modelo de IA."""
+
+    enabled: bool
+    stage: str
+    ai_model: bool
+
+
 class HealthStatus(BaseModel):
     service: str
     status: Literal["healthy"]
     stage: str
+    phase: str
+    foundation_stage: str
     physics: PhysicsAvailability
+    research: ResearchAvailability
 
 
 class ComponentListResponse(BaseModel):

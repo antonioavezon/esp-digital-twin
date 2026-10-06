@@ -4,13 +4,17 @@ from app.domain.catalog import get_assembly
 from app.api.physics import physics_availability
 from app.domain.models import (
     SERVICE_NAME,
+    FOUNDATION_STAGE,
+    PROJECT_PHASE,
     PROJECT_STAGE,
     ComponentListResponse,
     EspAssembly,
     FlowListResponse,
     HealthStatus,
     PhysicsAvailability,
+    ResearchAvailability,
 )
+from app.research import research_health
 from app.domain.pump import get_pump
 from app.domain.pump_models import PumpDescription, PumpFlowResponse, PumpStagesResponse
 
@@ -23,7 +27,10 @@ def health() -> HealthStatus:
         service=SERVICE_NAME,
         status="healthy",
         stage=PROJECT_STAGE,
+        phase=PROJECT_PHASE,
+        foundation_stage=FOUNDATION_STAGE,
         physics=PhysicsAvailability(**physics_availability()),
+        research=ResearchAvailability(**research_health()),
     )
 
 

@@ -4,12 +4,16 @@ services:
   esp-core:
     build:
       context: ./services/esp-core
-    image: localhost/esp-digital-twin/esp-core:1c
+    image: localhost/esp-digital-twin/esp-core:2-0
     container_name: esp-core
     environment:
       ESP_CORE_HOST: "0.0.0.0"
       ESP_CORE_PORT: "8080"
+      ESP_DATA_ROOT: /app/data
+      ESP_DATA_MAX_UPLOAD_MB: ${ESP_DATA_MAX_UPLOAD_MB:-32}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ./data:/app/data:Z
     ports:
       - "${ESP_CORE_HOST_PORT:-8080}:8080"
     healthcheck:
@@ -23,12 +27,13 @@ services:
   esp-web:
     build:
       context: ./services/esp-web
-    image: localhost/esp-digital-twin/esp-web:1c
+    image: localhost/esp-digital-twin/esp-web:2-0
     container_name: esp-web
     environment:
       ESP_CORE_BASE_URL: http://esp-core:8080
       ESP_WEB_PORT: "8000"
       ESP_CORE_TIMEOUT: ${ESP_CORE_TIMEOUT:-3}
+      ESP_DATA_MAX_UPLOAD_MB: ${ESP_DATA_MAX_UPLOAD_MB:-32}
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-educational-only-change-me}
       DJANGO_DEBUG: ${DJANGO_DEBUG:-0}
       DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1}

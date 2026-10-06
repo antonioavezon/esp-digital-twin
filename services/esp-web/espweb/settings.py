@@ -64,6 +64,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ESP_CORE_BASE_URL = os.environ.get("ESP_CORE_BASE_URL", "http://esp-core:8080")
 ESP_CORE_TIMEOUT = float(os.environ.get("ESP_CORE_TIMEOUT", "3"))
 
+
+def _upload_limit_bytes() -> int:
+    try:
+        megabytes = int(os.environ.get("ESP_DATA_MAX_UPLOAD_MB", "32"))
+    except ValueError:
+        megabytes = 32
+    if megabytes < 1:
+        megabytes = 32
+    return megabytes * 1024 * 1024
+
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = _upload_limit_bytes()
+FILE_UPLOAD_MAX_MEMORY_SIZE = DATA_UPLOAD_MAX_MEMORY_SIZE
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,

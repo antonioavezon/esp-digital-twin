@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Detiene y elimina los contenedores de la etapa 1C.
+# Detiene y elimina los contenedores de la etapa vigente.
 # No borra imágenes ni el código fuente.
 set -euo pipefail
 source "$(dirname "$0")/common.sh"

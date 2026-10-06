@@ -11,10 +11,16 @@ podman compose --env-file .env build
 
 # Se usa podman run, no compose run: los servicios tienen container_name fijo
 # y un segundo contenedor con el mismo nombre chocaría con el que deja start.sh.
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
 echo
 echo "=== esp-core ==="
-podman run --rm --entrypoint pytest localhost/esp-digital-twin/esp-core:1c -q
+podman run --rm \
+  -e ESP_DATA_ROOT=/app/data \
+  -v "$ROOT/data:/app/data:ro,Z" \
+  --entrypoint pytest \
+  localhost/esp-digital-twin/esp-core:2-0 -q
 
 echo
 echo "=== esp-web ==="
-podman run --rm --entrypoint python localhost/esp-digital-twin/esp-web:1c manage.py test anatomy
+podman run --rm --entrypoint python localhost/esp-digital-twin/esp-web:2-0 manage.py test anatomy

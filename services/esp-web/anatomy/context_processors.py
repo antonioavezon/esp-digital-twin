@@ -46,8 +46,13 @@ def project(request):
         "1D": ui["hint_1d"],
         "1E": ui["hint_1e"],
         "1F": ui["hint_1f"],
+        "2-0": ui["hint_20"],
     }
-    statuses = {"done": ui["status_done"], "planned": ui["status_planned"]}
+    statuses = {
+        "done": ui["status_done"],
+        "planned": ui["status_planned"],
+        "current": ui["status_current"],
+    }
     data["roadmap"] = [
         {**item, "hint": hints[item["id"]], "status_label": statuses[item["status"]]}
         for item in data["roadmap"]

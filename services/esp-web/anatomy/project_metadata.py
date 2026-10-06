@@ -7,16 +7,17 @@ disponible. Este módulo no calcula física ni lee configuración del host.
 
 PROJECT_NAME = "ESP Digital Twin"
 PROJECT_YEAR = 2026
-DEVELOPMENT_STAGE = "1C"
+PROJECT_PHASE = "2"
+DEVELOPMENT_STAGE = "2-0"
+FOUNDATION_STAGE = "1F"
 PHYSICS_MODEL = "hydraulics-v0.1"
 PHYSICS_MODE = "static"
-ENHANCEMENT_ID = "1C.1"
-ENHANCEMENT_LABEL = "About & Project Credits — 1C.1"
-
 STAGE_LABELS = {
     "1A": "1A — Anatomy",
     "1B": "1B — Multistage Centrifugal Pump",
     "1C": "1C — Basic Hydraulics",
+    "1F": "1F — VSD/VFD",
+    "2-0": "2-0 — Baseline & Research Data Governance",
 }
 
 AUTHOR = {
@@ -42,18 +43,18 @@ RESEARCH = {
     ),
 }
 
-SUPERVISION = (
-    {
-        "role": "Profesor guía UNAB",
-        "name": "Juan Pablo Vásconez",
-        "institution": "Universidad Andrés Bello",
-    },
-    {
-        "role": "Profesor líder VRI",
-        "name": "Nicolás Ratkovich",
-        "institution": "Universidad de los Andes, Colombia",
-    },
-)
+ACADEMIC = {
+    "origin_name": "Universidad Andrés Bello — Chile",
+    "host_name": "Universidad de los Andes — Colombia",
+    "consortium": "Hemispheric University Consortium (HUC)",
+    "program": "Virtual Research Internship Program",
+    "project_title": (
+        "Hybrid Physics-AI Model for Sensorless Monitoring "
+        "and Anomaly Detection in Electrical Submersible Pump Systems"
+    ),
+    "supervisor_name": "Nicolás Rios Ratkovich",
+    "supervisor_institution": "Universidad de los Andes, Colombia",
+}
 
 STACK = (
     "Python",
@@ -119,11 +120,18 @@ ROADMAP = (
         "status": "done",
         "hint": "Variador y su efecto sobre la velocidad",
     },
+    {
+        "id": "2-0",
+        "name": "Baseline & Data Governance",
+        "status": "current",
+        "hint": "Fuentes experimentales en crudo, sin modelo de IA",
+    },
 )
 
 STATUS_LABELS = {
     "done": "Completada",
     "planned": "Prevista",
+    "current": "En curso",
 }
 
 
@@ -136,18 +144,18 @@ def public_context() -> dict:
     return {
         "name": PROJECT_NAME,
         "year": PROJECT_YEAR,
+        "phase": PROJECT_PHASE,
         "stage": DEVELOPMENT_STAGE,
         "stage_label": stage_label_for(DEVELOPMENT_STAGE),
-        "stage_name": "Basic Hydraulics Physics Engine",
+        "stage_name": "Baseline & Research Data Governance",
+        "foundation_stage": FOUNDATION_STAGE,
         "physics_model": PHYSICS_MODEL,
         "physics_mode": PHYSICS_MODE,
         "simulation_label": "Basic static calculations",
         "ai_label": "Not enabled",
-        "enhancement_id": ENHANCEMENT_ID,
-        "enhancement_label": ENHANCEMENT_LABEL,
         "author": AUTHOR,
         "research": RESEARCH,
-        "supervision": SUPERVISION,
+        "academic": ACADEMIC,
         "stack": STACK,
         "planned_capabilities": PLANNED_CAPABILITIES,
         "philosophy": PHILOSOPHY,

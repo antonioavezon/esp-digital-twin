@@ -179,8 +179,9 @@
     <string name="author_role">Developer and researcher. Computer engineer.</string>
     <string name="author_study">Student of the Master in IT and Telecommunications Management — Universidad Andrés Bello (UNAB), Chile.</string>
     <string name="about_academic">Academic context</string>
-    <string name="role_guide">UNAB advisor</string>
-    <string name="role_vri">VRI lead professor</string>
+    <string name="academic_origin">Institution of origin.</string>
+    <string name="academic_host">University that directs and supervises the study.</string>
+    <string name="role_supervisor">Project supervising professor</string>
     <string name="about_stack">Tools</string>
     <string name="about_planned">Not implemented yet</string>
     <string name="planned_body">Machine learning, physics-informed models, an operational digital twin and anomaly detection are not part of this app.</string>

@@ -153,6 +153,7 @@ def test_constants_and_compare(client):
     assert payload["status"]["dynamic_simulation"] == "Not enabled"
     assert len(payload["experiments"]) == 3
     assert "sensor" in payload["reserved_sources"]
+    assert "experimental" in payload["reserved_sources"]
     compare_body = {
         "intake_pressure": payload["compare_fluids"]["intake_pressure"],
         "discharge_pressure": payload["compare_fluids"]["discharge_pressure"],

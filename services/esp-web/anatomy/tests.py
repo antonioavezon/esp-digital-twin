@@ -227,8 +227,59 @@ class CoreDouble:
             "/api/v1/health": {
                 "service": "esp-core",
                 "status": "healthy",
-                "stage": "1C",
+                "stage": "2-0",
+                "phase": "2",
+                "foundation_stage": "1F",
                 "physics": {"enabled": True, "model": "hydraulics-v0.1", "mode": "static"},
+                "research": {"enabled": True, "stage": "2-0", "ai_model": False},
+            },
+            "/api/v1/research/status": {
+                "enabled": True,
+                "stage": "2-0",
+                "ai_model": False,
+                "physics_ai": False,
+                "anomaly_detection": False,
+                "availability": "ready",
+                "datasets": ["001"],
+            },
+            "/api/v1/research/datasets/001": {
+                "dataset_id": "001",
+                "short_title": "ESP under Gassy Flow Conditions",
+                "dataset_doi": "10.17632/fk2b4r69bs.1",
+                "source_type": "experimental",
+                "files": [
+                    {
+                        "filename": "Mapping Test Data_zero IPA.xlsx",
+                        "size_bytes": 26687,
+                        "sha256": "3b933ca84911484f5d912a44b025f5589abaf5ebc2b0426bf80c083869762bda",
+                        "sheets": [
+                            {
+                                "name": "50psig",
+                                "row_count": 50,
+                                "column_count": 18,
+                                "block_count": 2,
+                            }
+                        ],
+                    }
+                ],
+            },
+            "/api/v1/research/datasets/001/preview?file=Mapping%20Test%20Data_zero%20IPA.xlsx&sheet=50psig&block=1&limit=30": {
+                "sheet": "50psig",
+                "block": 1,
+                "columns": [
+                    {
+                        "index": 1,
+                        "name": "Flow rate",
+                        "unit": None,
+                        "inferred_type": "number",
+                        "null_count": 0,
+                        "empty": False,
+                        "min": 1,
+                        "max": 2,
+                        "mean": 1.5,
+                    }
+                ],
+                "rows": [[1.5]],
             },
             "/api/v1/esp": sample_assembly(),
             "/api/v1/esp/components": {
@@ -398,14 +449,14 @@ class PageTests(SimpleTestCase):
 
         self.assertEqual(response.status_code, 200)
         content = response.content.decode()
-        self.assertIn("Entorno educativo y de simulación", content)
+        self.assertIn("Entorno educativo, de simulación e investigación", content)
         self.assertIn('"stage": "1A"', content)
         self.assertIn("1A \\u2014 Anatomy", content)
-        self.assertIn("1A - Anatomy / 1C Basic Hydraulics", content)
+        self.assertIn("1A — Anatomy", content)
         self.assertIn("Anatomía del conjunto - Recorridos", content)
-        self.assertIn("Recorridos - 1C Basic Hydraulics", content)
+        self.assertIn(">Recorridos</h2>", content)
         self.assertLess(content.find("Componentes - 1A Anatomy"), content.find('id="well-schematic"'))
-        self.assertLess(content.find('id="well-schematic"'), content.find("Recorridos - 1C Basic Hydraulics"))
+        self.assertLess(content.find('id="well-schematic"'), content.find(">Recorridos</h2>"))
         self.assertLess(content.find('href="/config/"'), content.find('href="/about/"'))
         self.assertIn('class="app-name" href="/">ESP Digital Twin</a>', content)
         self.assertIn('href="/config/"', content)
@@ -644,17 +695,29 @@ class AboutPageTests(SimpleTestCase):
         self.assertIn("Universidad Andrés Bello", content)
         self.assertIn("Virtual Research Internship", content)
         self.assertIn(
-            "Hybrid Physics-AI Model for Sensorless Monitoring and Anomaly Detection in ESP Systems",
+            "Hybrid Physics-AI Model for Sensorless Monitoring and Anomaly Detection in Electrical Submersible Pump Systems",
             content,
         )
-        self.assertIn("Juan Pablo Vásconez", content)
-        self.assertIn("Nicolás Ratkovich", content)
-        self.assertIn("Universidad de los Andes, Colombia", content)
-        self.assertIn("no atribuye autoría", content)
-        self.assertIn("Stage 1C", content)
-        self.assertIn("Basic Hydraulics Physics Engine", content)
+        self.assertIn("Institución de origen.", content)
+        self.assertIn("Universidad de los Andes — Colombia", content)
+        self.assertIn("Universidad que dirige y supervisa el estudio.", content)
+        self.assertIn("Hemispheric University Consortium (HUC)", content)
+        self.assertIn("Virtual Research Internship Program", content)
+        self.assertIn("Profesor supervisor del proyecto", content)
+        self.assertIn("Nicolás Rios Ratkovich — Universidad de los Andes, Colombia", content)
+        self.assertIn("La autoría del software corresponde a Antonio Ralph Avezon Saavedra.", content)
+        self.assertIn("Stage 2-0", content)
+        self.assertIn("Etapa actual", content)
+        self.assertIn("Baseline &amp; Research Data Governance", content)
         self.assertIn("hydraulics-v0.1", content)
-        self.assertIn("Project Credits — 1C.1", content)
+        self.assertIn("static", content)
+        self.assertNotIn("Juan Pablo Vásconez", content)
+        self.assertNotIn("Profesor guía UNAB", content)
+        self.assertNotIn("Profesor líder VRI", content)
+        self.assertNotIn("Project Credits — 1C.1", content)
+        self.assertNotIn("Proyecto 12", content)
+        self.assertNotIn("Project 12", content)
+        self.assertNotIn("no atribuye autoría", content)
         self.assertIn("Python", content)
         self.assertIn("Django", content)
         self.assertIn("Podman", content)
@@ -680,7 +743,7 @@ class AboutPageTests(SimpleTestCase):
             response = self.client.get("/about/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Antonio Ralph Avezon Saavedra")
-        self.assertContains(response, "Stage 1C")
+        self.assertContains(response, "Stage 2-0")
         self.assertContains(response, "hydraulics-v0.1")
 
 
@@ -719,7 +782,7 @@ class ConfigPageTests(SimpleTestCase):
         self.assertIn('data-theme="light"', content)
         self.assertIn("System anatomy - Tours", content)
         self.assertIn("Status :", content)
-        self.assertIn("Tours - 1C Basic Hydraulics", content)
+        self.assertIn(">Tours</h2>", content)
         self.assertIn("Settings", content)
         self.assertIn(">Curves<", content)
         self.assertIn(">Physics Lab<", content)
@@ -727,3 +790,43 @@ class ConfigPageTests(SimpleTestCase):
         self.assertContains(about, "The project")
         self.assertContains(about, "Completed")
         self.assertContains(about, "ESP Digital Twin")
+
+
+class ResearchPageTests(SimpleTestCase):
+    def test_research_page_reads_core_and_keeps_other_routes(self):
+        core = CoreDouble()
+        self.addCleanup(core.close)
+        with override_settings(ESP_CORE_BASE_URL=core.base_url, ESP_CORE_TIMEOUT=2):
+            response = self.client.get("/research/")
+            content = response.content.decode()
+            self.assertEqual(response.status_code, 200)
+            self.assertIn("FASE 2", content)
+            self.assertIn("2-0 — Baseline y gobernanza de datos", content)
+            self.assertIn("ESP under Gassy Flow Conditions", content)
+            self.assertIn("10.17632/fk2b4r69bs.1", content)
+            self.assertIn("Mapping Test Data_zero IPA.xlsx", content)
+            self.assertIn("3b933ca84911", content)
+            self.assertIn("50psig", content)
+            self.assertIn("Flow rate", content)
+            self.assertIn("Gestor de datos", content)
+            self.assertIn("Importar dataset", content)
+            self.assertIn("Preproceso", content)
+            self.assertIn("Explorador", content)
+            self.assertIn('class="research-split"', content)
+            self.assertIn("Analizar", content)
+            self.assertIn("Seleccionar archivos", content)
+            self.assertIn("Copia RAW, tamaño y SHA-256.", content)
+            self.assertNotIn("Estado del proyecto", content)
+            self.assertNotIn("La fase 2 es un entorno experimental de investigación.", content)
+            self.assertNotIn("1A–1F completado", content)
+            for path in ("/", "/pump/", "/physics/", "/curves/", "/about/", "/config/"):
+                page = self.client.get(path)
+                self.assertEqual(page.status_code, 200, path)
+
+    def test_research_page_degrades_without_core(self):
+        with override_settings(ESP_CORE_BASE_URL="http://127.0.0.1:1", ESP_CORE_TIMEOUT=0.4):
+            response = self.client.get("/research/")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Los datos de investigación no están disponibles.")
+        self.assertNotContains(response, "Estado del proyecto")
+        self.assertNotContains(response, "La fase 2 es un entorno experimental de investigación.")

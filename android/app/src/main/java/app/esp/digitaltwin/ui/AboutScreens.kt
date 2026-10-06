@@ -85,10 +85,15 @@ fun AboutScreen() {
             Text(stringResource(R.string.author_study))
         }
         Panel(stringResource(R.string.about_academic)) {
-            Text(stringResource(R.string.role_guide))
-            Text("Juan Pablo Vásconez — Universidad Andrés Bello")
-            Text(stringResource(R.string.role_vri))
-            Text("Nicolás Ratkovich — Universidad de los Andes, Colombia")
+            Text("Universidad Andrés Bello — Chile")
+            Text(stringResource(R.string.academic_origin))
+            Text("Universidad de los Andes — Colombia")
+            Text(stringResource(R.string.academic_host))
+            Text("Hemispheric University Consortium (HUC)")
+            Text("Virtual Research Internship Program")
+            Text("Hybrid Physics-AI Model for Sensorless Monitoring and Anomaly Detection in Electrical Submersible Pump Systems")
+            Text(stringResource(R.string.role_supervisor))
+            Text("Nicolás Rios Ratkovich — Universidad de los Andes, Colombia")
         }
         Panel(stringResource(R.string.about_stack)) {
             Text("Python, Django, FastAPI, JavaScript, HTML5, CSS, SVG, Podman, Kotlin, Jetpack Compose")

@@ -16,42 +16,55 @@
       <div class="about-col">
       <section class="panel" aria-labelledby="about-project">
         <h2 id="about-project" class="has-hint" title="{{ ui.hint_about_project }}">{{ ui.about_project }}</h2>
-        <p>{{ ui.about_project_1 }}</p>
-        <p>{{ ui.about_project_2 }}</p>
-      </section>
-
-      <section class="panel" aria-labelledby="about-research">
-        <h2 id="about-research" class="has-hint" title="{{ ui.hint_about_research }}">{{ ui.about_research }}</h2>
-        <p>
-          {{ ui.about_research_lead }}
-          {{ project.research.program }} ({{ project.research.program_short }}):
-        </p>
-        <p class="about-title">“{{ project.research.title_en }}”.</p>
-        <p>{{ project.research.title_es }}</p>
-        <p>{{ ui.about_research_body }}</p>
+        <p class="prose">{{ ui.about_project_1 }}</p>
+        <p class="prose">{{ ui.about_project_2 }}</p>
       </section>
 
       <section class="panel" aria-labelledby="about-objective">
         <h2 id="about-objective" class="has-hint" title="{{ ui.hint_about_objective }}">{{ ui.about_objective }}</h2>
-        <p>{{ ui.about_objective_lead }}</p>
+        <p class="prose">{{ ui.about_objective_lead }}</p>
         <ol class="objective-flow">
           <li>{{ ui.obj_1 }}</li>
           <li>{{ ui.obj_2 }}</li>
           <li>{{ ui.obj_3 }}</li>
           <li>{{ ui.obj_4 }}</li>
         </ol>
-        <p>{{ ui.about_objective_next }}</p>
-        <ul>
-          <li>{{ ui.obj_a }}</li>
-          <li>{{ ui.obj_b }}</li>
-          <li>{{ ui.obj_c }}</li>
-          <li>{{ ui.obj_d }}</li>
-        </ul>
-        <p>{{ ui.about_objective_tail }}</p>
+      </section>
+
+      <section class="panel" aria-labelledby="about-research">
+        <h2 id="about-research" class="has-hint" title="{{ ui.hint_about_research }}">{{ ui.about_research }}</h2>
+        <p>{{ project.research.program }} ({{ project.research.program_short }})</p>
+        <p class="about-title">{{ project.academic.project_title }}</p>
+        <p class="about-title">{{ project.research.title_es }}</p>
+        <p class="prose">{{ ui.about_research_body }}</p>
       </section>
       </div>
 
       <div class="about-col">
+      <section class="panel" aria-labelledby="about-academic">
+        <h2 id="about-academic" class="has-hint" title="{{ ui.hint_about_academic }}">{{ ui.about_academic }}</h2>
+        <p class="about-name">{{ project.academic.origin_name }}</p>
+        <p>{{ ui.academic_origin }}</p>
+        <p class="about-name">{{ project.academic.host_name }}</p>
+        <p>{{ ui.academic_host }}</p>
+        <p>{{ project.academic.consortium }}</p>
+        <p>{{ project.academic.program }}</p>
+        <dl class="about-people">
+          <div>
+            <dt>{{ ui.role_supervisor }}</dt>
+            <dd>{{ project.academic.supervisor_name }} — {{ project.academic.supervisor_institution }}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="panel" aria-labelledby="about-author">
+        <h2 id="about-author" class="has-hint" title="{{ ui.hint_about_author }}">{{ ui.about_author }}</h2>
+        <p class="about-name">{{ project.author.name }}</p>
+        <p>{{ ui.degree }}.</p>
+        <p>{{ ui.study }}, {{ project.author.university }}.</p>
+        <p class="prose">{{ ui.about_author_note }}</p>
+      </section>
+
       <section class="panel" aria-labelledby="about-philosophy">
         <h2 id="about-philosophy" class="has-hint" title="{{ ui.hint_about_philosophy }}">{{ ui.about_philosophy }}</h2>
         <ol class="philosophy">
@@ -59,33 +72,7 @@
             <li>{{ step }}</li>
           {% endfor %}
         </ol>
-        <p>{{ ui.about_philosophy_body }}</p>
-      </section>
-
-      <section class="panel" aria-labelledby="about-author">
-        <h2 id="about-author" class="has-hint" title="{{ ui.hint_about_author }}">{{ ui.about_author }}</h2>
-        <p class="about-name">{{ project.author.name }}</p>
-        <p>{{ ui.about_author_role }}</p>
-        <p>{{ ui.degree }}.</p>
-        <p>
-          {{ ui.study }} — {{ project.author.university }}
-          ({{ project.author.university_short }}), {{ project.author.country }}.
-        </p>
-        <p>{{ ui.about_author_note }}</p>
-      </section>
-
-      <section class="panel" aria-labelledby="about-academic">
-        <h2 id="about-academic" class="has-hint" title="{{ ui.hint_about_academic }}">{{ ui.about_academic }}</h2>
-        <p>{{ project.author.university }} — {{ project.author.country }}</p>
-        <p>{{ project.research.program }} ({{ project.research.program_short }})</p>
-        <dl class="about-people">
-          {% for person in project.supervision %}
-            <div>
-              <dt>{% if forloop.first %}{{ ui.role_guide }}{% else %}{{ ui.role_vri }}{% endif %}</dt>
-              <dd>{{ person.name }} — {{ person.institution }}</dd>
-            </div>
-          {% endfor %}
-        </dl>
+        <p class="prose">{{ ui.about_philosophy_body }}</p>
       </section>
       </div>
 
@@ -94,16 +81,6 @@
         <h2 id="about-stack" class="has-hint" title="{{ ui.hint_about_stack }}">{{ ui.about_stack }}</h2>
         <ul class="stack">
           {% for item in project.stack %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-      </section>
-
-      <section class="panel" aria-labelledby="about-planned">
-        <h2 id="about-planned" class="has-hint" title="{{ ui.hint_about_planned }}">{{ ui.about_planned }}</h2>
-        <p>{{ ui.about_planned_lead }}</p>
-        <ul>
-          {% for item in project.planned_capabilities %}
             <li>{{ item }}</li>
           {% endfor %}
         </ul>
@@ -128,10 +105,6 @@
             <dt>{{ ui.status_mode }}</dt>
             <dd>{{ runtime.physics_mode }}</dd>
           </div>
-          <div>
-            <dt>{{ ui.status_extra }}</dt>
-            <dd>{{ project.enhancement_label }}</dd>
-          </div>
         </dl>
       </section>
 
@@ -148,9 +121,19 @@
         </ol>
       </section>
 
+      <section class="panel" aria-labelledby="about-planned">
+        <h2 id="about-planned" class="has-hint" title="{{ ui.hint_about_planned }}">{{ ui.about_planned }}</h2>
+        <p class="prose">{{ ui.about_planned_lead }}</p>
+        <ul>
+          {% for item in project.planned_capabilities %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
       <section class="panel" aria-labelledby="about-disclaimer">
         <h2 id="about-disclaimer" class="has-hint" title="{{ ui.hint_about_use }}">{{ ui.about_use }}</h2>
-        <p>{{ ui.about_use_body }}</p>
+        <p class="prose">{{ ui.about_use_body }}</p>
       </section>
       </div>
       </div>

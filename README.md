@@ -42,15 +42,21 @@ En otra distribución, con Docker ya instalado, use los mismos pasos de Windows 
 
 Simulador educativo de una bomba electrosumergible (ESP, Electrical Submersible Pump). El objetivo de largo plazo es un gemelo operacional y visual, con modelos físicos y, más adelante, modelos Physics-AI.
 
-**Etapa actual: 1F** — motor y variador de frecuencia, junto con la anatomía, la bomba, el laboratorio físico y las curvas. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
+**Autor:** Antonio Ralph Avezon Saavedra
+
+**Phase 1 — Foundation: COMPLETED (1A–1F).**
+
+**Phase 2 — Research / Physics-AI.**
+
+**Current stage: 2-0** — baseline y gobernanza de datos. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
 
 ## 1. Objetivo del proyecto
 
 Comprender y, en etapas posteriores, simular el conjunto ESP dentro de un pozo: alimentación, variador, cable, motor, protector, admisión, bomba, tubing, pozo, reservorio y superficie.
 
-La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calcula la primera hidráulica estática sin sustituir esas dos. La etapa 1D muestra las curvas de catálogo. Las etapas 1E y 1F explican el motor y el variador. La etapa actual es la 1F. El variador guarda una frecuencia de estudio y no calcula un punto de operación. El material está en [docs/stage-1a.md](docs/stage-1a.md), [docs/stage-1b.md](docs/stage-1b.md), [docs/stage-1c.md](docs/stage-1c.md), [docs/stage-1d-curves.md](docs/stage-1d-curves.md) y [docs/stage-1e-1f.md](docs/stage-1e-1f.md). Las reglas de evolución están en [docs/architecture.md](docs/architecture.md).
+La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calcula la primera hidráulica estática sin sustituir esas dos. La etapa 1D muestra las curvas de catálogo. Las etapas 1E y 1F explican el motor y el variador. Esa fase queda cerrada. La etapa vigente es la 2-0: observa el dataset experimental 001 sin modificar `hydraulics-v0.1` y sin activar un modelo de IA. El material de la fase 1 está en [docs/stage-1a.md](docs/stage-1a.md), [docs/stage-1b.md](docs/stage-1b.md), [docs/stage-1c.md](docs/stage-1c.md), [docs/stage-1d-curves.md](docs/stage-1d-curves.md) y [docs/stage-1e-1f.md](docs/stage-1e-1f.md). La etapa 2-0 está en [docs/stage-2-0.md](docs/stage-2-0.md) y el recorrido posterior en [docs/phase-2-roadmap.md](docs/phase-2-roadmap.md). Las reglas de evolución están en [docs/architecture.md](docs/architecture.md).
 
-## 2. Estado actual: etapa 1F
+## 2. Estado actual: etapa 2-0
 
 | Capacidad | Estado |
 | --- | --- |
@@ -60,9 +66,11 @@ La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calc
 | Curvas de desempeño (etapa 1D) | Disponible en `/curves/` |
 | Motor (etapa 1E) | Explicación en `/pump/`. Potencia, corriente, tensión, polos y eficiencia siguen pendientes de datos |
 | VSD/VFD (etapa 1F) | Frecuencia de estudio en `/pump/` y en el laboratorio. No calcula caudal, head ni potencia |
+| Investigación (etapa 2-0) | Dataset 001 en crudo, en `/research/`. Sin mapeo físico automático |
 | Cálculo hidráulico | `hydraulics-v0.1`, estático, en `/physics/` |
 | Simulación dinámica | No habilitada |
 | Modelo de IA | No habilitado |
+| Physics-AI | No habilitado |
 | Frecuencia de estudio | Control de 30 a 90 Hz, valor inicial 60 Hz. No desplaza las curvas ni calcula un punto de operación |
 
 La aplicación es un entorno educativo. No está preparada para controlar una ESP real. Play y Pause, en la vista de la bomba, solo mueven la animación del impulsor. Calculate, en el laboratorio, pide un cálculo estático a `esp-core`.
@@ -73,7 +81,7 @@ La aplicación es un entorno educativo. No está preparada para controlar una ES
 navegador  →  esp-web (Django, :8000)  →  esp-core (API, :8080)
 ```
 
-- `esp-core` describe la ESP en JSON (`/api/v1`). Es el único dueño del catálogo.
+- `esp-core` describe la ESP en JSON (`/api/v1`). Mantiene el catálogo.
 - `esp-web` dibuja el pozo y consume ese JSON. No repite las definiciones.
 
 Los dos contenedores comparten la red `esp-digital-twin`. Dentro de esa red la web usa `http://esp-core:8080`. Los puertos del archivo `.env` solo aplican al host.
@@ -183,10 +191,11 @@ http://localhost:8000/pump/
 http://localhost:8000/physics/
 http://localhost:8000/curves/
 http://localhost:8000/about/
+http://localhost:8000/research/
 http://localhost:8000/config/
 ```
 
-El menú sigue el idioma elegido en Configuración. En español: ESP, Bomba, Laboratorio físico, Curvas, Configuración y Acerca de.
+El menú sigue el idioma elegido en Configuración. En español: ESP, Bomba, Laboratorio físico, Curvas, Investigación, Configuración y Acerca de.
 
 En `/pump/`, Play y Pause animan el impulsor. Esa animación no es una velocidad física. El recorrido del fluido es ilustrativo. Una etapa y la vista multietapa cambian el dibujo. Anterior y Siguiente recorren admisión, tres etapas y descarga. A la izquierda se explica el motor con los datos que el modelo todavía no tiene. A la derecha, el variador guarda una frecuencia de estudio.
 
@@ -214,17 +223,19 @@ Copie `.env.example` a `.env`. No suba `.env` al repositorio. Los valores de eje
 | `DJANGO_ALLOWED_HOSTS` | Hosts aceptados por Django, separados por coma. |
 | `ESP_CORE_TIMEOUT` | Segundos que la web espera al núcleo. |
 | `LOG_LEVEL` | Nivel de log del núcleo y de la web. |
+| `ESP_DATA_ROOT` | Raíz de los datasets dentro de `esp-core`. Compose la fija en `/app/data` y monta `./data` solo en ese servicio. |
+| `ESP_DATA_MAX_UPLOAD_MB` | Tamaño máximo, en megabytes, de un archivo importado. El ejemplo usa 32. |
 
 La web llama al núcleo por `http://esp-core:8080`. Ese nombre es el del servicio en Compose. No lo reemplace por `localhost` dentro del contenedor.
 
 ## Limitaciones de esta versión
 
-- La etapa actual es la 1F. El cálculo de presión, head y potencia hidráulica sigue siendo `hydraulics-v0.1`, estático.
+- La etapa vigente es la 2-0. La fase 1 (1A–1F) permanece como baseline. El cálculo de presión, head y potencia hidráulica sigue siendo `hydraulics-v0.1`, estático.
 - La frecuencia de estudio no desplaza las curvas ni calcula un caudal, un head o una potencia nuevos. Faltan el número de polos, la curva de la bomba a otra frecuencia y la curva del sistema.
 - El motor no tiene potencia, corriente, tensión ni eficiencia de placa. Esos datos se muestran como pendientes.
 - Las curvas disponibles son las fichas REDA ya digitalizadas, a 60 Hz y 3500 rpm, por etapa. El PDF de origen no está en el repositorio. No se extrapola.
 - La potencia hidráulica del laboratorio no es la potencia de eje de la ficha.
-- No hay simulación dinámica ni modelo de inteligencia artificial.
+- No hay simulación dinámica, ni modelo de inteligencia artificial, ni Physics-AI. La fase 2 es un entorno experimental de investigación.
 - La aplicación no controla una ESP real.
 
 ## 13. Endpoints API
@@ -246,9 +257,19 @@ POST /api/v1/physics/compare
 GET  /api/v1/physics/curves
 GET  /api/v1/physics/curves/{id}
 POST /api/v1/physics/curves/{id}/marker
+GET  /api/v1/research/status
+GET  /api/v1/research/datasets
+GET  /api/v1/research/datasets/001
+GET  /api/v1/research/datasets/001/profile
+GET  /api/v1/research/datasets/001/preview
+POST /api/v1/research/intake
+POST /api/v1/research/datasets/import
+GET  /api/v1/research/datasets/{id}/manifest
+GET  /api/v1/research/datasets/{id}/preprocess
+POST /api/v1/research/datasets/{id}/reprofile
 ```
 
-`/api/v1/health` informa el modelo hidráulico `hydraulics-v0.1` en modo estático. `/api/v1/esp` es la anatomía de la etapa 1A. `/api/v1/esp/pump` es la bomba de la etapa 1B.
+`/api/v1/health` informa la etapa global `2-0`, el baseline `1F` y el modelo hidráulico `hydraulics-v0.1` en modo estático. `/api/v1/esp` es la anatomía de la etapa 1A. `/api/v1/esp/pump` es la bomba de la etapa 1B. `/api/v1/research/` describe los datasets y no calcula física. El gestor de `/research/` importa archivos nuevos. El mapeo de variables queda para la etapa 2-1.
 
 Documentación interactiva de desarrollo: `http://127.0.0.1:8080/api/v1/docs`.
 
@@ -276,7 +297,7 @@ curl -sS -X POST http://127.0.0.1:8080/api/v1/physics/hydraulics \
 
 **La página abre pero dice que no obtuvo la definición.** El contenedor web no alcanzó el núcleo. El esquema sigue visible; el texto didáctico no se inventa en el navegador.
 
-**SELinux.** Esta etapa no monta volúmenes del home dentro de los contenedores, así que no necesita `:Z`. Si más adelante se monta código para desarrollo, ese montaje sí debe considerarse.
+**SELinux.** En Fedora, `./data` se monta en `esp-core` como `./data:/app/data:Z`. La `Z` permite el acceso bajo SELinux. El montaje es escribible para importar datasets. El código no modifica los RAW. El montaje no incluye `esp-web`. `./scripts/start.sh` deja `data/inbox` y `data/datasets` escribibles por el usuario del contenedor, sin cambiar los xlsx de `data/001`.
 
 **Reconstruir desde cero las imágenes**, sin borrar otros contenedores del sistema:
 

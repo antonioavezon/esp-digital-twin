@@ -179,8 +179,9 @@
     <string name="author_role">Desarrollador e investigador. Ingeniero en Informática.</string>
     <string name="author_study">Estudiante del Magíster en Gestión de TI y Telecomunicaciones — Universidad Andrés Bello (UNAB), Chile.</string>
     <string name="about_academic">Contexto académico</string>
-    <string name="role_guide">Profesor guía UNAB</string>
-    <string name="role_vri">Profesor líder VRI</string>
+    <string name="academic_origin">Institución de origen.</string>
+    <string name="academic_host">Universidad que dirige y supervisa el estudio.</string>
+    <string name="role_supervisor">Profesor supervisor del proyecto</string>
     <string name="about_stack">Herramientas</string>
     <string name="about_planned">Todavía no implementado</string>
     <string name="planned_body">Machine Learning, modelos physics-informed, digital twin operativo y detección de anomalías no forman parte de esta aplicación.</string>

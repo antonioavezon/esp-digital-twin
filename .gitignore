@@ -15,3 +15,7 @@ build/
 *.egg-info/
 .idea/
 .vscode/
+
+# Datos locales. La carpeta completa queda fuera del repositorio:
+# libros, manifiestos, informes, inbox e importaciones.
+data/

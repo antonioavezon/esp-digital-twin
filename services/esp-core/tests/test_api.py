@@ -60,8 +60,11 @@ def test_health(client):
     assert response.json() == {
         "service": "esp-core",
         "status": "healthy",
-        "stage": "1C",
+        "stage": "2-0",
+        "phase": "2",
+        "foundation_stage": "1F",
         "physics": {"enabled": True, "model": "hydraulics-v0.1", "mode": "static"},
+        "research": {"enabled": True, "stage": "2-0", "ai_model": False},
     }
 
 

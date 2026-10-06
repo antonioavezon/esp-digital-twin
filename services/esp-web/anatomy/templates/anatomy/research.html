@@ -1,0 +1,234 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Digital Twin — {{ ui.title_research }}</title>
+  <link rel="stylesheet" href="{% static 'anatomy/hmi.css' %}">
+</head>
+<body>
+  <div class="app app-full">
+    {% include "anatomy/includes/header.html" with section_stage=ui.stage_research section_title=ui.title_research %}
+
+    <main class="about-page about-wide research-page">
+      {% if import_notice %}
+        <p class="research-unavailable">{{ import_notice }}</p>
+      {% endif %}
+
+      {% if research_unavailable %}
+        <section class="panel">
+          <p class="research-unavailable">{{ ui.research_unavailable }}</p>
+        </section>
+      {% else %}
+        <section class="panel" aria-labelledby="research-manager">
+          <h2 id="research-manager" class="has-hint" title="{{ ui.hint_research_manager }}">{{ ui.research_manager }}</h2>
+          <p class="research-note">{{ ui.research_no_edit }}</p>
+          {% if catalog %}
+            <div class="research-scroll">
+              <table class="research-table">
+                <thead>
+                  <tr>
+                    <th>Dataset ID</th>
+                    <th>{{ ui.research_name }}</th>
+                    <th>{{ ui.research_format }}</th>
+                    <th>{{ ui.research_files }}</th>
+                    <th>{{ ui.research_status }}</th>
+                    <th>{{ ui.research_date }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in catalog %}
+                    <tr>
+                      <td><a href="{% url 'research' %}?dataset={{ item.dataset_id }}">{{ item.dataset_id }}</a></td>
+                      <td>{{ item.title }}</td>
+                      <td>{{ item.formats }}</td>
+                      <td>{{ item.file_count }}</td>
+                      <td>{{ item.status_label }}</td>
+                      <td>{{ item.imported_at }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <p>{{ ui.research_catalog_empty }}</p>
+          {% endif %}
+          {% if dataset %}
+            <dl class="about-status research-identity">
+              <div><dt>{{ ui.research_source }}</dt><dd>{{ ui.research_experimental }}</dd></div>
+              <div><dt>{{ ui.research_doi }}</dt><dd>{{ dataset.dataset_doi }}</dd></div>
+              <div><dt>{{ ui.research_status }}</dt><dd>{{ ui.research_raw }}</dd></div>
+            </dl>
+          {% endif %}
+          <div class="research-split">
+            <section aria-labelledby="research-import">
+              <h3 id="research-import" class="has-hint" title="{{ ui.hint_research_import }}">{{ ui.research_import }}</h3>
+              <p class="research-note">{{ ui.research_accept }}</p>
+              <form class="research-form" method="post" action="{% url 'research-analyze' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label>{{ ui.research_select }}
+                  <input type="file" name="files" multiple accept=".xlsx,.xlsm,.csv,.tsv,.json,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,text/tab-separated-values,application/json,text/plain">
+                </label>
+                <button type="submit">{{ ui.research_analyze }}</button>
+              </form>
+            </section>
+            <section aria-labelledby="research-files">
+              <h3 id="research-files" class="has-hint" title="{{ ui.hint_research_files }}">{{ ui.research_file_list }}</h3>
+              {% if dataset %}
+                <div class="research-files">
+                  {% for item in dataset.files %}
+                    <article class="research-card">
+                      <h3>{{ item.filename }}</h3>
+                      {% if item.error %}
+                        <p>{{ item.error }}</p>
+                      {% else %}
+                        <dl class="about-status">
+                          <div><dt>{{ ui.research_size }}</dt><dd>{{ item.size_bytes }} bytes</dd></div>
+                          <div><dt>{{ ui.research_hash }}</dt><dd class="mono">{{ item.sha256|slice:":12" }}</dd></div>
+                          {% if item.sheets %}
+                          <div><dt>{{ ui.research_sheets }}</dt><dd>{{ item.sheets|length }}</dd></div>
+                          {% endif %}
+                        </dl>
+                        {% if item.sheets %}
+                        <div class="research-scroll">
+                          <table class="research-table">
+                            <thead>
+                              <tr>
+                                <th>{{ ui.research_sheet }}</th>
+                                <th>{{ ui.research_rows }}</th>
+                                <th>{{ ui.research_columns }}</th>
+                                <th>{{ ui.research_blocks }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for sheet in item.sheets %}
+                                <tr>
+                                  <td>{{ sheet.name }}</td>
+                                  <td>{{ sheet.row_count }}</td>
+                                  <td>{{ sheet.column_count }}</td>
+                                  <td>{{ sheet.block_count }}</td>
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                        {% endif %}
+                      {% endif %}
+                    </article>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <p class="research-note">{{ ui.research_choose }}</p>
+              {% endif %}
+            </section>
+            <section aria-labelledby="research-preprocess">
+              <h3 id="research-preprocess" class="has-hint" title="{{ ui.hint_research_preprocess }}">{{ ui.research_preprocess }}</h3>
+              {% if dataset and preprocess %}
+                <p><a href="{% url 'research' %}?dataset={{ dataset.dataset_id }}&amp;view=preprocess">{{ ui.research_view_json }}</a></p>
+                <form method="post" action="{% url 'research-reprofile' dataset.dataset_id %}">
+                  {% csrf_token %}
+                  <button type="submit">{{ ui.research_reprofile }}</button>
+                </form>
+                {% if show_preprocess and preprocess_text %}
+                  <pre class="research-json">{{ preprocess_text }}</pre>
+                {% endif %}
+              {% else %}
+                <p class="research-note">{{ ui.research_choose }}</p>
+              {% endif %}
+            </section>
+          </div>
+        </section>
+        {% if dataset and selected.files %}
+        <section class="panel" aria-labelledby="research-explorer">
+          <h2 id="research-explorer" class="has-hint" title="{{ ui.hint_research_explorer }}">{{ ui.research_explorer }}</h2>
+          <p>{{ ui.research_structure }}</p>
+          <form class="research-form" method="get" action="{% url 'research' %}">
+            <input type="hidden" name="dataset" value="{{ dataset.dataset_id }}">
+            <label>{{ ui.research_file }}
+              <select name="file">
+                {% for item in selected.files %}
+                  <option value="{{ item.filename }}"{% if item.filename == selected.file %} selected{% endif %}>{{ item.filename }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            <label>{{ ui.research_sheet }}
+              <select name="sheet">
+                {% for name in selected.sheet_names %}
+                  <option value="{{ name }}"{% if name == selected.sheet %} selected{% endif %}>{{ name }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            {% if selected.block_count > 1 %}
+              <label>{{ ui.research_block }}
+                <select name="block">
+                  {% for number in selected.block_options %}
+                    <option value="{{ number }}"{% if number == selected.block %} selected{% endif %}>{{ number }}</option>
+                  {% endfor %}
+                </select>
+              </label>
+            {% else %}
+              <input type="hidden" name="block" value="1">
+            {% endif %}
+            <button type="submit">{{ ui.research_show }}</button>
+          </form>
+          <p class="research-note">{{ ui.research_preview_note }}</p>
+          {% if preview %}
+            <div class="research-scroll">
+              <table class="research-table">
+                <thead>
+                  <tr>
+                    {% for column in preview.columns %}
+                      <th>
+                        {{ column.index }}.
+                        {% if column.name %}{{ column.name }}{% else %}—{% endif %}
+                        {% if column.unit %}<span class="research-unit">({{ column.unit }})</span>{% endif %}
+                      </th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in preview.rows %}
+                    <tr>
+                      {% for value in row %}
+                        <td>{% if value is None %}—{% else %}{{ value }}{% endif %}</td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <table class="research-table research-stats">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>{{ ui.research_type }}</th>
+                  <th>{{ ui.research_nulls }}</th>
+                  <th>{{ ui.research_unit }}</th>
+                  <th>{{ ui.research_min }}</th>
+                  <th>{{ ui.research_max }}</th>
+                  <th>{{ ui.research_mean }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for column in preview.columns %}
+                  <tr>
+                    <td>{{ column.index }}</td>
+                    <td>{% if column.empty %}{{ ui.research_empty }}{% else %}{{ column.inferred_type }}{% endif %}</td>
+                    <td>{{ column.null_count }}</td>
+                    <td>{% if column.unit %}{{ column.unit }}{% else %}—{% endif %}</td>
+                    <td>{% if "min" in column %}{{ column.min }}{% else %}—{% endif %}</td>
+                    <td>{% if "max" in column %}{{ column.max }}{% else %}—{% endif %}</td>
+                    <td>{% if "mean" in column %}{{ column.mean }}{% else %}—{% endif %}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% endif %}
+        </section>
+        {% endif %}
+      {% endif %}
+    </main>
+  </div>
+</body>
+</html>

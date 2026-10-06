@@ -1,4 +1,5 @@
 import json
+import uuid
 import urllib.error
 import urllib.request
 
@@ -57,6 +58,39 @@ class EspCoreClient:
                 return self._parse(url, response.read().decode("utf-8")), response.status
         except urllib.error.HTTPError as exc:
             return self._parse(url, exc.read().decode("utf-8")), exc.code
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            raise EspCoreError(f"{url}: {exc}") from exc
+
+    def post_files(self, path: str, files: list[tuple[str, bytes, str]]) -> tuple[dict, int]:
+        boundary = uuid.uuid4().hex
+        chunks: list[bytes] = []
+        for name, data, content_type in files:
+            safe = name.replace('"', "").replace("\r", "").replace("\n", "")
+            header = (
+                f"--{boundary}\r\n"
+                f'Content-Disposition: form-data; name="files"; filename="{safe}"\r\n'
+                f"Content-Type: {content_type or 'application/octet-stream'}\r\n\r\n"
+            )
+            chunks.append(header.encode("utf-8"))
+            chunks.append(data)
+            chunks.append(b"\r\n")
+        chunks.append(f"--{boundary}--\r\n".encode("utf-8"))
+        body = b"".join(chunks)
+        url = f"{self.base_url}{path}"
+        request = urllib.request.Request(
+            url,
+            data=body,
+            headers={
+                "Accept": "application/json",
+                "Content-Type": f"multipart/form-data; boundary={boundary}",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                return self._parse(url, response.read().decode("utf-8")), response.status
+        except urllib.error.HTTPError as exc:
+            return self._parse(url, exc.read().decode("utf-8") or "{}"), exc.code
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             raise EspCoreError(f"{url}: {exc}") from exc
 

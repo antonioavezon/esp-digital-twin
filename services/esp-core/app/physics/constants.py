@@ -14,7 +14,10 @@ STANDARD_GRAVITY_M_S2 = 9.80665
 DEFAULT_DENSITY_KG_M3 = 1000.0
 
 VARIABLE_SOURCES = ("user_input", "physics_model", "constant")
-RESERVED_SOURCES = ("sensor", "simulation", "ml", "physics_ai")
+# Nombres reservados. Ninguno lo produce hydraulics-v0.1.
+# experimental: ensayo de laboratorio o banco, no un sensor de pozo,
+# ni una simulación, ni un modelo de aprendizaje, ni Physics-AI.
+RESERVED_SOURCES = ("sensor", "simulation", "ml", "physics_ai", "experimental")
 
 STATUS = {
     "stage": "1C — Basic Hydraulics",
