@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Construye y levanta ESP Digital Twin — etapa 2-0.
+# Construye y levanta ESP Digital Twin — etapa 2-1.
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
 
@@ -24,7 +24,7 @@ wait_http "http://127.0.0.1:${ESP_CORE_HOST_PORT}/api/v1/health"
 wait_http "http://127.0.0.1:${ESP_WEB_HOST_PORT}/health/"
 
 echo
-echo "ESP Digital Twin — Stage 2-0"
+echo "ESP Digital Twin — Stage 2-1"
 echo "Web:          http://127.0.0.1:${ESP_WEB_HOST_PORT}/"
 echo "Bomba:        http://127.0.0.1:${ESP_WEB_HOST_PORT}/pump/"
 echo "Física:       http://127.0.0.1:${ESP_WEB_HOST_PORT}/physics/"

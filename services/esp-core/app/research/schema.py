@@ -5,7 +5,7 @@ interpreta columnas ni asigna unidades que el encabezado no escriba.
 """
 
 TOOL_VERSION = "research-profile-2-0"
-RESEARCH_STAGE = "2-0"
+RESEARCH_STAGE = "2-1"
 
 DATASETS = {
     "001": {

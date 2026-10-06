@@ -13,6 +13,7 @@ urlpatterns = [
     path("research/import/<str:intake_id>/", views.research_import, name="research-import"),
     path("research/cancel/<str:intake_id>/", views.research_cancel, name="research-cancel"),
     path("research/reprofile/<str:dataset_id>/", views.research_reprofile, name="research-reprofile"),
+    path("research/mapping/<str:dataset_id>/", views.research_mapping_save, name="research-mapping"),
     path("about/", views.about, name="about"),
     path("config/", views.config_page, name="config"),
     path("physics/api/hydraulics/", views.physics_hydraulics, name="physics-hydraulics"),

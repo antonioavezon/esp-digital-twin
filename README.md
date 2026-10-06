@@ -48,15 +48,15 @@ Simulador educativo de una bomba electrosumergible (ESP, Electrical Submersible 
 
 **Phase 2 — Research / Physics-AI.**
 
-**Current stage: 2-0** — baseline y gobernanza de datos. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
+**Current stage: 2-1** — auditoría del dataset y mapeo de variables. El cálculo hidráulico sigue siendo el modelo estático `hydraulics-v0.1`. No hay simulación temporal ni inteligencia artificial.
 
 ## 1. Objetivo del proyecto
 
 Comprender y, en etapas posteriores, simular el conjunto ESP dentro de un pozo: alimentación, variador, cable, motor, protector, admisión, bomba, tubing, pozo, reservorio y superficie.
 
-La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calcula la primera hidráulica estática sin sustituir esas dos. La etapa 1D muestra las curvas de catálogo. Las etapas 1E y 1F explican el motor y el variador. Esa fase queda cerrada. La etapa vigente es la 2-0: observa el dataset experimental 001 sin modificar `hydraulics-v0.1` y sin activar un modelo de IA. El material de la fase 1 está en [docs/stage-1a.md](docs/stage-1a.md), [docs/stage-1b.md](docs/stage-1b.md), [docs/stage-1c.md](docs/stage-1c.md), [docs/stage-1d-curves.md](docs/stage-1d-curves.md) y [docs/stage-1e-1f.md](docs/stage-1e-1f.md). La etapa 2-0 está en [docs/stage-2-0.md](docs/stage-2-0.md) y el recorrido posterior en [docs/phase-2-roadmap.md](docs/phase-2-roadmap.md). Las reglas de evolución están en [docs/architecture.md](docs/architecture.md).
+La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calcula la primera hidráulica estática sin sustituir esas dos. La etapa 1D muestra las curvas de catálogo. Las etapas 1E y 1F explican el motor y el variador. Esa fase queda cerrada. La etapa 2-0 dejó el dataset 001 observable y sin alterar. La etapa vigente es la 2-1: relaciona cada columna con una variable física solo cuando hay evidencia, sin modificar `hydraulics-v0.1` y sin activar un modelo de IA. El material de la fase 1 está en [docs/stage-1a.md](docs/stage-1a.md), [docs/stage-1b.md](docs/stage-1b.md), [docs/stage-1c.md](docs/stage-1c.md), [docs/stage-1d-curves.md](docs/stage-1d-curves.md) y [docs/stage-1e-1f.md](docs/stage-1e-1f.md). La etapa 2-0 está en [docs/stage-2-0.md](docs/stage-2-0.md), la 2-1 en [docs/stage-2-1.md](docs/stage-2-1.md) y el recorrido posterior en [docs/phase-2-roadmap.md](docs/phase-2-roadmap.md). Las reglas de evolución están en [docs/architecture.md](docs/architecture.md).
 
-## 2. Estado actual: etapa 2-0
+## 2. Estado actual: etapa 2-1
 
 | Capacidad | Estado |
 | --- | --- |
@@ -66,7 +66,7 @@ La etapa 1A deja la base visual. La etapa 1B entra en la bomba. La etapa 1C calc
 | Curvas de desempeño (etapa 1D) | Disponible en `/curves/` |
 | Motor (etapa 1E) | Explicación en `/pump/`. Potencia, corriente, tensión, polos y eficiencia siguen pendientes de datos |
 | VSD/VFD (etapa 1F) | Frecuencia de estudio en `/pump/` y en el laboratorio. No calcula caudal, head ni potencia |
-| Investigación (etapa 2-0) | Dataset 001 en crudo, en `/research/`. Sin mapeo físico automático |
+| Investigación (etapa 2-1) | Dataset 001 en `/research/`, con mapeo de variables en revisión. Ninguna columna queda validada solo por el nombre |
 | Cálculo hidráulico | `hydraulics-v0.1`, estático, en `/physics/` |
 | Simulación dinámica | No habilitada |
 | Modelo de IA | No habilitado |
@@ -230,7 +230,7 @@ La web llama al núcleo por `http://esp-core:8080`. Ese nombre es el del servici
 
 ## Limitaciones de esta versión
 
-- La etapa vigente es la 2-0. La fase 1 (1A–1F) permanece como baseline. El cálculo de presión, head y potencia hidráulica sigue siendo `hydraulics-v0.1`, estático.
+- La etapa vigente es la 2-1. La fase 1 (1A–1F) permanece como baseline y la 2-0 queda cerrada. El cálculo de presión, head y potencia hidráulica sigue siendo `hydraulics-v0.1`, estático. El mapeo no convierte unidades ni calcula variables derivadas.
 - La frecuencia de estudio no desplaza las curvas ni calcula un caudal, un head o una potencia nuevos. Faltan el número de polos, la curva de la bomba a otra frecuencia y la curva del sistema.
 - El motor no tiene potencia, corriente, tensión ni eficiencia de placa. Esos datos se muestran como pendientes.
 - Las curvas disponibles son las fichas REDA ya digitalizadas, a 60 Hz y 3500 rpm, por etapa. El PDF de origen no está en el repositorio. No se extrapola.
@@ -267,9 +267,14 @@ POST /api/v1/research/datasets/import
 GET  /api/v1/research/datasets/{id}/manifest
 GET  /api/v1/research/datasets/{id}/preprocess
 POST /api/v1/research/datasets/{id}/reprofile
+GET  /api/v1/research/variables
+GET  /api/v1/research/datasets/{id}/mapping
+GET  /api/v1/research/datasets/{id}/mapping/coverage
+POST /api/v1/research/datasets/{id}/mapping
+PATCH /api/v1/research/datasets/{id}/mapping/{mapping_id}
 ```
 
-`/api/v1/health` informa la etapa global `2-0`, el baseline `1F` y el modelo hidráulico `hydraulics-v0.1` en modo estático. `/api/v1/esp` es la anatomía de la etapa 1A. `/api/v1/esp/pump` es la bomba de la etapa 1B. `/api/v1/research/` describe los datasets y no calcula física. El gestor de `/research/` importa archivos nuevos. El mapeo de variables queda para la etapa 2-1.
+`/api/v1/health` informa la etapa global `2-1`, el baseline `1F` y el modelo hidráulico `hydraulics-v0.1` en modo estático. `/api/v1/esp` es la anatomía de la etapa 1A. `/api/v1/esp/pump` es la bomba de la etapa 1B. `/api/v1/research/` describe los datasets y no calcula física. El gestor de `/research/` importa archivos nuevos y revisa el mapeo de columnas. Guardar un mapping exige variable, evidencia y confianza; elegir una opción en la lista no lo escribe.
 
 Documentación interactiva de desarrollo: `http://127.0.0.1:8080/api/v1/docs`.
 

@@ -1,8 +1,8 @@
 # Arquitectura — ESP Digital Twin
 
-Etapa vigente del proyecto: **2-0 — Baseline y gobernanza de datos**. La fase 1 queda completada: anatomía (1A), bomba (1B), hidráulica básica (1C), curvas (1D), motor (1E) y variador (1F). El modelo físico en uso sigue siendo `hydraulics-v0.1`, estático, heredado de 1C. Este documento es el contrato de evolución del repositorio. Las etapas siguientes deben modificarlo cuando cambien una decisión, no reemplazar el sistema.
+Etapa vigente del proyecto: **2-1 — Auditoría del dataset y mapeo de variables**. La fase 1 queda completada: anatomía (1A), bomba (1B), hidráulica básica (1C), curvas (1D), motor (1E) y variador (1F). La etapa 2-0 queda cerrada: el dataset 001 sigue en crudo, con manifiesto y perfil estructural. El modelo físico en uso sigue siendo `hydraulics-v0.1`, estático, heredado de 1C. Este documento es el contrato de evolución del repositorio. Las etapas siguientes deben modificarlo cuando cambien una decisión, no reemplazar el sistema.
 
-La etiqueta de imagen de esta etapa es `localhost/esp-digital-twin/esp-core:2-0` y la misma forma para `esp-web`. El guion es válido en una etiqueta OCI.
+La etiqueta de imagen de esta etapa es `localhost/esp-digital-twin/esp-core:2-1` y la misma forma para `esp-web`. El guion es válido en una etiqueta OCI.
 
 ## Responsabilidades
 
@@ -37,8 +37,8 @@ Prefijo: `/api/v1`.
 
 | Método | Ruta | Uso |
 | --- | --- | --- |
-| GET | `/api/v1/health` | Estado del proceso. `stage` es la etapa global (`2-0`). Incluye `phase`, `foundation_stage`, `physics.model` y `research` |
-| GET | `/api/v1/research/status` | Investigación 2-0. IA, Physics-AI y anomalías apagadas |
+| GET | `/api/v1/health` | Estado del proceso. `stage` es la etapa global (`2-1`). Incluye `phase`, `foundation_stage`, `physics.model` y `research` |
+| GET | `/api/v1/research/status` | Investigación 2-1. IA, Physics-AI y anomalías apagadas |
 | GET | `/api/v1/research/datasets` | Índice de datasets presentes |
 | GET | `/api/v1/research/datasets/001` | Metadatos y estructura del dataset crudo |
 | GET | `/api/v1/research/datasets/001/profile` | Perfil por hoja, bloque y columna |
@@ -48,6 +48,11 @@ Prefijo: `/api/v1`.
 | GET | `/api/v1/research/datasets/{id}/manifest` | Identidad e integridad |
 | GET | `/api/v1/research/datasets/{id}/preprocess` | Estructura, sin mapeo físico |
 | POST | `/api/v1/research/datasets/{id}/reprofile` | Regenera el preprocess. No toca el RAW |
+| GET | `/api/v1/research/variables` | Catálogo canónico. No depende del dataset 001 |
+| GET | `/api/v1/research/datasets/{id}/mapping` | Mapeo semántico. Lo crea si falta y no reescribe uno existente |
+| GET | `/api/v1/research/datasets/{id}/mapping/coverage` | Conteos y variables objetivo ausentes |
+| POST | `/api/v1/research/datasets/{id}/mapping` | Guarda una revisión de una firma |
+| PATCH | `/api/v1/research/datasets/{id}/mapping/{mapping_id}` | Revisa un mapping ya identificado |
 | GET | `/api/v1/esp` | Conjunto de la etapa 1A: componentes, recorridos y capacidades. Sigue en `stage` `1A` |
 | GET | `/api/v1/esp/components` | Solo componentes de la anatomía |
 | GET | `/api/v1/esp/flows` | Solo recorridos de la anatomía |

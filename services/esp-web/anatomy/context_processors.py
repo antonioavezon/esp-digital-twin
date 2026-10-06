@@ -47,6 +47,7 @@ def project(request):
         "1E": ui["hint_1e"],
         "1F": ui["hint_1f"],
         "2-0": ui["hint_20"],
+        "2-1": ui["hint_21"],
     }
     statuses = {
         "done": ui["status_done"],

@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 STAGE = "1A"
 PUMP_STAGE = "1B"
 PROJECT_PHASE = "2"
-PROJECT_STAGE = "2-0"
+PROJECT_STAGE = "2-1"
 FOUNDATION_STAGE = "1F"
 SERVICE_NAME = "esp-core"
 

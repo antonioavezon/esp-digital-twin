@@ -20,10 +20,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="esp-core",
-    version="2-0",
+    version="2-1",
     summary=(
         "ESP educativa. Fase 1 (1A–1F) completada. "
-        "Etapa vigente 2-0: gobernanza de datos de investigación. "
+        "Etapa 2-0 cerrada. Etapa vigente 2-1: auditoría y mapeo de variables. "
         "Hidráulica estática hydraulics-v0.1."
     ),
     lifespan=lifespan,

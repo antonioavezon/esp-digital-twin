@@ -1,6 +1,6 @@
 # Fase 2 — Research / Physics-AI
 
-La fase 1 (1A–1F) queda cerrada como baseline funcional. Esta fase observa datos experimentales y, más adelante, los contrasta con el modelo físico. Solo la etapa 2-0 está en curso. Las siguientes se describen para no mezclar su alcance con el trabajo actual.
+La fase 1 (1A–1F) queda cerrada como baseline funcional. La etapa 2-0 queda cerrada. Esta fase observa datos experimentales y, más adelante, los contrasta con el modelo físico. Solo la etapa 2-1 está en curso. Las siguientes se describen para no mezclar su alcance con el trabajo actual.
 
 El pipeline previsto, todavía sin implementar, es:
 
@@ -30,21 +30,21 @@ Baseline de ML     Restricciones físicas
 
 ## 2-0 — Baseline & Data Governance
 
-Estado: en curso.
+Estado: completada.
 
 - Objetivo: congelar el baseline 1A–1F, separar la etapa global del modelo físico y dejar el dataset 001 como fuente cruda observable.
 - Entrada: el repositorio de la fase 1 y los dos libros originales del dataset 001.
-- Salida esperada: salud del proyecto en etapa 2-0, manifiesto con SHA-256, perfil estructural (`preprocess.json`), registro de datasets e importación desde `/research/`.
-- Cierre: la fase 1 sigue operable, los libros no cambian, no hay un modelo de IA, el mapeo de variables no empezó y las pruebas pasan. La app móvil tiene el mismo contrato documentado y su file manager sigue pendiente.
+- Salida: salud del proyecto con baseline 1F, manifiesto con SHA-256, perfil estructural (`preprocess.json`), registro de datasets e importación desde `/research/`.
+- Cierre: la fase 1 sigue operable, los libros no cambian, no hay un modelo de IA y las pruebas de 2-0 siguen pasando. La app móvil tiene el mismo contrato documentado y su file manager sigue pendiente.
 
 ## 2-1 — Dataset Audit & Variable Mapping
 
-Estado: no iniciada.
+Estado: en curso.
 
-- Objetivo: relacionar encabezados con magnitudes, solo cuando el texto o la documentación lo sostengan.
-- Entrada: el perfil 2-0 y la documentación del dataset.
-- Salida esperada: un mapa de variables con unidad, fuente y las columnas que siguen sin interpretación.
-- Cierre: ninguna columna queda nombrada por conjetura y el mapa cita la evidencia.
+- Objetivo: decir qué significa cada columna y con qué variable física de la ESP puede relacionarse, solo con evidencia.
+- Entrada: el perfil 2-0, los encabezados reales y la documentación incorporada al proyecto.
+- Salida: `mapping.json`, catálogo canónico, cobertura y revisión en `/research/`. `preprocess.json` sigue siendo estructural.
+- Cierre previsto: ninguna columna queda validada por conjetura, las variables objetivo ausentes están explícitas y no se ejecuta un cálculo derivado. El detalle está en [stage-2-1.md](stage-2-1.md).
 
 ## 2-2 — Experimental Characterization
 

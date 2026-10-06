@@ -37,7 +37,7 @@ def test_health_stays_up_when_data_root_is_missing(client, monkeypatch, tmp_path
     health = client.get("/api/v1/health")
     assert health.status_code == 200
     assert health.json()["status"] == "healthy"
-    assert health.json()["stage"] == "2-0"
+    assert health.json()["stage"] == "2-1"
     status = client.get("/api/v1/research/status")
     assert status.status_code == 200
     body = status.json()

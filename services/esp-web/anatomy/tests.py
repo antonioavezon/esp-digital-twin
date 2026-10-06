@@ -227,15 +227,15 @@ class CoreDouble:
             "/api/v1/health": {
                 "service": "esp-core",
                 "status": "healthy",
-                "stage": "2-0",
+                "stage": "2-1",
                 "phase": "2",
                 "foundation_stage": "1F",
                 "physics": {"enabled": True, "model": "hydraulics-v0.1", "mode": "static"},
-                "research": {"enabled": True, "stage": "2-0", "ai_model": False},
+                "research": {"enabled": True, "stage": "2-1", "ai_model": False},
             },
             "/api/v1/research/status": {
                 "enabled": True,
-                "stage": "2-0",
+                "stage": "2-1",
                 "ai_model": False,
                 "physics_ai": False,
                 "anomaly_detection": False,
@@ -706,9 +706,9 @@ class AboutPageTests(SimpleTestCase):
         self.assertIn("Profesor supervisor del proyecto", content)
         self.assertIn("Nicolás Rios Ratkovich — Universidad de los Andes, Colombia", content)
         self.assertIn("La autoría del software corresponde a Antonio Ralph Avezon Saavedra.", content)
-        self.assertIn("Stage 2-0", content)
+        self.assertIn("Stage 2-1", content)
         self.assertIn("Etapa actual", content)
-        self.assertIn("Baseline &amp; Research Data Governance", content)
+        self.assertIn("Dataset Audit &amp; Variable Mapping", content)
         self.assertIn("hydraulics-v0.1", content)
         self.assertIn("static", content)
         self.assertNotIn("Juan Pablo Vásconez", content)
@@ -743,7 +743,7 @@ class AboutPageTests(SimpleTestCase):
             response = self.client.get("/about/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Antonio Ralph Avezon Saavedra")
-        self.assertContains(response, "Stage 2-0")
+        self.assertContains(response, "Stage 2-1")
         self.assertContains(response, "hydraulics-v0.1")
 
 
@@ -801,7 +801,7 @@ class ResearchPageTests(SimpleTestCase):
             content = response.content.decode()
             self.assertEqual(response.status_code, 200)
             self.assertIn("FASE 2", content)
-            self.assertIn("2-0 — Baseline y gobernanza de datos", content)
+            self.assertIn("2-1 — Auditoría del dataset y mapeo de variables", content)
             self.assertIn("ESP under Gassy Flow Conditions", content)
             self.assertIn("10.17632/fk2b4r69bs.1", content)
             self.assertIn("Mapping Test Data_zero IPA.xlsx", content)
@@ -811,7 +811,7 @@ class ResearchPageTests(SimpleTestCase):
             self.assertIn("Gestor de datos", content)
             self.assertIn("Importar dataset", content)
             self.assertIn("Preproceso", content)
-            self.assertIn("Explorador", content)
+            self.assertIn("Mapeo de variables", content)
             self.assertIn('class="research-split"', content)
             self.assertIn("Analizar", content)
             self.assertIn("Seleccionar archivos", content)

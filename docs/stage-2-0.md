@@ -1,5 +1,7 @@
 # Etapa 2-0 — Baseline y gobernanza de datos
 
+Nota de la etapa 2-1: este documento conserva el cierre de 2-0. La etapa global vigente es 2-1. El modelo físico sigue siendo `hydraulics-v0.1`.
+
 ## 1. Objetivo
 
 Congelar la fase 1 como baseline funcional y empezar la fase 2 observando una fuente experimental, sin entrenar modelos ni reinterpretar columnas.

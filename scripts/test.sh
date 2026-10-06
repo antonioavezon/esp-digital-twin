@@ -19,8 +19,8 @@ podman run --rm \
   -e ESP_DATA_ROOT=/app/data \
   -v "$ROOT/data:/app/data:ro,Z" \
   --entrypoint pytest \
-  localhost/esp-digital-twin/esp-core:2-0 -q
+  localhost/esp-digital-twin/esp-core:2-1 -q
 
 echo
 echo "=== esp-web ==="
-podman run --rm --entrypoint python localhost/esp-digital-twin/esp-web:2-0 manage.py test anatomy
+podman run --rm --entrypoint python localhost/esp-digital-twin/esp-web:2-1 manage.py test anatomy

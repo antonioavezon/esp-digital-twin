@@ -139,6 +139,189 @@
             </section>
           </div>
         </section>
+        {% if dataset %}
+        <section class="panel" aria-labelledby="research-mapping">
+          <h2 id="research-mapping" class="has-hint" title="{{ ui.hint_research_mapping }}">{{ ui.research_mapping }}</h2>
+          {% if mapping %}
+            {% with coverage=mapping.coverage %}
+            <p class="research-note">{{ mapping.semantic_status }} · {{ ui.research_mapping_columns }} {{ coverage.signatures }} · {{ ui.research_mapping_validated }} {{ coverage.validated }} · {{ ui.research_mapping_suggested }} {{ coverage.candidate }} · {{ ui.research_mapping_status }} unmapped {{ coverage.unmapped }}</p>
+            <div class="research-scroll">
+              <table class="research-table">
+                <thead>
+                  <tr>
+                    <th>{{ ui.research_mapping_target }}</th>
+                    <th>{{ ui.research_mapping_symbol }}</th>
+                    <th>{{ ui.research_mapping_present }}</th>
+                    <th>{{ ui.research_mapping_mapped }}</th>
+                    <th>{{ ui.research_mapping_validated }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in coverage.expected %}
+                    <tr>
+                      <td>{{ item.id }}</td>
+                      <td>{{ item.symbol }}</td>
+                      <td>{% if item.present %}{{ ui.research_mapping_present }}{% else %}{{ ui.research_mapping_not_found }}{% endif %}</td>
+                      <td>{% if item.mapped %}{{ ui.research_mapping_mapped }}{% else %}—{% endif %}</td>
+                      <td>{% if item.validated %}{{ ui.research_mapping_validated }}{% else %}—{% endif %}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% endwith %}
+            <div class="research-scroll">
+              <table class="research-table">
+                <thead>
+                  <tr>
+                    <th>{{ ui.research_mapping_raw }}</th>
+                    <th>{{ ui.research_mapping_unit }}</th>
+                    <th>{{ ui.research_mapping_family }}</th>
+                    <th>{{ ui.research_mapping_canonical }}</th>
+                    <th>{{ ui.research_mapping_symbol }}</th>
+                    <th>{{ ui.research_mapping_si }}</th>
+                    <th>{{ ui.research_mapping_status }}</th>
+                    <th>{{ ui.research_mapping_confidence }}</th>
+                    <th>{{ ui.research_mapping_occurrences }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in mapping.variables %}
+                    <tr>
+                      <td><a href="{% url 'research' %}?dataset={{ dataset.dataset_id }}&amp;signature={{ item.signature_id }}">{% if item.source.raw_name %}{{ item.source.raw_name }}{% else %}—{% endif %}</a></td>
+                      <td>{% if item.source.raw_unit %}{{ item.source.raw_unit }}{% else %}—{% endif %}</td>
+                      <td>{% if item.quantity_family %}{{ item.quantity_family }}{% else %}—{% endif %}</td>
+                      <td>{% if item.canonical %}{{ item.canonical.id }}{% else %}—{% endif %}</td>
+                      <td>{% if item.canonical %}{{ item.canonical.symbol }}{% else %}—{% endif %}</td>
+                      <td>{% if item.canonical %}{{ item.canonical.si_unit }}{% else %}—{% endif %}</td>
+                      <td>{{ item.status }}</td>
+                      <td>{% if item.confidence %}{{ item.confidence }}{% else %}—{% endif %}</td>
+                      <td>{{ item.source.occurrences|length }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% for item in mapping.variables %}
+              {% if item.signature_id == selected_signature %}
+              <article class="research-card">
+                <h3>{% if item.source.raw_name %}{{ item.source.raw_name }}{% else %}—{% endif %}</h3>
+                <p class="research-note">{{ item.notes }}</p>
+                {% if item.source.group_labels %}
+                  <p>{{ ui.research_mapping_groups }}: {{ item.source.group_labels|join:", " }}</p>
+                {% endif %}
+                <p>{{ ui.research_mapping_evidence }}:
+                  {% for piece in item.evidence %}{{ piece.type }}={{ piece.value }}{% if not forloop.last %}; {% endif %}{% empty %}—{% endfor %}
+                </p>
+                <form class="research-form" method="post" action="{% url 'research-mapping' dataset.dataset_id %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="signature_id" value="{{ item.signature_id }}">
+                  <p class="research-note">{{ ui.research_mapping_confirm }}</p>
+                  <label>{{ ui.research_mapping_canonical }}
+                    <select name="canonical_id">
+                      <option value="">{{ ui.research_mapping_unmapped_option }}</option>
+                      {% for variable in canonical_variables %}
+                        <option value="{{ variable.id }}"{% if item.canonical and item.canonical.id == variable.id %} selected{% endif %}>{{ variable.symbol }} — {{ variable.id }}</option>
+                      {% endfor %}
+                    </select>
+                  </label>
+                  <label>{{ ui.research_mapping_status }}
+                    <select name="status">
+                      <option value="unmapped"{% if item.status == "unmapped" %} selected{% endif %}>unmapped</option>
+                      <option value="candidate"{% if item.status == "candidate" %} selected{% endif %}>candidate</option>
+                      <option value="reviewed"{% if item.status == "reviewed" %} selected{% endif %}>reviewed</option>
+                      <option value="validated"{% if item.status == "validated" %} selected{% endif %}>validated</option>
+                      <option value="rejected"{% if item.status == "rejected" %} selected{% endif %}>rejected</option>
+                      <option value="not_applicable"{% if item.status == "not_applicable" %} selected{% endif %}>not_applicable</option>
+                    </select>
+                  </label>
+                  <label>{{ ui.research_mapping_confidence }}
+                    <select name="confidence">
+                      <option value="">—</option>
+                      <option value="high"{% if item.confidence == "high" %} selected{% endif %}>high</option>
+                      <option value="medium"{% if item.confidence == "medium" %} selected{% endif %}>medium</option>
+                      <option value="low"{% if item.confidence == "low" %} selected{% endif %}>low</option>
+                    </select>
+                  </label>
+                  <label>{{ ui.research_mapping_location }}
+                    <select name="location">
+                      <option value="unknown">unknown</option>
+                      <option value="pump_intake">pump_intake</option>
+                      <option value="pump_discharge">pump_discharge</option>
+                      <option value="downhole">downhole</option>
+                      <option value="surface">surface</option>
+                      <option value="pump">pump</option>
+                      <option value="test_loop">test_loop</option>
+                    </select>
+                  </label>
+                  <label>{{ ui.research_mapping_evidence }}
+                    <select name="evidence_type">
+                      <option value="explicit_header">explicit_header</option>
+                      <option value="explicit_unit">explicit_unit</option>
+                      <option value="dataset_documentation">dataset_documentation</option>
+                      <option value="article">article</option>
+                      <option value="figure">figure</option>
+                      <option value="table">table</option>
+                      <option value="manual_research_review">manual_research_review</option>
+                      <option value="derived_relationship">derived_relationship</option>
+                    </select>
+                  </label>
+                  <label>{{ ui.research_mapping_evidence }}
+                    <input type="text" name="evidence_value" value="{% if item.source.raw_name %}{{ item.source.raw_name }}{% endif %}">
+                  </label>
+                  <label>{{ ui.research_mapping_notes }}
+                    <input type="text" name="notes" value="">
+                  </label>
+                  <button type="submit">{{ ui.research_mapping_save }}</button>
+                </form>
+                {% if item.source.occurrences %}
+                  <div class="research-scroll">
+                    <table class="research-table">
+                      <thead>
+                        <tr>
+                          <th>{{ ui.research_file }}</th>
+                          <th>{{ ui.research_sheet }}</th>
+                          <th>{{ ui.research_block }}</th>
+                          <th>#</th>
+                          <th>{{ ui.research_type }}</th>
+                          <th>{{ ui.research_mapping_examples }}</th>
+                          <th>{{ ui.research_mapping_range }}</th>
+                          <th>{{ ui.research_mapping_groups }}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for occurrence in item.source.occurrences %}
+                          <tr>
+                            <td>{{ occurrence.file }}</td>
+                            <td>{{ occurrence.sheet }}</td>
+                            <td>{{ occurrence.block_id }}</td>
+                            <td>{{ occurrence.column_index }}</td>
+                            <td>{{ occurrence.primitive_type }}</td>
+                            <td>{% if occurrence.example != None %}{{ occurrence.example }}{% else %}—{% endif %}</td>
+                            <td>{% if occurrence.min != None %}{{ occurrence.min }} / {{ occurrence.max }}{% else %}—{% endif %}</td>
+                            <td>{% if occurrence.group_label %}{{ occurrence.group_label }}{% else %}—{% endif %}</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                {% endif %}
+              </article>
+              {% endif %}
+            {% endfor %}
+            {% if mapping.derivable_relations %}
+              <h3>{{ ui.research_mapping_derivable }}</h3>
+              <ul>
+                {% for relation in mapping.derivable_relations %}
+                  <li>{{ relation.equation }} — {{ relation.calculation_status }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% else %}
+            <p class="research-note">{{ ui.research_mapping_unavailable }}</p>
+          {% endif %}
+        </section>
+        {% endif %}
         {% if dataset and selected.files %}
         <section class="panel" aria-labelledby="research-explorer">
           <h2 id="research-explorer" class="has-hint" title="{{ ui.hint_research_explorer }}">{{ ui.research_explorer }}</h2>

@@ -233,6 +233,8 @@ _NOTICE = {
     "permission_denied": "research_permission",
     "disk_full": "research_disk",
     "invalid_filename": "research_bad_name",
+    "mapping_saved": "research_mapping_saved",
+    "mapping_rejected": "research_import_failed",
 }
 
 
@@ -285,6 +287,9 @@ def research(request):
     preview = None
     preprocess = None
     catalog = []
+    mapping = None
+    canonical_variables = []
+    dataset_id = ""
     client = EspCoreClient()
     notice_code = request.GET.get("notice", "")
     notice = text_for(request, _NOTICE[notice_code]) if notice_code in _NOTICE else ""
@@ -338,6 +343,14 @@ def research(request):
         except EspCoreError as exc:
             logger.warning("research preview unavailable: %s", exc)
             preview = None
+    if dataset_id and not core_down:
+        try:
+            mapping = client.get(f"/api/v1/research/datasets/{dataset_id}/mapping")
+            catalog_body = client.get("/api/v1/research/variables")
+            canonical_variables = catalog_body.get("variables") or []
+        except EspCoreError as exc:
+            logger.warning("research mapping unavailable: %s", exc)
+            mapping = None
     rows = _catalog_rows(request, catalog)
     if not rows and dataset:
         rows = _catalog_rows(
@@ -369,6 +382,9 @@ def research(request):
             "preprocess_text": preprocess_text,
             "import_notice": notice,
             "show_preprocess": request.GET.get("view") == "preprocess",
+            "mapping": mapping,
+            "canonical_variables": canonical_variables,
+            "selected_signature": request.GET.get("signature", ""),
         },
     )
 
@@ -489,6 +505,40 @@ def research_reprofile(request, dataset_id: str):
     if code >= 400:
         return redirect(f"/research/?dataset={dataset_id}&notice=ingest_failed")
     return redirect(f"/research/?dataset={dataset_id}&view=preprocess")
+
+
+def research_mapping_save(request, dataset_id: str):
+    if request.method != "POST" or not _DATASET_ID.match(dataset_id):
+        return redirect("research")
+    signature = request.POST.get("signature_id", "")
+    canonical = request.POST.get("canonical_id") or None
+    status = request.POST.get("status") or "unmapped"
+    confidence = request.POST.get("confidence") or None
+    evidence_type = request.POST.get("evidence_type") or ""
+    evidence_value = (request.POST.get("evidence_value") or "").strip()
+    notes = (request.POST.get("notes") or "").strip() or None
+    evidence = []
+    if evidence_type and evidence_value:
+        evidence.append({"type": evidence_type, "value": evidence_value})
+    payload = {
+        "signature_id": signature,
+        "canonical_id": canonical,
+        "status": status,
+        "confidence": confidence,
+        "location": request.POST.get("location") or "unknown",
+        "evidence": evidence,
+        "notes": notes,
+    }
+    try:
+        body, code = EspCoreClient(timeout=30).post_json(
+            f"/api/v1/research/datasets/{dataset_id}/mapping",
+            payload,
+        )
+    except EspCoreError as exc:
+        logger.warning("research mapping save failed: %s", exc)
+        return redirect(f"/research/?dataset={dataset_id}&notice=core_unavailable")
+    notice = "mapping_saved" if code < 400 else "mapping_rejected"
+    return redirect(f"/research/?dataset={dataset_id}&signature={signature}&notice={notice}")
 
 
 def _research_selection(request, dataset):

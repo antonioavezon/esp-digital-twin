@@ -4,7 +4,7 @@ services:
   esp-core:
     build:
       context: ./services/esp-core
-    image: localhost/esp-digital-twin/esp-core:2-0
+    image: localhost/esp-digital-twin/esp-core:2-1
     container_name: esp-core
     environment:
       ESP_CORE_HOST: "0.0.0.0"
@@ -27,7 +27,7 @@ services:
   esp-web:
     build:
       context: ./services/esp-web
-    image: localhost/esp-digital-twin/esp-web:2-0
+    image: localhost/esp-digital-twin/esp-web:2-1
     container_name: esp-web
     environment:
       ESP_CORE_BASE_URL: http://esp-core:8080

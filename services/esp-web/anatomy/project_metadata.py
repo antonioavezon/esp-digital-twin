@@ -8,7 +8,7 @@ disponible. Este módulo no calcula física ni lee configuración del host.
 PROJECT_NAME = "ESP Digital Twin"
 PROJECT_YEAR = 2026
 PROJECT_PHASE = "2"
-DEVELOPMENT_STAGE = "2-0"
+DEVELOPMENT_STAGE = "2-1"
 FOUNDATION_STAGE = "1F"
 PHYSICS_MODEL = "hydraulics-v0.1"
 PHYSICS_MODE = "static"
@@ -18,6 +18,7 @@ STAGE_LABELS = {
     "1C": "1C — Basic Hydraulics",
     "1F": "1F — VSD/VFD",
     "2-0": "2-0 — Baseline & Research Data Governance",
+    "2-1": "2-1 — Dataset Audit & Variable Mapping",
 }
 
 AUTHOR = {
@@ -123,8 +124,14 @@ ROADMAP = (
     {
         "id": "2-0",
         "name": "Baseline & Data Governance",
-        "status": "current",
+        "status": "done",
         "hint": "Fuentes experimentales en crudo, sin modelo de IA",
+    },
+    {
+        "id": "2-1",
+        "name": "Dataset Audit & Variable Mapping",
+        "status": "current",
+        "hint": "Qué significa cada columna y con qué variable física puede relacionarse",
     },
 )
 
@@ -147,7 +154,7 @@ def public_context() -> dict:
         "phase": PROJECT_PHASE,
         "stage": DEVELOPMENT_STAGE,
         "stage_label": stage_label_for(DEVELOPMENT_STAGE),
-        "stage_name": "Baseline & Research Data Governance",
+        "stage_name": "Dataset Audit & Variable Mapping",
         "foundation_stage": FOUNDATION_STAGE,
         "physics_model": PHYSICS_MODEL,
         "physics_mode": PHYSICS_MODE,

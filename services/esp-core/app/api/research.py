@@ -1,4 +1,4 @@
-"""Endpoints de investigación de la etapa 2-0. Sin modelos de IA."""
+"""Endpoints de investigación. La etapa 2-1 agrega el mapeo de variables. Sin modelos de IA."""
 
 import logging
 
@@ -29,6 +29,13 @@ from app.research.ingest import (
     stored_preprocess,
 )
 from app.research.profiling import WorkbookError
+from app.research.mapping import (
+    MappingError,
+    coverage_of,
+    ensure_mapping,
+    save_decision,
+)
+from app.research.variables import canonical_catalog
 
 logger = logging.getLogger("esp.research")
 
@@ -138,6 +145,60 @@ def reprofile_dataset(dataset_id: str):
     except DatasetUnavailable:
         return _error(404, "dataset_unavailable", dataset_id=dataset_id)
     return _ingest(lambda: reprofile(dataset_id))
+
+
+class MappingDecision(BaseModel):
+    signature_id: str | None = None
+    canonical_id: str | None = None
+    status: str
+    confidence: str | None = None
+    quantity_family: str | None = None
+    location: str = "unknown"
+    evidence: list[dict] = []
+    notes: str | None = None
+
+
+def _mapping_call(action):
+    try:
+        return action()
+    except MappingError as exc:
+        return _error(exc.status, exc.code, **exc.details)
+    except IngestError as exc:
+        return _error(exc.status, exc.code, **exc.details)
+    except Exception:
+        logger.exception("research mapping failed")
+        return _error(422, "mapping_failed")
+
+
+@router.get("/variables")
+def variables():
+    return {"variables": canonical_catalog()}
+
+
+@router.get("/datasets/{dataset_id}/mapping/coverage")
+def mapping_coverage(dataset_id: str):
+    def read():
+        document = ensure_mapping(dataset_id)
+        return document.get("coverage") or coverage_of(document)
+
+    return _mapping_call(read)
+
+
+@router.get("/datasets/{dataset_id}/mapping")
+def mapping_document(dataset_id: str):
+    return _mapping_call(lambda: ensure_mapping(dataset_id))
+
+
+@router.post("/datasets/{dataset_id}/mapping")
+def mapping_save(dataset_id: str, body: MappingDecision):
+    return _mapping_call(lambda: save_decision(dataset_id, body.model_dump()))
+
+
+@router.patch("/datasets/{dataset_id}/mapping/{mapping_id}")
+def mapping_revise(dataset_id: str, mapping_id: str, body: MappingDecision):
+    return _mapping_call(
+        lambda: save_decision(dataset_id, body.model_dump(), mapping_id=mapping_id)
+    )
 
 
 @router.get("/datasets/{dataset_id}/profile")
