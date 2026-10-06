@@ -697,6 +697,16 @@ body.esp-running .impeller-rotor {
   align-items: start;
   margin-top: 16px;
 }
+.research-manager-row {
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr) minmax(0, 1fr);
+  margin-top: 0;
+}
+.research-manager-row > section:first-child .research-table th,
+.research-manager-row > section:first-child .research-table td {
+  white-space: normal;
+}
+.research-files-block { margin-top: 16px; }
+.research-files-block > h3 { margin: 0 0 8px; font-size: 16px; }
 .research-split > section { min-width: 0; }
 .research-split > section > h3 { margin: 0 0 8px; font-size: 16px; }
 .research-split .research-form {

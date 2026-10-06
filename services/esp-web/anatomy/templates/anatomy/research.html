@@ -22,46 +22,48 @@
         </section>
       {% else %}
         <section class="panel" aria-labelledby="research-manager">
-          <h2 id="research-manager" class="has-hint" title="{{ ui.hint_research_manager }}">{{ ui.research_manager }}</h2>
-          <p class="research-note">{{ ui.research_no_edit }}</p>
-          {% if catalog %}
-            <div class="research-scroll">
-              <table class="research-table">
-                <thead>
-                  <tr>
-                    <th>Dataset ID</th>
-                    <th>{{ ui.research_name }}</th>
-                    <th>{{ ui.research_format }}</th>
-                    <th>{{ ui.research_files }}</th>
-                    <th>{{ ui.research_status }}</th>
-                    <th>{{ ui.research_date }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for item in catalog %}
-                    <tr>
-                      <td><a href="{% url 'research' %}?dataset={{ item.dataset_id }}">{{ item.dataset_id }}</a></td>
-                      <td>{{ item.title }}</td>
-                      <td>{{ item.formats }}</td>
-                      <td>{{ item.file_count }}</td>
-                      <td>{{ item.status_label }}</td>
-                      <td>{{ item.imported_at }}</td>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          {% else %}
-            <p>{{ ui.research_catalog_empty }}</p>
-          {% endif %}
-          {% if dataset %}
-            <dl class="about-status research-identity">
-              <div><dt>{{ ui.research_source }}</dt><dd>{{ ui.research_experimental }}</dd></div>
-              <div><dt>{{ ui.research_doi }}</dt><dd>{{ dataset.dataset_doi }}</dd></div>
-              <div><dt>{{ ui.research_status }}</dt><dd>{{ ui.research_raw }}</dd></div>
-            </dl>
-          {% endif %}
-          <div class="research-split">
+          <div class="research-split research-manager-row">
+            <section aria-labelledby="research-manager">
+              <h2 id="research-manager" class="has-hint" title="{{ ui.hint_research_manager }}">{{ ui.research_manager }}</h2>
+              <p class="research-note">{{ ui.research_no_edit }}</p>
+              {% if catalog %}
+                <div class="research-scroll">
+                  <table class="research-table">
+                    <thead>
+                      <tr>
+                        <th>Dataset ID</th>
+                        <th>{{ ui.research_name }}</th>
+                        <th>{{ ui.research_format }}</th>
+                        <th>{{ ui.research_files }}</th>
+                        <th>{{ ui.research_status }}</th>
+                        <th>{{ ui.research_date }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for item in catalog %}
+                        <tr>
+                          <td><a href="{% url 'research' %}?dataset={{ item.dataset_id }}">{{ item.dataset_id }}</a></td>
+                          <td>{{ item.title }}</td>
+                          <td>{{ item.formats }}</td>
+                          <td>{{ item.file_count }}</td>
+                          <td>{{ item.status_label }}</td>
+                          <td>{{ item.imported_at }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              {% else %}
+                <p>{{ ui.research_catalog_empty }}</p>
+              {% endif %}
+              {% if dataset %}
+                <dl class="about-status research-identity">
+                  <div><dt>{{ ui.research_source }}</dt><dd>{{ ui.research_experimental }}</dd></div>
+                  <div><dt>{{ ui.research_doi }}</dt><dd>{{ dataset.dataset_doi }}</dd></div>
+                  <div><dt>{{ ui.research_status }}</dt><dd>{{ ui.research_raw }}</dd></div>
+                </dl>
+              {% endif %}
+            </section>
             <section aria-labelledby="research-import">
               <h3 id="research-import" class="has-hint" title="{{ ui.hint_research_import }}">{{ ui.research_import }}</h3>
               <p class="research-note">{{ ui.research_accept }}</p>
@@ -73,7 +75,23 @@
                 <button type="submit">{{ ui.research_analyze }}</button>
               </form>
             </section>
-            <section aria-labelledby="research-files">
+            <section aria-labelledby="research-preprocess">
+              <h3 id="research-preprocess" class="has-hint" title="{{ ui.hint_research_preprocess }}">{{ ui.research_preprocess }}</h3>
+              {% if dataset and preprocess %}
+                <p><a href="{% url 'research' %}?dataset={{ dataset.dataset_id }}&amp;view=preprocess">{{ ui.research_view_json }}</a></p>
+                <form method="post" action="{% url 'research-reprofile' dataset.dataset_id %}">
+                  {% csrf_token %}
+                  <button type="submit">{{ ui.research_reprofile }}</button>
+                </form>
+                {% if show_preprocess and preprocess_text %}
+                  <pre class="research-json">{{ preprocess_text }}</pre>
+                {% endif %}
+              {% else %}
+                <p class="research-note">{{ ui.research_choose }}</p>
+              {% endif %}
+            </section>
+          </div>
+          <section class="research-files-block" aria-labelledby="research-files">
               <h3 id="research-files" class="has-hint" title="{{ ui.hint_research_files }}">{{ ui.research_file_list }}</h3>
               {% if dataset %}
                 <div class="research-files">
@@ -122,22 +140,6 @@
                 <p class="research-note">{{ ui.research_choose }}</p>
               {% endif %}
             </section>
-            <section aria-labelledby="research-preprocess">
-              <h3 id="research-preprocess" class="has-hint" title="{{ ui.hint_research_preprocess }}">{{ ui.research_preprocess }}</h3>
-              {% if dataset and preprocess %}
-                <p><a href="{% url 'research' %}?dataset={{ dataset.dataset_id }}&amp;view=preprocess">{{ ui.research_view_json }}</a></p>
-                <form method="post" action="{% url 'research-reprofile' dataset.dataset_id %}">
-                  {% csrf_token %}
-                  <button type="submit">{{ ui.research_reprofile }}</button>
-                </form>
-                {% if show_preprocess and preprocess_text %}
-                  <pre class="research-json">{{ preprocess_text }}</pre>
-                {% endif %}
-              {% else %}
-                <p class="research-note">{{ ui.research_choose }}</p>
-              {% endif %}
-            </section>
-          </div>
         </section>
         {% if dataset %}
         <section class="panel" aria-labelledby="research-mapping">
